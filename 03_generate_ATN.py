@@ -13,7 +13,7 @@ from networkx.algorithms import isomorphism as nxisomorphism
 #from pyvis.network import Network
 
 #logging.basicConfig(format='%(asctime)s:%(levelname)s:%(message)s', level=logging.INFO)
-logging.basicConfig(format='%(levelname)s:\t%(message)s', level=logging.DEBUG)
+logging.basicConfig(format='%(levelname)s:\t%(message)s', level=logging.INFO)
 
 mappedsmiles = sys.argv[1]
 outputgml = sys.argv[2] 
@@ -91,11 +91,15 @@ def parseXDuct(name, smiles, hydro, compound_to_subgraph, compoundId_to_compound
 
         # this is definitely new
         nextCId = len(compound_to_subgraph)
-        compoundId_to_compound[nextCId] = name
+        compoundId_to_compound[nextCId] = (name, hydro)
 
         rename = {node : str(nextCId)+'_'+str(node) for node in mol.nodes()} # rename all nodes so that we cannot have collisions in the ATN
         nx.relabel_nodes(mol, rename, copy=False)
   
+        for n in mol.nodes():
+            mol.nodes[n]['compound_id'] = nextCId
+            mol.nodes[n]['compound_name'] = name
+
         for e in mol.edges():
             mol.edges[e]['transition'] = TransitionType.NO_TRANSITION
 
@@ -174,6 +178,10 @@ with open( mappedsmiles , 'r') as smiles_file:
             ATN.edges[n1, n2]['reaction_id'].append(len(reactions)-1)
 
 nx.write_gml(ATN, outputgml)
+
+with open(outputgml+".ckey", 'w') as og:
+  for key in sorted(compoundId_to_compound):
+      print(key, compoundId_to_compound[key][0], compoundId_to_compound[key][1] ,sep='\t', file=og)
 
 # DRAWING
 """
