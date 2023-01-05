@@ -100,8 +100,8 @@ def parse_atom(atom):
     if out.get('element') == 'H' and out.get('hcount', 0):
         raise ValueError("A hydrogen atom can't have hydrogens")
 
-    if 'stereo' in out:
-        LOGGER.warning('Atom "%s" contains stereochemical information that will be discarded.', atom)
+    #if 'stereo' in out:
+    #    LOGGER.warning('Atom "%s" contains stereochemical information that will be discarded.', atom)
 
     return out
 

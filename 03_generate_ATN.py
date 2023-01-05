@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import re
 import os
 import sys
 import enum
@@ -13,7 +12,8 @@ from networkx.algorithms import isomorphism as nxisomorphism
 
 from pyvis.network import Network
 
-logging.basicConfig(level=logging.INFO)
+#logging.basicConfig(format='%(asctime)s:%(levelname)s:%(message)s', level=logging.INFO)
+logging.basicConfig(format='%(levelname)s:\t%(message)s', level=logging.DEBUG)
 
 mappedsmiles = sys.argv[1]
 outputgml = sys.argv[2] 
@@ -42,21 +42,24 @@ def addAutomorphisms(mol, limit_to_orbits=True):
     nm = nxisomorphism.categorical_node_match(['element', 'isotope', 'hcount', 'charge'],['', 0, 0, 0])
     GM = nxisomorphism.GraphMatcher(mol, mol, node_match=nm, edge_match=em)   
 
+    permutation_lists = list(GM.isomorphisms_iter())
+
     if limit_to_orbits:
         blockset = set()
         for node in mol.nodes():
             if node in blockset:
                 continue
-            for isomorphism in GM.isomorphisms_iter():
-                mol.add_edge(node, isomorphism[node])
-                mol.edges[node, isomorphism[node]]['transistion'] = TransitionType.SYMMETRY
-                blockset.add(isomorphism[node])
+            for isomorphism in permutation_lists:
+                if node != isomorphism[node]:
+                   mol.add_edge(node, isomorphism[node])
+                   mol.edges[node, isomorphism[node]]['transition'] = TransitionType.SYMMETRY
+                   blockset.add(isomorphism[node])
     else:
-        for isomorphism in GM.isomorphisms_iter():
+        for isomorphism in permutation_lists:
             for i in isomorphism:
                 if i != isomorphism[i] and not mol.has_edge(i, isomorphism[i]):
                     mol.add_edge(i, isomorphism[i])
-                    mol.edges[i, isomorphism[i]]['transistion'] = TransitionType.SYMMETRY
+                    mol.edges[i, isomorphism[i]]['transition'] = TransitionType.SYMMETRY
         
 def parseXDuct(name, smiles, hydro, compound_to_subgraph, compoundId_to_compound, ATN, mapped_atoms):
 
@@ -94,7 +97,7 @@ def parseXDuct(name, smiles, hydro, compound_to_subgraph, compoundId_to_compound
         nx.relabel_nodes(mol, rename, copy=False)
   
         for e in mol.edges():
-            mol.edges[e]['transistion'] = TransitionType.NO_TRANSITION
+            mol.edges[e]['transition'] = TransitionType.NO_TRANSITION
 
         addAutomorphisms(mol)
 
@@ -117,9 +120,9 @@ reactions = []
 # load all SMILES from txt files
 with open( mappedsmiles , 'r') as smiles_file:
   while True:    
-    name_line = smiles_file.readline().strip()
-    hydrogen_smiles_line = smiles_file.readline().strip()
-    mapped_smiles_line = smiles_file.readline().strip()
+    name_line = smiles_file.readline()
+    hydrogen_smiles_line = smiles_file.readline()
+    mapped_smiles_line = smiles_file.readline()
     if not name_line or not  mapped_smiles_line:
        break;
 
@@ -162,14 +165,18 @@ with open( mappedsmiles , 'r') as smiles_file:
     for c in mapped_educt_atoms:
         n1 = mapped_educt_atoms[c]
         n2 = mapped_product_atoms[c]
-        ATN.add_edge(n1, n2)
-        ATN.edges[n1, n2]['transistion'] = TransitionType.REACTION
-        ATN.edges[n1, n2].setdefault('reaction_id', []).append(len(reactions)-1)
+        if ATN.has_edge(n1,n2):
+            ATN.edges[n1, n2]['reaction_id'].append(len(reactions)-1)
+        else:
+            ATN.add_edge(n1, n2)
+            ATN.edges[n1, n2]['transition'] = TransitionType.REACTION
+            ATN.edges[n1, n2]['reaction_id'] = ['ListStart']
+            ATN.edges[n1, n2]['reaction_id'].append(len(reactions)-1)
 
 nx.write_gml(ATN, outputgml)
 
 # DRAWING
-"""
+#"""
 draw = nx.Graph()
 draw.add_nodes_from(ATN.nodes())
 draw.add_edges_from(ATN.edges())
@@ -179,9 +186,9 @@ for n in ATN.nodes():
     draw.nodes[n]['color'] = "blue"
 
 for e in ATN.edges():
-    if ATN.edges[e]['transistion'] == TransitionType.SYMMETRY:
+    if ATN.edges[e]['transition'] == TransitionType.SYMMETRY:
         draw.edges[e]['color'] = "green"
-    elif ATN.edges[e]['transistion'] == TransitionType.REACTION:
+    elif ATN.edges[e]['transition'] == TransitionType.REACTION:
         draw.edges[e]['color'] = "red"
     else:
         draw.edges[e]['label'] = str(ATN.edges[e]['order'])
@@ -191,4 +198,4 @@ nt = Network('1000px', '1000px')
 nt.show_buttons()
 nt.from_nx(draw)
 nt.show('nx2.html')
-"""
+#"""

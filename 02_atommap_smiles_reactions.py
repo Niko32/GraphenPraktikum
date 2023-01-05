@@ -2,8 +2,6 @@
 
 from rxnmapper import RXNMapper
 from rdkit import Chem
-import glob
-import re
 import sys
 import itertools
 from transformers import logging
