@@ -10,7 +10,7 @@ from custom_pysmiles import read_smiles
 import networkx as nx
 from networkx.algorithms import isomorphism as nxisomorphism
 
-from pyvis.network import Network
+#from pyvis.network import Network
 
 #logging.basicConfig(format='%(asctime)s:%(levelname)s:%(message)s', level=logging.INFO)
 logging.basicConfig(format='%(levelname)s:\t%(message)s', level=logging.DEBUG)
@@ -176,7 +176,7 @@ with open( mappedsmiles , 'r') as smiles_file:
 nx.write_gml(ATN, outputgml)
 
 # DRAWING
-#"""
+"""
 draw = nx.Graph()
 draw.add_nodes_from(ATN.nodes())
 draw.add_edges_from(ATN.edges())
@@ -198,4 +198,4 @@ nt = Network('1000px', '1000px')
 nt.show_buttons()
 nt.from_nx(draw)
 nt.show('nx2.html')
-#"""
+"""

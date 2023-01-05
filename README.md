@@ -10,6 +10,8 @@ The following python libraries need to be available:
 * BeautifulSoup
 * RXNMapper
 * rdkit
+* networkx
+* pyvis (optional)
 
 # How to Use
 
