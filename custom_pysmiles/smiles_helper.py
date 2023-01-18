@@ -216,7 +216,7 @@ def parse_charge(charge_str):
     return charge
 
 
-def add_explicit_hydrogens(mol):
+def add_explicit_hydrogens(mol, prefix=""):
     """
     Adds explicit hydrogen nodes to `mol`, the amount is determined by the node
     attribute 'hcount'. Will remove the 'hcount' attribute.
@@ -237,7 +237,7 @@ def add_explicit_hydrogens(mol):
         del h_atom['hcount']
     for n_idx in list(mol.nodes):
         hcount = mol.nodes[n_idx].get('hcount', 0)
-        idxs = range(max(mol) + 1, max(mol) + hcount + 1)
+        idxs = [ prefix + str(i) for i in range(len(mol.nodes()) + 1, len(mol.nodes()) + hcount + 1)]
         # Get the defaults from parse_atom.
         mol.add_nodes_from(idxs, **h_atom.copy())
         mol.add_edges_from([(n_idx, jdx) for jdx in idxs], order=1)
@@ -270,8 +270,7 @@ def remove_explicit_hydrogens(mol):
         # TODO: get these defaults from parsing [H]. But do something smart
         #       with the hcount attribute.
         if (node.get('charge', 0) == 0 and node.get('element', '') == 'H' and
-                'isotope' not in node and node.get('class', 0) == 0 and
-                len(neighbors) == 1):
+                'isotope' not in node and len(neighbors) == 1):    # and node.get('class', 0) == 0 also remove class!
             neighbor = neighbors[0]
             if (mol.nodes[neighbor].get('element', '') == 'H' or
                     mol.edges[n_idx, neighbor].get('order', 1) != 1):
