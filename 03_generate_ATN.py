@@ -298,8 +298,12 @@ with open( mappedsmiles , 'r') as smiles_file:
                     ATN.edges[rep_atom_product, atom]['transition'] = TransitionType.HYDROGEN_GROUP
   
     for c in mapped_educt_atoms:
+
         n1 = mapped_educt_atoms[c]
         n2 = mapped_product_atoms[c]
+
+        if ATN.nodes[n1]['compound_id'] == ATN.nodes[n2]['compound_id']:
+             continue # skip all self maps
 
         if ATN.has_edge(n1,n2):
             ATN.edges[n1, n2]['reaction_id'] += str(len(reactions)-1)
