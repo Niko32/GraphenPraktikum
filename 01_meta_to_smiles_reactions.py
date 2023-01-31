@@ -81,8 +81,6 @@ def get_compound_info(compound_id):
 
    return name, smiles
 
-   return compounds[compound_id]
-
 def parse_and_print_reaction(reaction_id):
    # 1 MNXM10@MNXD1 + 1 MNXM1312@MNXD1 + 2 MNXM1@MNXD1 = 1 MNXM1895@MNXD1 + 1 MNXM8@MNXD1 + 1 WATER@MNXD1
 
@@ -144,33 +142,27 @@ def parse_and_print_reaction(reaction_id):
       
    return (True, name_formula, smiles_formula)
 
-with open(reaction_xml, 'r') as f:
-   reaction_data = f.read()
 
 invalid_reaction_count = 0;
 reaction_count = 0
 
-
 with open(outputsmiles, 'w') as omf:
-  reaction_parser = BeautifulSoup(reaction_data, "xml")
-  for xml_react in reaction_parser.find_all('reaction'):
-     reaction_count += 1
-     bigg_id = xml_react.get('id')
-     if bigg_id in checkref:
-        meta_reaction_id = checkref[bigg_id]
+ with open(reaction_xml, 'r') as f:
+  for line in f:
+     meta_reaction_id = line.strip()
+     if meta_reaction_id == "":
+         continue
    
-        valid, name_formula, smiles_formula = parse_and_print_reaction(meta_reaction_id)
-        if valid:
-           print(file=omf)
-           print("Bigg ID:", bigg_id, "MetaNetXId:", meta_reaction_id, file=omf)
-           print("ECs:", ";".join(reactions[meta_reaction_id][1]), file=omf)
-           print(name_formula, file=omf)   
-           print(smiles_formula, file=omf)
-        else:
-           invalid_reaction_count += 1
+     valid, name_formula, smiles_formula = parse_and_print_reaction(meta_reaction_id)
+     if valid:
+        print(file=omf)
+        print("Bigg ID:", "-", "MetaNetXId:", meta_reaction_id, file=omf)
+        print("ECs:", ";".join(reactions[meta_reaction_id][1]), file=omf)
+        print(name_formula, file=omf)   
+        print(smiles_formula, file=omf)
      else:
-        invalid_reaction_count += 1
-
+           invalid_reaction_count += 1
+     
 print("Unable to convert", invalid_reaction_count, "reactions of ", reaction_count, "total", file=sys.stderr)      
 
 

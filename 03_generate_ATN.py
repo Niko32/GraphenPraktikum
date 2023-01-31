@@ -24,7 +24,7 @@ outputgml = sys.argv[2]
 
 map_hydrogens = False
 if len(sys.argv) == 4:
-    map_hydrogens = str(sys.argv[3])
+    map_hydrogens = int(sys.argv[3]) > 0
 
 ## ========== DEF BLOCK
 
