@@ -16,7 +16,6 @@ invalidBiGG = {}
 unbalanced = {}
 with open(db_file_path+'/db_corrections', mode='r') as db:
    for l in db:
-      print(l)
       if l.startswith('MetaNetXError:'):   
          invalid = l.strip().split(';')
          id_name = invalid[0].split()[5]
