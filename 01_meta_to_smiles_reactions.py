@@ -11,6 +11,14 @@ db_file_path = os.path.realpath(os.path.dirname(__file__))+'/metanetx'
 reaction_xml = sys.argv[1]
 outputsmiles = sys.argv[2] 
 
+metaNetXError = {}
+with open(db_file_path+'/db_corrections', mode='r') as db:
+   for l in db:
+      if l.startswith('MetaNetXError:'):   
+           invalid = l.strip().split(';')
+           id_name = invalid[0].split()
+           metaNetXError[id_name[5]] = { 'name' : invalid[1], 'SMILES' : invalid[2]} 
+
 comp_deprecated = {}
 with open(db_file_path+'/chem_depr.tsv', mode='r') as tsv:
    for line in tsv:
@@ -70,9 +78,14 @@ print("# Reaction in DB", len(reactions), file=sys.stderr)
 
 def get_compound_info(compound_id):
    while compound_id in comp_deprecated:
-      compound_id = comp_deprecated[comp_deprecated]
+      compound_id, _ = comp_deprecated[compound_id]
 
    name, smiles = compounds[compound_id]
+   
+   if smiles == "" and compound_id in metaNetXError:
+         smiles = metaNetXError[compound_id]["SMILES"]
+         name = metaNetXError[compound_id]["name"]
+   
    if smiles.count('.') > 0:
       newname = name + " Subcomponent 1"
       for i in range(smiles.count('.')):
@@ -80,6 +93,7 @@ def get_compound_info(compound_id):
       name = newname
 
    return name, smiles
+
 
 def parse_and_print_reaction(reaction_id):
    # 1 MNXM10@MNXD1 + 1 MNXM1312@MNXD1 + 2 MNXM1@MNXD1 = 1 MNXM1895@MNXD1 + 1 MNXM8@MNXD1 + 1 WATER@MNXD1
