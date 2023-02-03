@@ -12,13 +12,24 @@ reaction_xml = sys.argv[1]
 outputsmiles = sys.argv[2] 
 
 metaNetXError = {}
+invalidBiGG = {}
+unbalanced = {}
 with open(db_file_path+'/db_corrections', mode='r') as db:
    for l in db:
+      print(l)
       if l.startswith('MetaNetXError:'):   
-           invalid = l.strip().split(';')
-           id_name = invalid[0].split()
-           metaNetXError[id_name[5]] = { 'name' : invalid[1], 'SMILES' : invalid[2]} 
-
+         invalid = l.strip().split(';')
+         id_name = invalid[0].split()[5]
+         metaNetXError[id_name] = { 'name' : invalid[1], 'SMILES' : invalid[2]} 
+      elif l.startswith('InvalidBiGG:'):
+         invalid = l.strip().split(';')
+         id_invalid = invalid[0].split()[1]
+         invalidBiGG[id_invalid] =  {'Reaction:' : invalid[1], 'Metabolites' : invalid[3], 'SMILES' : invalid[4], 'reversible' : invalid[5]  } 
+      elif l.startswith('Unbalanced:'):
+         invalid = l.split(';')
+         id_invalid = invalid[0].split()[1]
+         unbalanced[id_invalid] = { 'MetaNetXID': id_invalid[2], 'SMILES' : invalid[1]} 
+           
 comp_deprecated = {}
 with open(db_file_path+'/chem_depr.tsv', mode='r') as tsv:
    for line in tsv:
@@ -169,11 +180,15 @@ with open(outputsmiles, 'w') as omf:
      reaction_count += 1
      bigg_id = xml_react.get('id')
      reversible = xml_react.get('reversible').lower() == "true"
+     
      if bigg_id in checkref:
         meta_reaction_id = checkref[bigg_id]
    
         valid, name_formula, smiles_formula = parse_and_print_reaction(meta_reaction_id)
         if valid:
+           if bigg_id in unbalanced:
+              smiles_formula = unbalanced[bigg_id]["SMILES"]
+        
            print(file=omf)
            print("Bigg ID:", bigg_id, "MetaNetXId:", meta_reaction_id, "Reversible:", reversible, file=omf)
            print("ECs:", ";".join(reactions[meta_reaction_id][1]), file=omf)
@@ -181,6 +196,13 @@ with open(outputsmiles, 'w') as omf:
            print(smiles_formula, file=omf)
         else:
            invalid_reaction_count += 1
+     elif bigg_id in invalidBiGG:
+           entry = invalidBiGG[bigg_id]
+           print(file=omf)
+           print("Bigg ID:", bigg_id, "MetaNetXId:", "-", "Reversible:", entry['reversible'], file=omf)
+           print("ECs:", file=omf)
+           print(entry['Metabolites'], file=omf)   
+           print(entry['SMILES'], file=omf)
      else:
         invalid_reaction_count += 1
 
