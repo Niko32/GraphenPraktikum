@@ -11,6 +11,7 @@ db_file_path = os.path.realpath(os.path.dirname(__file__))+'/metanetx'
 reaction_xml = sys.argv[1]
 outputsmiles = sys.argv[2] 
 
+"""
 metaNetXError = {}
 invalidBiGG = {}
 unbalanced = {}
@@ -28,6 +29,7 @@ with open(db_file_path+'/db_corrections', mode='r') as db:
          invalid = l.split(';')
          id_invalid = invalid[0].split()[1]
          unbalanced[id_invalid] = { 'MetaNetXID': id_invalid[2], 'SMILES' : invalid[1]} 
+"""     
            
 comp_deprecated = {}
 with open(db_file_path+'/chem_depr.tsv', mode='r') as tsv:
@@ -92,9 +94,9 @@ def get_compound_info(compound_id):
 
    name, smiles = compounds[compound_id]
    
-   if smiles == "" and compound_id in metaNetXError:
-         smiles = metaNetXError[compound_id]["SMILES"]
-         name = metaNetXError[compound_id]["name"]
+   #if smiles == "" and compound_id in metaNetXError:     # TODO: disabled due to inconsistent compounds
+   #      smiles = metaNetXError[compound_id]["SMILES"]
+   #      name = metaNetXError[compound_id]["name"]
    
    if smiles.count('.') > 0:
       newname = name + " Subcomponent 1"
@@ -185,8 +187,8 @@ with open(outputsmiles, 'w') as omf:
    
         valid, name_formula, smiles_formula = parse_and_print_reaction(meta_reaction_id)
         if valid:
-           if bigg_id in unbalanced:
-              smiles_formula = unbalanced[bigg_id]["SMILES"]
+           #if bigg_id in unbalanced:    # TODO: disabled due to inconsistent compounds
+           #   smiles_formula = unbalanced[bigg_id]["SMILES"]
         
            print(file=omf)
            print("Bigg ID:", bigg_id, "MetaNetXId:", meta_reaction_id, "Reversible:", reversible, file=omf)
@@ -195,13 +197,13 @@ with open(outputsmiles, 'w') as omf:
            print(smiles_formula, file=omf)
         else:
            invalid_reaction_count += 1
-     elif bigg_id in invalidBiGG:
-           entry = invalidBiGG[bigg_id]
-           print(file=omf)
-           print("Bigg ID:", bigg_id, "MetaNetXId:", "-", "Reversible:", entry['reversible'], file=omf)
-           print("ECs:", file=omf)
-           print(entry['Metabolites'], file=omf)   
-           print(entry['SMILES'], file=omf)
+     #elif bigg_id in invalidBiGG:   # TODO: disabled due to inconsistent compounds
+     #      entry = invalidBiGG[bigg_id]
+     #      print(file=omf)
+     #      print("Bigg ID:", bigg_id, "MetaNetXId:", "-", "Reversible:", entry['reversible'], file=omf)
+     #      print("ECs:", file=omf)
+     #      print(entry['Metabolites'], file=omf)   
+     #      print(entry['SMILES'], file=omf)
      else:
         invalid_reaction_count += 1
 
