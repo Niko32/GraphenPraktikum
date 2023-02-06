@@ -48,7 +48,18 @@ def seperate_blocks(file_path: str) -> List[List[str]]:
     as a list of lists of four strings
     """
     # Nicola
-    pass
+
+    reaction_blocks = [[]]
+
+    with open(file_path, 'r') as f:
+        for l in f:
+            if l.startswith("Bigg"):
+                reaction_blocks.append([l])
+            elif not l == "":
+                reaction_blocks[-1].append(l)
+
+    return reactions
+    
 
 def extract_compounds(reaction_block: List[str]) -> Reaction:
     """
@@ -56,7 +67,26 @@ def extract_compounds(reaction_block: List[str]) -> Reaction:
     our reaction class
     """
     # Nicola
-    pass
+
+    line1 = reaction_block[0].split()
+    bigg = line1[2]
+    metanet = line1[4]
+    reverse = (line1[6] == "True")
+
+    line3_educts = reaction_block[2].split(' = ')[0]
+    line3_products = reaction_block[2].split(' = ')[1]
+    educts = line3_educts.split(" + ")
+    products = line3_products.split(" + ")
+
+    line4_educts = reaction_block[3].split('>>')[0]
+    line4_products = reaction_block[3].split('>>')[1]
+    sm_educts = line4_educts.split(".")
+    sm_products = line4_products.split(".")
+
+    reac = Reaction(bigg, metanet, reverse, educts, products, sm_educts, sm_products)
+
+    return reac
+
 
 def construct_graph(reactions: List[Reaction]) -> nx.DiGraph:
     """ Takes a list of reactions to construct a network x graph from it """
