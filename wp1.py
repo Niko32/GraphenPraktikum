@@ -59,11 +59,25 @@ def extract_compounds(reaction_block: List[str]) -> Reaction:
     pass
 
 def construct_graph(reactions: List[Reaction]) -> nx.DiGraph:
-    """ Takes a list of reations to construct a network x graph from it """
-    # Remember to take the reversible flag into account
-    # The reaction should be named after the bigg_id
-    # Alwine
-    pass
+    """ Takes a list of reactions to construct a network x graph from it """
+    G = nx.Digraph()
+    for r in reactions:
+        for e, smiles_e in r.educts, r.smiles_educts:
+            weight = r.educts.count(e)
+            G.add_edge(G.node(e, smiles=smiles_e), r.bigg_id, weight=weight)
+
+            if r.reversible:
+                G.add_edge(r.bigg_id, G.node(e, smiles=smiles_e), weight=weight)
+
+        for p, smiles_p in r.products, r.smiles_products:
+            weight = r.products.count(p)
+            G.add_edge(r.bigg_id, G.node(p, smiles=smiles_p), weight=weight)
+
+            if r.reversible:
+                G.add_edge(G.node(p, smiles=smiles_p), r.bigg_id, weight=weight)
+
+    return G
+
 
 def bf_traversal(g: nx.DiGraph, metabolite: str) -> nx.DiGraph:
     """ 
@@ -121,10 +135,13 @@ def reverse_bf_traversal(g: nx.DiGraph):
 
 def intersect_subgraph(s: nx.DiGraph, subgraphs: List[nx.DiGraph]) -> nx.DiGraph:
     """ Intersection of the given subgraphs """
-    # Alwine
-    pass
+    G = s
+    for sub in subgraphs:
+        G = nx.intersection(G, sub)
+
+    return G
 
 if __name__ == "__main__":
     # 1. Done
     # 2. Parse the file and construct the graph
-
+    pass
