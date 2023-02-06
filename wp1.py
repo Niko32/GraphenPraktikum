@@ -84,25 +84,42 @@ def bf_traversal(g: nx.DiGraph, metabolite: str) -> nx.DiGraph:
     Takes a metabolites to form a subgraph constructed from them
     """
     
-    # Assume there is enough energy in the system
+    # Assume there is enough energy, water and phosphor in the system
+    for cofactor in cofactors:
+        g.nodes[cofactor]["visited"] = True
 
     # Mark the starting node as visited
     g.nodes[metabolite]["visited"] = True
 
     # Define nodes to search
-    outgoing_edges: List[Tuple[str, str, bool]] = g.edges(metabolite).data("visited", default=False)
+    outgoing_edges: List[Tuple[str, str, bool]] = g.edges(metabolite).data()
     new_outgoing_edges: List[Tuple[str, str, bool]] = []
 
     # Search every outgoing edge
     while len(outgoing_edges) > 0:
         for u, v, visited in outgoing_edges:
 
-            # Check if the node has all its required inputs
+            # Check if the node is a reaction or not
+            if g.nodes[v]["reaction"]:
 
-            # Visit the node if it has not been visited yet
-            if not visited:
-                g.nodes[v][visited] = True
+                # TODO: edge weights
+                # Check if the node has all its required inputs
+                ingoing_edges = g.in_edges(v).data()
+                inputs_complete = True
+                for u, v, annotations in ingoing_edges:
+                    if g.nodes[u][visited] == False:
+                        inputs_complete = False
 
+                # Visit the node if it has not been visited yet and has all inputs
+                if not visited and inputs_complete:
+                    g.nodes[v][visited] = True
+
+                    # Remember the neighbourhood of this node for the next iteration
+                    for edge in g.edges(v).data("visited", default=False):
+                        new_outgoing_edges.append(edge) 
+
+            # If the next node is not a reaction
+            else:
                 # Remember the neighbourhood of this node for the next iteration
                 for edge in g.edges(v).data("visited", default=False):
                     new_outgoing_edges.append(edge) 
@@ -111,24 +128,14 @@ def bf_traversal(g: nx.DiGraph, metabolite: str) -> nx.DiGraph:
         outgoing_edges = new_outgoing_edges
         new_outgoing_edges = []
 
+    # Construct a subgraph from all nodes that have been visited
+    visited_nodes = []
+    for node, visited in g.nodes(data="visited"):
+        if visited:
+            visited_nodes.append(node)
+    subgraph = g.subgraph(visited_nodes)
 
-    # Mark it as visited
-    g.nodes[metabolite]["visited"] = True
-
-    # Iterate over the OUTGOING neighborhood of the starting element
-    for u,v in g.edges(metabolite):
-
-        # Mark every searched node as visited
-        g.nodes[v]["visited"] = True
-
-        # Continue search if all input nodes have already been visited
-
-
-
-
-    
-
-    pass
+    return subgraph
 
 def reverse_bf_traversal(g: nx.DiGraph):
     return bf_traversal(g.reverse())
