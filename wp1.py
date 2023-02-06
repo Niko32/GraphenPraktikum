@@ -47,18 +47,25 @@ def seperate_blocks(file_path: str) -> List[List[str]]:
     Takes in the .smiles_list file and outputs the reaction blocks 
     as a list of lists of four strings
     """
-    # Nicola
 
-    reaction_blocks = [[]]
+    reaction_blocks = []
+    reaction_block = []
+    skip = False
 
     with open(file_path, 'r') as f:
         for l in f:
-            if l.startswith("Bigg"):
-                reaction_blocks.append([l])
-            elif not l == "":
-                reaction_blocks[-1].append(l)
+            if l == "\n":
+                skip = False
+                if not reaction_block == []:
+                    reaction_blocks.append(reaction_block)
+                    reaction_block = []
+            elif "Growth" in l:
+                skip = True
+            else:
+                if not skip:
+                    reaction_block.append(l)
 
-    return reactions
+    return reaction_blocks
     
 
 def extract_compounds(reaction_block: List[str]) -> Reaction:
@@ -66,20 +73,18 @@ def extract_compounds(reaction_block: List[str]) -> Reaction:
     Takes a block of four string representing one reaction and parses it into
     our reaction class
     """
-    # Nicola
-
     line1 = reaction_block[0].split()
     bigg = line1[2]
     metanet = line1[4]
-    reverse = (line1[6] == "True")
+    reverse = (line1[6] == "True\n")
 
-    line3_educts = reaction_block[2].split(' = ')[0]
-    line3_products = reaction_block[2].split(' = ')[1]
+    line3_educts = reaction_block[2].split('=')[0].strip()
+    line3_products = reaction_block[2].split('=')[1].strip()
     educts = line3_educts.split(" + ")
     products = line3_products.split(" + ")
 
-    line4_educts = reaction_block[3].split('>>')[0]
-    line4_products = reaction_block[3].split('>>')[1]
+    line4_educts = reaction_block[3].split('>>')[0].strip()
+    line4_products = reaction_block[3].split('>>')[1].strip()
     sm_educts = line4_educts.split(".")
     sm_products = line4_products.split(".")
 
@@ -94,17 +99,17 @@ def construct_graph(reactions: List[Reaction]) -> nx.DiGraph:
     for r in reactions:
         for e, smiles_e in r.educts, r.smiles_educts:
             weight = r.educts.count(e)
-            G.add_edge(G.node(e, smiles=smiles_e), r.bigg_id, weight=weight)
+            G.add_edge(G.node(e, smiles=smiles_e), G.node(r.bigg_id, reaction=True), weight=weight)
 
             if r.reversible:
-                G.add_edge(r.bigg_id, G.node(e, smiles=smiles_e), weight=weight)
+                G.add_edge(G.node(r.bigg_id, reaction=True), G.node(e, smiles=smiles_e), weight=weight)
 
         for p, smiles_p in r.products, r.smiles_products:
             weight = r.products.count(p)
-            G.add_edge(r.bigg_id, G.node(p, smiles=smiles_p), weight=weight)
+            G.add_edge(G.node(r.bigg_id, reaction=True), G.node(p, smiles=smiles_p), weight=weight)
 
             if r.reversible:
-                G.add_edge(G.node(p, smiles=smiles_p), r.bigg_id, weight=weight)
+                G.add_edge(G.node(p, smiles=smiles_p), G.node(r.bigg_id, reaction=True), weight=weight)
 
     return G
 
@@ -181,4 +186,10 @@ def intersect_subgraph(s: nx.DiGraph, subgraphs: List[nx.DiGraph]) -> nx.DiGraph
 if __name__ == "__main__":
     # 1. Done
     # 2. Parse the file and construct the graph
+    file_path = "sihumix/acacae_adam/acacae_adam.smiles_list"
+    reaction_block_list = seperate_blocks(file_path)
+    reactions = []
+    for rb in reaction_block_list:
+        reactions.append(extract_compounds(rb))
+
     pass
