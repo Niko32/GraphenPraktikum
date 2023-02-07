@@ -139,6 +139,8 @@ def bf_traversal(g: nx.DiGraph, metabolite: str) -> nx.DiGraph:
     while len(outgoing_edges) > 0:
         for u, v, visited in outgoing_edges:
 
+            logging.info(f"Traversing edge ({u},{v})")
+
             # Check if the node is a reaction or not
             if g.nodes[v].get("reaction"):
 
