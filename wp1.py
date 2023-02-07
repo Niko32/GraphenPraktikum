@@ -29,7 +29,7 @@ amino_acid_dict = {
     "L": {"name": "L-Leucine"}
 }
 
-cofactors = ["AMP", "ADP", "ATP", "NAD(+)", "NADH", "NADP(+)", "NADPH", "CTP", "CoA", "H2O", "NH4(+)", "hydrogensulfide"]
+cofactors = ["AMP", "ADP", "ATP", "NAD(+)", "NADH", "NADP(+)", "NADPH", "CTP", "CoA", "H2O", "NH4(+)", "hydrogen sulfide"]
 
 class Reaction():
     def __init__(self, bigg_id: str, metanetx_id: str, reversible: bool, educts: List[str],
@@ -131,7 +131,7 @@ def bf_traversal(g: nx.DiGraph, metabolite: str) -> nx.DiGraph:
     g.nodes[metabolite]["visited"] = True
 
     # Define nodes to search
-    outgoing_edges: List[Tuple[str, str, bool]] = g.edges(metabolite).data()
+    outgoing_edges: List[Tuple[str, str]] = g.edges(metabolite, data="visited")
     new_outgoing_edges: List[Tuple[str, str, bool]] = []
 
     # Search every outgoing edge
@@ -139,14 +139,14 @@ def bf_traversal(g: nx.DiGraph, metabolite: str) -> nx.DiGraph:
         for u, v, visited in outgoing_edges:
 
             # Check if the node is a reaction or not
-            if g.nodes[v]["reaction"]:
+            if g.nodes[v].get("reaction"):
 
                 # TODO: edge weights
                 # Check if the node has all its required inputs
-                ingoing_edges = g.in_edges(v).data()
+                ingoing_edges = g.in_edges(v)
                 inputs_complete = True
-                for u, v, annotations in ingoing_edges:
-                    if g.nodes[u]["visited"] == False:
+                for u, v in ingoing_edges:
+                    if not g.nodes[u].get("visited"):
                         inputs_complete = False
 
                 # Visit the node if it has not been visited yet and has all inputs
@@ -154,13 +154,13 @@ def bf_traversal(g: nx.DiGraph, metabolite: str) -> nx.DiGraph:
                     g.nodes[v][visited] = True
 
                     # Remember the neighbourhood of this node for the next iteration
-                    for edge in g.edges(v).data("visited", default=False):
+                    for edge in g.edges(v, data="visited"):
                         new_outgoing_edges.append(edge) 
 
             # If the next node is not a reaction
             else:
                 # Remember the neighbourhood of this node for the next iteration
-                for edge in g.edges(v).data("visited", default=False):
+                for edge in g.edges(v, data="visited"):
                     new_outgoing_edges.append(edge) 
 
         # Continue with the next iteration
@@ -227,5 +227,4 @@ if __name__ == "__main__":
     reaction_block_list = seperate_blocks(file_path)
     reactions = [extract_compounds(rb) for rb in reaction_block_list]
     g = construct_graph(reactions)
-    nx.draw(g, with_labels=True)
-    plt.show()
+    subgraph = bf_traversal(g, "D-glucose")
