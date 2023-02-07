@@ -1,5 +1,6 @@
 from typing import List, Tuple
 import networkx as nx
+from matplotlib import pyplot as plt
 
 amino_acid_list = ["L-arginine", "L-valine", "L-methionine", "L-glutamate", "L-glutamine", "L-tyrosine", "L-tryptophan",
                    "L-proline", "L-cysteine", "L-histidine", "L-asparagine", "L-aspartate", "L-phenylalanine",
@@ -145,7 +146,7 @@ def bf_traversal(g: nx.DiGraph, metabolite: str) -> nx.DiGraph:
                 ingoing_edges = g.in_edges(v).data()
                 inputs_complete = True
                 for u, v, annotations in ingoing_edges:
-                    if g.nodes[u][visited] == False:
+                    if g.nodes[u]["visited"] == False:
                         inputs_complete = False
 
                 # Visit the node if it has not been visited yet and has all inputs
@@ -176,7 +177,40 @@ def bf_traversal(g: nx.DiGraph, metabolite: str) -> nx.DiGraph:
     return subgraph
 
 def reverse_bf_traversal(g: nx.DiGraph):
-    return bf_traversal(g.reverse())
+    
+    # Reverse the edges
+    g = g.reverse()
+
+    # Define amino acids as starting points
+    outgoing_edges: List[Tuple[str, str, bool]] = []
+    for acid in amino_acid_list:
+        outgoing_edges.append(g.edges(acid).data())
+    new_outgoing_edges: List[Tuple[str, str, bool]] = []
+
+    # Search every outgoing edge
+    while len(outgoing_edges) > 0:
+        for u, v, visited in outgoing_edges:
+
+            # Visit the next node
+            if not visited:
+                g.nodes[v][visited] = True
+
+                # Remember the neighbourhood of this node for the next iteration
+                for edge in g.edges(v).data("visited", default=False):
+                    new_outgoing_edges.append(edge) 
+        
+        # Continue with the next iteration
+        outgoing_edges = new_outgoing_edges
+        new_outgoing_edges = []
+
+        # Construct a subgraph from all nodes that have been visited
+        visited_nodes = []
+        for node, visited in g.nodes(data="visited"):
+            if visited:
+                visited_nodes.append(node)
+        subgraph = g.subgraph(visited_nodes)
+            
+    return subgraph
 
 def intersect_subgraph(s: nx.DiGraph, subgraphs: List[nx.DiGraph]) -> nx.DiGraph:
     """ Intersection of the given subgraphs """
@@ -193,8 +227,5 @@ if __name__ == "__main__":
     reaction_block_list = seperate_blocks(file_path)
     reactions = [extract_compounds(rb) for rb in reaction_block_list]
     g = construct_graph(reactions)
-    nx.draw(g)
-
-    G = construct_graph(reactions)
-    nx.draw(G)
-    pass
+    nx.draw(g, with_labels=True)
+    plt.show()
