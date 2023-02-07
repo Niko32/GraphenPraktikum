@@ -42,18 +42,12 @@ def generate_subgraphs() -> dict[str, nx.DiGraph]:
 def get_all_paths(g: nx.DiGraph, amino_acid: str) -> list[nx.DiGraph]:
     paths = nx.all_simple_paths(g, "D-glucose", amino_acid)
 
-    path_list = []
-    for p in map(nx.utils.pairwise, paths):
-        g = nx.DiGraph()
-        g.add_edges_from(list(p))
-        path_list.append(g)
-
-    return path_list
+    return [g.edge_subgraph(list(p)) for p in map(nx.utils.pairwise, paths)]
 
 def generate_pathways(subgraphs: dict[str, nx.DiGraph]) -> dict[str, dict[str, list[nx.DiGraph]]]:
     amino_acid_list = wp1.amino_acid_list
     p = {}
-    for c, s in subgraphs.items:
+    for c, s in subgraphs.items():
         for a in amino_acid_list:
             p[c] = dict(zip(a, get_all_paths(a, s)))
 
