@@ -126,15 +126,14 @@ def _visit_node(G: nx.DiGraph, v: str) -> Union[nx.DiGraph, List[Tuple[str, str,
     """
 
     if not G.nodes[v].get("visited"):
-        print(f"Marking reaction {v} as visited")
+        print(f"Marking node {v} as visited")
         G.nodes[v]["visited"] = True
-
         return G, G.edges(v, data="visited")
     else:
         return G, []
     
 def _inputs_complete(G: nx.DiGraph, v: str):
-    """ Check if a node meets all requirements to be visited"""
+    """ Check if a node meets all requirements to be visited """
 
     inputs_complete = True
 
@@ -149,11 +148,20 @@ def _inputs_complete(G: nx.DiGraph, v: str):
 
 def _build_visited_subgraph(G: nx.DiGraph) -> nx.DiGraph:
     """ Builds a subgraph from all the nodes that have been visited """
-    visited_nodes = []
+
+    # Include all visited nodes
+    visited_nodes = set()
     for node, visited in G.nodes(data="visited"):
         if visited:
-            visited_nodes.append(node)
-    return G.subgraph(visited_nodes)
+            visited_nodes.add(node)
+    H: nx.DiGraph = G.subgraph(visited_nodes)
+
+    # Remove molecules that are not used in any reaction
+    connected_nodes = set()
+    for u, v in H.edges():
+        connected_nodes.add(u)
+        connected_nodes.add(v)
+    return H.subgraph(connected_nodes)
 
 def _create_gif(image_paths: List[str]):
     """ Creates a gif from a list of png image paths """
@@ -214,13 +222,6 @@ def bf_traversal(G: nx.DiGraph, metabolite: str, verbose = False) -> nx.DiGraph:
     if verbose:
         draw_graph(s, f"plots/{iteration:02}.png")
         _create_gif([f"plots/{file}" for file in os.listdir("plots")])
-
-    # Remove disconnected molecules
-    connected_nodes = set()
-    for u, v in s.edges():
-        connected_nodes.add(u)
-        connected_nodes.add(v)
-    s = s.subgraph(connected_nodes)
 
     # Print out amino acids that have been reached
     reached_acids = set(s.nodes.keys()).intersection(amino_acid_list)
@@ -310,7 +311,7 @@ def build_subgraph(file_path: str) -> nx.DiGraph:
     reaction_block_list = seperate_blocks(file_path)
     reactions = [extract_compounds(rb) for rb in reaction_block_list]
     G = construct_graph(reactions)
-    s = bf_traversal(G, "D-glucose")
+    s = bf_traversal(G, "D-glucose", True)
     # Why is not a single amino aicid reached?
     draw_graph(s)
     A = reverse_bf_traversal(s)
