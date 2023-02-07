@@ -97,19 +97,22 @@ def construct_graph(reactions: List[Reaction]) -> nx.DiGraph:
     """ Takes a list of reactions to construct a network x graph from it """
     G = nx.DiGraph()
     for r in reactions:
-        for e, smiles_e in r.educts, r.smiles_educts:
+        G.add_node(r.bigg_id, reaction=True)
+        for e, smiles_e in zip(r.educts, r.smiles_educts):
             weight = r.educts.count(e)
-            G.add_edge(G.node(e, smiles=smiles_e), G.node(r.bigg_id, reaction=True), weight=weight)
+            G.add_node(e, smiles=smiles_e)
+            G.add_edge(e, r.bigg_id, weight=weight)
 
             if r.reversible:
-                G.add_edge(G.node(r.bigg_id, reaction=True), G.node(e, smiles=smiles_e), weight=weight)
+                G.add_edge(r.bigg_id, e, weight=weight)
 
-        for p, smiles_p in r.products, r.smiles_products:
+        for p, smiles_p in zip(r.products, r.smiles_products):
             weight = r.products.count(p)
-            G.add_edge(G.node(r.bigg_id, reaction=True), G.node(p, smiles=smiles_p), weight=weight)
+            G.add_node(p, smiles=smiles_p)
+            G.add_edge(r.bigg_id, p, weight=weight)
 
             if r.reversible:
-                G.add_edge(G.node(p, smiles=smiles_p), G.node(r.bigg_id, reaction=True), weight=weight)
+                G.add_edge(p, r.bigg_id, weight=weight)
 
     return G
 
@@ -192,4 +195,6 @@ if __name__ == "__main__":
     g = construct_graph(reactions)
     nx.draw(g)
 
+    G = construct_graph(reactions)
+    nx.draw(G)
     pass
