@@ -95,7 +95,7 @@ def extract_compounds(reaction_block: List[str]) -> Reaction:
 
 def construct_graph(reactions: List[Reaction]) -> nx.DiGraph:
     """ Takes a list of reactions to construct a network x graph from it """
-    G = nx.Digraph()
+    G = nx.DiGraph()
     for r in reactions:
         for e, smiles_e in r.educts, r.smiles_educts:
             weight = r.educts.count(e)
@@ -188,8 +188,8 @@ if __name__ == "__main__":
     # 2. Parse the file and construct the graph
     file_path = "sihumix/acacae_adam/acacae_adam.smiles_list"
     reaction_block_list = seperate_blocks(file_path)
-    reactions = []
-    for rb in reaction_block_list:
-        reactions.append(extract_compounds(rb))
+    reactions = [extract_compounds(rb) for rb in reaction_block_list]
+    g = construct_graph(reactions)
+    nx.draw(g)
 
     pass
