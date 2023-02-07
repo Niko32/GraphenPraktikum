@@ -39,6 +39,20 @@ def generate_subgraphs() -> dict[str, nx.DiGraph]:
 
     return dict(zip(combinations, subgraphs))
 
+def get_all_paths(g: nx.DiGraph, amino_acid: str) -> list[nx.DiGraph]:
+    paths = nx.all_simple_paths(g, "D-glucose", amino_acid)
+
+    return [g.edge_subgraph(list(p)) for p in map(nx.utils.pairwise, paths)]
+
+def generate_pathways(subgraphs: dict[str, nx.DiGraph]) -> dict[str, dict[str, list[nx.DiGraph]]]:
+    amino_acid_list = wp1.amino_acid_list
+    p = {}
+    for c, s in subgraphs.items():
+        for a in amino_acid_list:
+            p[c] = dict(zip(a, get_all_paths(a, s)))
+
+    return dict(zip(subgraphs.keys, p))
+
 def get_amino_acids():
     '''
     How many/can all amino acids be synthesized?
