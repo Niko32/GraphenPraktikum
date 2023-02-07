@@ -1,12 +1,12 @@
 import networkx as nx
 import wp1
 import pickle
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import seaborn as sns
 
-def generate_subgraphs() -> dict[str, nx.DiGraph]:
-    '''
-    Generate all subgraphs for all organism and medium combinations and output them in a dictionary
-    '''
-    combinations = [
+combinations = [
         "acacae_adam",
         "acacae_cimIV",
         "blongum_adam",
@@ -24,6 +24,11 @@ def generate_subgraphs() -> dict[str, nx.DiGraph]:
         "Iplantarum_adam",
         "Iplantarum_cimIV"
     ]
+
+def generate_subgraphs() -> dict[str, nx.DiGraph]:
+    '''
+    Generate all subgraphs for all organism and medium combinations and output them in a dictionary
+    '''
     
     file_paths = ["sihumix/" + c + "/" + c + ".smiles_list" for c in combinations]
 
@@ -53,16 +58,65 @@ def generate_pathways(subgraphs: dict[str, nx.DiGraph]) -> dict[str, dict[str, l
 
     return dict(zip(subgraphs.keys, p))
 
-def get_amino_acids():
+def compare_nr_amino_acids(pathways: dict[str, dict[str, list[nx.DiGraph]]]):
     '''
-    How many/can all amino acids be synthesized?
+    Visualization of the number of all amino acids that can be synthesized? 
     '''
+    number_amino_acids = []
+    for c in combinations:
+        number_amino_acids.append(len(pathways[c]))
+
+    plt.bar(combinations, number_amino_acids)
+    plt.xlabel("species and media")
+    plt.ylabel("number of amino acids")
+    plt.show()
+
     pass
 
-def compare_rec_based_on_organism():
+def compare_rec_based_on_organism(pathways: dict[str, dict[str, list[nx.DiGraph]]]):
     '''
-    For the same organism, are there differences in the reconstruction based on the cultivation media?
+    For the same organism, are there differences in the reconstruction pathways based on the cultivation media?
     '''
+
+    df = pd.DataFrame(np.zeros((8, len(wp1.amino_acid_list))), columns = wp1.amino_acid_list)
+
+    # iterate over the species
+    for i in range(0,len(combinations),2):
+        species = combinations[i].split('_')[0]
+        df.rename(index = {i/2 : species})
+        # get the synthesized amino acid set for each media in the given species
+        media1_amino_acids = pathways[combinations[i]].keys()
+        media2_amino_acids = pathways[combinations[i+1]].keys()
+        # iterate over the amino acids in media1
+        for aa in media1_amino_acids:
+            if aa in media2_amino_acids:
+                # iterate over the paths to the amino acid in the different medias and check if they exist is both medias
+                for path1 in pathways[combinations[i]][aa]:
+                    path_found = False
+                    for path2 in pathways[combinations[i+1]][aa]:
+                        if nx.graphs_equal(path1, path2):
+                            path_found = True
+                    if not path_found:
+                        df[aa][species] += 1
+                for path2 in pathways[combinations[i]][aa]:
+                    path_found = False
+                    for path1 in pathways[combinations[i+1]][aa]:
+                        if nx.graphs_equal(path1, path2):
+                            path_found = True
+                    if not path_found:
+                        df[aa][species] += 1
+            # if the amino acid is not synthesized in media 2 all pathways are different
+            else:
+                df[aa][species] = len(pathways[combinations[i]][aa])
+        for aa in media2_amino_acids:
+            # if the amino acid is not synthesized in media 1 all pathways are different
+            if not aa in media1_amino_acids:
+                df[aa][species] = len(pathways[combinations[i+1]][aa])
+
+    plt.title("no. of diff. pathways per species in diff. medias")
+    sns.heatmap(df)
+    plt.show()
+
     pass
 
 def compare_rec_based_on_medium():
