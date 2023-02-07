@@ -181,34 +181,36 @@ def reverse_bf_traversal(g: nx.DiGraph):
     # Reverse the edges
     g = g.reverse()
 
-    # Define amino acids as starting points
+    subgraphs = []
     outgoing_edges: List[Tuple[str, str, bool]] = []
-    for acid in amino_acid_list:
-        outgoing_edges.append(g.edges(acid).data())
     new_outgoing_edges: List[Tuple[str, str, bool]] = []
 
-    # Search every outgoing edge
-    while len(outgoing_edges) > 0:
-        for u, v, visited in outgoing_edges:
+    # Define amino acids as starting points
+    for acid in amino_acid_list:
+        outgoing_edges = g.edges(acid, data="visited")
 
-            # Visit the next node
-            if not visited:
-                g.nodes[v][visited] = True
+        # Search every outgoing edge
+        while len(outgoing_edges) > 0:
+            for u, v, visited in outgoing_edges:
 
-                # Remember the neighbourhood of this node for the next iteration
-                for edge in g.edges(v).data("visited", default=False):
-                    new_outgoing_edges.append(edge) 
-        
-        # Continue with the next iteration
-        outgoing_edges = new_outgoing_edges
-        new_outgoing_edges = []
+                # Visit the next node
+                if not visited:
+                    g.nodes[v][visited] = True
 
-        # Construct a subgraph from all nodes that have been visited
-        visited_nodes = []
-        for node, visited in g.nodes(data="visited"):
-            if visited:
-                visited_nodes.append(node)
-        subgraph = g.subgraph(visited_nodes)
+                    # Remember the neighbourhood of this node for the next iteration
+                    for edge in g.edges(v).data("visited", default=False):
+                        new_outgoing_edges.append(edge) 
+            
+            # Continue with the next iteration
+            outgoing_edges = new_outgoing_edges
+            new_outgoing_edges = []
+
+            # Construct a subgraph from all nodes that have been visited
+            visited_nodes = []
+            for node, visited in g.nodes(data="visited"):
+                if visited:
+                    visited_nodes.append(node)
+            subgraphs.append(g.subgraph(visited_nodes))
             
     return subgraph
 
@@ -239,4 +241,4 @@ if __name__ == "__main__":
     reactions = [extract_compounds(rb) for rb in reaction_block_list]
     g = construct_graph(reactions)
     subgraph = bf_traversal(g, "D-glucose")
-    draw_graph(g)
+    draw_graph(subgraph)
