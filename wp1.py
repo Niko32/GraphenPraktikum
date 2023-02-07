@@ -1,6 +1,7 @@
 from typing import List, Tuple
 import networkx as nx
 from matplotlib import pyplot as plt
+import logging
 
 amino_acid_list = ["L-arginine", "L-valine", "L-methionine", "L-glutamate", "L-glutamine", "L-tyrosine", "L-tryptophan",
                    "L-proline", "L-cysteine", "L-histidine", "L-asparagine", "L-aspartate", "L-phenylalanine",
@@ -212,7 +213,7 @@ def reverse_bf_traversal(g: nx.DiGraph):
                     visited_nodes.append(node)
             subgraphs.append(g.subgraph(visited_nodes))
             
-    return subgraph
+    return subgraphs
 
 def intersect_subgraph(s: nx.DiGraph, subgraphs: List[nx.DiGraph]) -> nx.DiGraph:
     """ Intersection of the given subgraphs """
@@ -234,6 +235,10 @@ def draw_graph(g: nx.DiGraph):
     plt.show()
 
 def build_subgraph(file_path: str) -> nx.DiGraph:
+    """ 
+    Builds a subgraph containing the paths from glucose to all amino acids 
+    for one combination of molecule and medium 
+    """
     reaction_block_list = seperate_blocks(file_path)
     reactions = [extract_compounds(rb) for rb in reaction_block_list]
     g = construct_graph(reactions)

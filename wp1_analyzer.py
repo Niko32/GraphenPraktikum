@@ -1,5 +1,6 @@
 import networkx as nx
 import wp1
+import pickle
 
 def generate_subgraphs() -> dict[str, nx.DiGraph]:
     '''
@@ -25,7 +26,16 @@ def generate_subgraphs() -> dict[str, nx.DiGraph]:
     ]
     
     file_paths = ["sihumix/" + c + "/" + c + ".smiles_list" for c in combinations]
-    subgraphs = [wp1.build_subgraph(path) for path in file_paths]
+
+    subgraphs = []
+    for i, path in enumerate(file_paths):
+        subgraph = wp1.build_subgraph(path)
+
+        # Save the subgraph
+        with open(f"subgraphs/{combinations[i]}", "wb") as f:
+            pickle.dump(subgraph, f)
+            
+        subgraphs.append(subgraph)
 
     return dict(zip(combinations, subgraphs))
 
