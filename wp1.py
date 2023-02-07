@@ -3,6 +3,8 @@ import networkx as nx
 from matplotlib import pyplot as plt
 import logging
 
+logging.basicConfig()
+
 amino_acid_list = ["L-arginine", "L-valine", "L-methionine", "L-glutamate", "L-glutamine", "L-tyrosine", "L-tryptophan",
                    "L-proline", "L-cysteine", "L-histidine", "L-asparagine", "L-aspartate", "L-phenylalanine",
                    "L-threonine", "L-lysine", "L-serine", "L-isoleucine", "glycine", "L-alanine", "L-Leucine"]
@@ -123,6 +125,8 @@ def bf_traversal(g: nx.DiGraph, metabolite: str) -> nx.DiGraph:
     """ 
     Takes a metabolites to form a subgraph constructed from them
     """
+
+    print("##### bf_traversal #####")
     
     # Assume there is enough energy, water and phosphor in the system
     for cofactor in cofactors:
@@ -132,19 +136,18 @@ def bf_traversal(g: nx.DiGraph, metabolite: str) -> nx.DiGraph:
     g.nodes[metabolite]["visited"] = True
 
     # Define nodes to search
-    outgoing_edges: List[Tuple[str, str]] = g.edges(metabolite, data="visited")
+    outgoing_edges: List[Tuple[str, str, dict]] = g.edges(metabolite, data="visited")
     new_outgoing_edges: List[Tuple[str, str, bool]] = []
 
     # Search every outgoing edge
     while len(outgoing_edges) > 0:
         for u, v, visited in outgoing_edges:
 
-            logging.info(f"Traversing edge ({u},{v})")
+            print(f"Traversing edge ({u},{v})")
 
             # Check if the node is a reaction or not
             if g.nodes[v].get("reaction"):
 
-                # TODO: edge weights
                 # Check if the node has all its required inputs
                 ingoing_edges = g.in_edges(v)
                 inputs_complete = True
@@ -153,8 +156,9 @@ def bf_traversal(g: nx.DiGraph, metabolite: str) -> nx.DiGraph:
                         inputs_complete = False
 
                 # Visit the node if it has not been visited yet and has all inputs
-                if not visited and inputs_complete:
-                    g.nodes[v][visited] = True
+                if not g.nodes[v].get("visited") and inputs_complete:
+                    print(f"Marking reaction {v} as visited")
+                    g.nodes[v]["visited"] = True
 
                     # Remember the neighbourhood of this node for the next iteration
                     for edge in g.edges(v, data="visited"):
@@ -162,6 +166,9 @@ def bf_traversal(g: nx.DiGraph, metabolite: str) -> nx.DiGraph:
 
             # If the next node is not a reaction
             else:
+                print(f"Marking molecule {v} as visited")
+                g.nodes[v]["visited"] = True
+
                 # Remember the neighbourhood of this node for the next iteration
                 for edge in g.edges(v, data="visited"):
                     new_outgoing_edges.append(edge) 
@@ -175,14 +182,32 @@ def bf_traversal(g: nx.DiGraph, metabolite: str) -> nx.DiGraph:
     for node, visited in g.nodes(data="visited"):
         if visited:
             visited_nodes.append(node)
-    subgraph = g.subgraph(visited_nodes)
+    s: nx.DiGraph = g.subgraph(visited_nodes)
 
-    return subgraph
+    # Remove disconnected molecules
+    connected_nodes = set()
+    for u, v in s.edges():
+        connected_nodes.add(u)
+        connected_nodes.add(v)
+    s = s.subgraph(connected_nodes)
+
+    # Print out amino acids that have been reached
+    reached_acids = set(g.nodes.keys()).intersection(amino_acid_list)
+    print("Acids have been reached: ", len(reached_acids), "/", len(amino_acid_list))
+
+    return s
 
 def reverse_bf_traversal(g: nx.DiGraph) -> List[nx.DiGraph]:
+
+    print("##### reverse_bf_traversal #####")
+
+    print(set(g.nodes.keys()).intersection(amino_acid_list))
     
     # Reverse the edges
     g = g.reverse()
+
+    # Unvisit the nodes
+    nx.set_node_attributes(g, False, "visited")
 
     subgraphs = []
     outgoing_edges: List[Tuple[str, str, bool]] = []
@@ -190,6 +215,13 @@ def reverse_bf_traversal(g: nx.DiGraph) -> List[nx.DiGraph]:
 
     # Define amino acids as starting points
     for acid in amino_acid_list:
+
+        # Skip acids that have not been reached
+        if not g.nodes.get(acid):
+            continue
+
+        print(f"Marking molecule {v} as visited")
+        g.nodes[acid]["visited"] = True
         outgoing_edges = g.edges(acid, data="visited")
 
         # Search every outgoing edge
@@ -197,8 +229,9 @@ def reverse_bf_traversal(g: nx.DiGraph) -> List[nx.DiGraph]:
             for u, v, visited in outgoing_edges:
 
                 # Visit the next node
-                if not visited:
-                    g.nodes[v][visited] = True
+                if not g.nodes[v].get("visited"):
+                    print(f"Marking molecule {v} as visited")
+                    g.nodes[v]["visited"] = True
 
                     # Remember the neighbourhood of this node for the next iteration
                     for edge in g.edges(v, data="visited"):
@@ -213,7 +246,9 @@ def reverse_bf_traversal(g: nx.DiGraph) -> List[nx.DiGraph]:
             for node, visited in g.nodes(data="visited"):
                 if visited:
                     visited_nodes.append(node)
-            subgraphs.append(g.subgraph(visited_nodes))
+            s: nx.DiGraph = g.subgraph(visited_nodes)
+
+            subgraphs.append(s)
             
     return subgraphs
 
@@ -245,6 +280,9 @@ def build_subgraph(file_path: str) -> nx.DiGraph:
     reactions = [extract_compounds(rb) for rb in reaction_block_list]
     g = construct_graph(reactions)
     s = bf_traversal(g, "D-glucose")
-    draw_graph(s)
     A = reverse_bf_traversal(s)
+    draw_graph(A[0])
     return intersect_subgraph(s,A)
+
+if __name__ == "__main__":
+    build_subgraph("sihumix/acacae_adam/acacae_adam.smiles_list")
