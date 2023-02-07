@@ -216,11 +216,11 @@ def reverse_bf_traversal(g: nx.DiGraph):
 
 def intersect_subgraph(s: nx.DiGraph, subgraphs: List[nx.DiGraph]) -> nx.DiGraph:
     """ Intersection of the given subgraphs """
-    G = s
+    A = subgraphs[0]
     for sub in subgraphs:
-        G = nx.intersection(G, sub)
+        A = nx.intersection(A, sub)
 
-    return G
+    return nx.intersection(s,A)
 
 def draw_graph(g: nx.DiGraph):
     color_map = []
