@@ -231,12 +231,12 @@ def draw_graph(g: nx.DiGraph):
     nx.draw(g, node_color=color_map, with_labels=True)
     plt.show()
 
-if __name__ == "__main__":
-    # 1. Done
-    # 2. Parse the file and construct the graph
-    file_path = "sihumix/acacae_adam/acacae_adam.smiles_list"
+def build_subgraph(file_path: str) -> nx.DiGraph:
     reaction_block_list = seperate_blocks(file_path)
     reactions = [extract_compounds(rb) for rb in reaction_block_list]
     g = construct_graph(reactions)
-    subgraph = bf_traversal(g, "D-glucose")
-    draw_graph(g)
+    # draw_graph(g)
+    s = bf_traversal(g, "D-glucose")
+    # call reverse traversal for all amino acids
+    A = []
+    return intersect_subgraph(s,A)
