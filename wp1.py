@@ -1,6 +1,7 @@
 from typing import List, Tuple
 import networkx as nx
 from matplotlib import pyplot as plt
+import logging
 
 amino_acid_list = ["L-arginine", "L-valine", "L-methionine", "L-glutamate", "L-glutamine", "L-tyrosine", "L-tryptophan",
                    "L-proline", "L-cysteine", "L-histidine", "L-asparagine", "L-aspartate", "L-phenylalanine",
@@ -138,6 +139,8 @@ def bf_traversal(g: nx.DiGraph, metabolite: str) -> nx.DiGraph:
     while len(outgoing_edges) > 0:
         for u, v, visited in outgoing_edges:
 
+            logging.info(f"Traversing edge ({u},{v})")
+
             # Check if the node is a reaction or not
             if g.nodes[v].get("reaction"):
 
@@ -216,11 +219,11 @@ def reverse_bf_traversal(g: nx.DiGraph) -> List[nx.DiGraph]:
 
 def intersect_subgraph(s: nx.DiGraph, subgraphs: List[nx.DiGraph]) -> nx.DiGraph:
     """ Intersection of the given subgraphs """
-    G = s
+    A = subgraphs[0]
     for sub in subgraphs:
-        G = nx.intersection(G, sub)
+        A = nx.intersection(A, sub)
 
-    return G
+    return nx.intersection(s,A)
 
 def draw_graph(g: nx.DiGraph):
     color_map = []
@@ -233,12 +236,15 @@ def draw_graph(g: nx.DiGraph):
     nx.draw(g, node_color=color_map, with_labels=True)
     plt.show()
 
-if __name__ == "__main__":
-    # 1. Done
-    # 2. Parse the file and construct the graph
-    file_path = "sihumix/acacae_adam/acacae_adam.smiles_list"
+def build_subgraph(file_path: str) -> nx.DiGraph:
+    """ 
+    Builds a subgraph containing the paths from glucose to all amino acids 
+    for one combination of molecule and medium 
+    """
     reaction_block_list = seperate_blocks(file_path)
     reactions = [extract_compounds(rb) for rb in reaction_block_list]
     g = construct_graph(reactions)
-    subgraph = bf_traversal(g, "D-glucose")
-    draw_graph(g)
+    s = bf_traversal(g, "D-glucose")
+    draw_graph(s)
+    A = reverse_bf_traversal(s)
+    return intersect_subgraph(s,A)
