@@ -220,6 +220,17 @@ def intersect_subgraph(s: nx.DiGraph, subgraphs: List[nx.DiGraph]) -> nx.DiGraph
 
     return G
 
+def draw_graph(g: nx.DiGraph):
+    color_map = []
+
+    for node in g.nodes(data=True):
+        if node[1].get("reaction"):
+            color_map.append("Blue")
+        else:
+            color_map.append("Green")
+    nx.draw(g, node_color=color_map, with_labels=True)
+    plt.show()
+
 if __name__ == "__main__":
     # 1. Done
     # 2. Parse the file and construct the graph
@@ -227,5 +238,4 @@ if __name__ == "__main__":
     reaction_block_list = seperate_blocks(file_path)
     reactions = [extract_compounds(rb) for rb in reaction_block_list]
     g = construct_graph(reactions)
-    nx.draw(g, with_labels=True)
-    plt.show()
+    draw_graph(g)
