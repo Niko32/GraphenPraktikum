@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
-import numpy as np
 
 combinations = [
         "acacae_adam",
@@ -51,7 +50,7 @@ def generate_pathways() -> dict[str, dict[str, list[str]]]:
     p = {}
     for c, s in subgraphs.items():
         for a in amino_acid_list:
-            p[c] = dict(zip(a, nx.shortest_simple_paths(s, "D-glucose", a)[0]))
+            p[c] = dict(zip(a, list(nx.shortest_simple_paths(s, "D-glucose", a))[0]))
 
     return dict(zip(subgraphs.keys, p))
 
