@@ -45,7 +45,7 @@ def generate_subgraphs() -> dict[str, nx.DiGraph]:
     return dict(zip(combinations, subgraphs))
 
 def generate_pathways() -> dict[str, dict[str, list[str]]]:
-    subgraphs = generate_pathways()
+    subgraphs = generate_subgraphs()
     amino_acid_list = wp1.amino_acid_list
     p = {}
     for c, s in subgraphs.items():
@@ -77,8 +77,6 @@ def compare_nr_amino_acids(pathways: dict[str, dict[str, list[nx.DiGraph]]]):
     plt.title("no. of pathways")
     sns.heatmap(df)
     plt.show()
-
-    pass
 
 def compare_rec_based_on_organism(pathways: dict[str, dict[str, list[nx.DiGraph]]]):
     '''
@@ -124,8 +122,6 @@ def compare_rec_based_on_organism(pathways: dict[str, dict[str, list[nx.DiGraph]
     plt.title("no. of diff. pathways per species in diff. medias")
     sns.heatmap(df)
     plt.show()
-
-    pass
 
 def compare_pathways_species(media: dict[str, list[list]], species1: int, species2: int, pathways: dict[str, dict[str, list[nx.DiGraph]]]):
     '''
@@ -181,6 +177,9 @@ def compare_rec_based_on_medium(pathways: dict[str, dict[str, list[nx.DiGraph]]]
 def alternative_react_paths():
     pass
 
-
 if __name__ == "__main__":
-    generate_subgraphs()
+    pathways = generate_pathways()
+    compare_nr_amino_acids(pathways)
+    compare_rec_based_on_organism(pathways)
+    media1, media2 = compare_rec_based_on_medium(pathways)
+    

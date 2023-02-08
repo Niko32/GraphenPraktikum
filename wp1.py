@@ -317,7 +317,7 @@ def build_subgraph(file_path: str) -> nx.DiGraph:
     G = construct_graph(reactions)
     G = bf_traversal(G, "D-glucose")
     file_name = file_path.split("/")[-1]
-    draw_graph(G, output=f"plots/finished/{file_name}.png")
+    #draw_graph(G, output=f"plots/finished/{file_name}.png")
     A = reverse_bf_traversal(G)
     return intersect_subgraph(G,A)
 
