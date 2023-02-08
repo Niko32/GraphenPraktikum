@@ -76,7 +76,7 @@ def seperate_blocks(file_path: str) -> List[List[str]]:
             else:
                 if not skip:
                     reaction_block.append(l)
-
+    reaction_blocks.append(reaction_block)
     return reaction_blocks
     
 
@@ -317,7 +317,7 @@ def build_subgraph(file_path: str) -> nx.DiGraph:
     G = construct_graph(reactions)
     G = bf_traversal(G, "D-glucose")
     file_name = file_path.split("/")[-1]
-    #draw_graph(G, output=f"plots/finished/{file_name}.png")
+    draw_graph(G, output=f"plots/finished/{file_name}.png")
     A = reverse_bf_traversal(G)
     return intersect_subgraph(G,A)
 
