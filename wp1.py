@@ -116,7 +116,8 @@ def construct_graph(reactions: List[Reaction]) -> nx.DiGraph:
             G.add_edge(e, r.bigg_id, weight=weight)
 
             if r.reversible:
-                G.add_edge(r.bigg_id, e, weight=weight)
+                G.add_node(r.bigg_id + "_rev", reaction=True)
+                G.add_edge(r.bigg_id + "_rev", e, weight=weight)
 
         for p, smiles_p in zip(r.products, r.smiles_products):
             weight = r.products.count(p)
@@ -124,7 +125,8 @@ def construct_graph(reactions: List[Reaction]) -> nx.DiGraph:
             G.add_edge(r.bigg_id, p, weight=weight)
 
             if r.reversible:
-                G.add_edge(p, r.bigg_id, weight=weight)
+                G.add_node(r.bigg_id + "_rev", reaction=True)
+                G.add_edge(p, r.bigg_id + "_rev", weight=weight)
 
     return G
 
