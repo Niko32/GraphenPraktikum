@@ -88,7 +88,7 @@ def extract_compounds(reaction_block: List[str]) -> Reaction:
     line1 = reaction_block[0].split()
     bigg = line1[2]
     metanet = line1[4]
-    reverse = (line1[6] == "True\n")
+    reverse = (line1[6] == "True")
 
     line3_educts = reaction_block[2].split('=')[0].strip()
     line3_products = reaction_block[2].split('=')[1].strip()
