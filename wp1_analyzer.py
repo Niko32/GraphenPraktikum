@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
+import numpy as np
 
 combinations = [
         "acacae_adam",
@@ -179,7 +180,23 @@ def compare_rec_based_on_medium(pathways: dict[str, dict[str, list[nx.DiGraph]]]
     return [media1, media2]
 
 def alternative_react_paths():
-    pass
+    '''
+    Are there/How many alternative reaction paths exist to synthesize each amino acid?
+    '''
+    # barplot showing the number of alternative paths for each amino acid
+    number_of_paths = {}
+    for a in wp1.amino_acid_list:
+        all_paths = []
+        pathway_dict = generate_pathways()
+        for p in pathway_dict.values():
+            all_paths.append(p[a])
+        number_of_paths[a] = len(np.unique(all_paths))
+
+    plt.bar(wp1.amino_acid_list, number_of_paths.values())
+    plt.title("no. of alternative reaction paths")
+    plt.xlabel("amino acid")
+    plt.ylabel("number of amino acids")
+    plt.show()
 
 
 if __name__ == "__main__":
