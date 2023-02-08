@@ -185,3 +185,6 @@ def compare_rec_based_on_medium(pathways: dict[str, dict[str, list[nx.DiGraph]]]
 def alternative_react_paths():
     pass
 
+
+if __name__ == "__main__":
+    generate_subgraphs()

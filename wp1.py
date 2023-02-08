@@ -187,7 +187,7 @@ def _search_edges(G: nx.DiGraph, start_nodes: List[str], reverse = False, verbos
     new_outgoing_edges: List[Tuple[str, str, bool]] = []
 
     # Mark the starting nodes as visited
-    for node in start_nodes:
+    for node in set(start_nodes).intersection(G.nodes):
         G.nodes[node]["visited"] = True
         outgoing_edges.extend(G.edges(node, data="visited"))
 
@@ -320,4 +320,4 @@ def build_subgraph(file_path: str) -> nx.DiGraph:
     return intersect_subgraph(G,A)
 
 if __name__ == "__main__":
-    build_subgraph("sihumix/cbuty_adam/cbuty_adam.smiles_list")
+    build_subgraph("sihumix/ecoli_cimIV/ecoli_cimIV.smiles_list")
