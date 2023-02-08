@@ -50,7 +50,7 @@ def generate_pathways() -> dict[str, dict[str, list[str]]]:
     p = {}
     for c, s in subgraphs.items():
         for a in amino_acid_list:
-            p[c] = dict(zip(a, nx.all_simple_paths(s, "D-glucose", a, cutoff=1)[0]))
+            p[c] = dict(zip(a, nx.shortest_simple_paths(s, "D-glucose", a)[0]))
 
     return dict(zip(subgraphs.keys, p))
 
