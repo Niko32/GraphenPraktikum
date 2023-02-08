@@ -21,8 +21,8 @@ combinations = [
         "ecoli_cimIV",
         "eramosum_adam",
         "eramosum_cimIV",
-        "Iplantarum_adam",
-        "Iplantarum_cimIV"
+        "lplantarum_adam",
+        "lplantarum_cimIV"
     ]
 
 def generate_subgraphs() -> dict[str, nx.DiGraph]:
