@@ -63,7 +63,6 @@ def compare_nr_amino_acids(pathways: dict[str, dict[str, list[nx.DiGraph]]]):
     Visualization of the number of all amino acids that can be synthesized 
     '''
 
-
     number_amino_acids = []
     df = pd.DataFrame(np.zeros((len(combinations), len(wp1.amino_acid_list))), columns = wp1.amino_acid_list, index = combinations)
     for c in combinations:
@@ -107,14 +106,14 @@ def compare_rec_based_on_organism(pathways: dict[str, dict[str, list[nx.DiGraph]
                 for path1 in pathways[combinations[i]][aa]:
                     path_found = False
                     for path2 in pathways[combinations[i+1]][aa]:
-                        if nx.graphs_equal(path1, path2):
+                        if nx.utils.graphs_equal(path1, path2):
                             path_found = True
                     if not path_found:
                         df[aa][species] += 1
                 for path2 in pathways[combinations[i]][aa]:
                     path_found = False
                     for path1 in pathways[combinations[i+1]][aa]:
-                        if nx.graphs_equal(path1, path2):
+                        if nx.utils.graphs_equal(path1, path2):
                             path_found = True
                     if not path_found:
                         df[aa][species] += 1
@@ -132,6 +131,39 @@ def compare_rec_based_on_organism(pathways: dict[str, dict[str, list[nx.DiGraph]
 
     pass
 
+def compare_pathways_species(media: dict[str, list[list]], species1: int, species2: int, pathways: dict[str, dict[str, list[nx.DiGraph]]]):
+    '''
+    Counting different pathways for each amino acid in the species1 and species and saving in the dict media
+    '''
+    amino_acids1 = set(pathways[combinations[species1]].keys())
+    amino_acids2 = set(pathways[combinations[species2]].keys())
+    # iterate over all amino acids that are synthesized in species i and species j
+    for aa in amino_acids1 & amino_acids2:
+        # iterate over the paths to the amino acid in the different medias and check if they exist is both medias
+        for path1 in pathways[combinations[species1]][aa]:
+            path_found = False
+            for path2 in pathways[combinations[species2]][aa]:
+                if nx.utils.graphs_equal(path1, path2):
+                    path_found = True
+            if not path_found:
+                media[aa][species1][species2] += 1
+        for path2 in pathways[combinations[species1]][aa]:
+            path_found = False
+            for path1 in pathways[combinations[species2]][aa]:
+                if nx.utils.graphs_equal(path1, path2):
+                    path_found = True
+            if not path_found:
+                media[aa][species1][species2] += 1
+    # iterate over all amino acids that are only synthesized in species i
+    for aa in amino_acids1.difference(amino_acids2):
+        media[aa][species1][species2] = len(pathways[combinations[species1]][aa])
+    # iterate over all amino acids that are only synthesized in species j
+    for aa in amino_acids2.difference(amino_acids1):
+        media[aa][species1][species2] = len(pathways[combinations[species2]][aa])
+    # iterate over all amino acids that are not synthesized neither in i nor in j
+    for aa in set(wp1.amino_acid_list).difference(amino_acids1 & amino_acids2):
+        media[aa][species1][species2] = 'X'
+
 def compare_rec_based_on_medium(pathways: dict[str, dict[str, list[nx.DiGraph]]]) -> list[dict[str, list]]:
     '''
     For the same medium, are there notable differences in the reconstructed pathways between species?
@@ -139,73 +171,16 @@ def compare_rec_based_on_medium(pathways: dict[str, dict[str, list[nx.DiGraph]]]
     '''
 
     # dictionaries with a cubic matrix for every amino acid
-    medium1 = {k:np.zeros((8, 8)) for k in wp1.amino_acid_list}
-    medium2 = {k:np.zeros((8, 8)) for k in wp1.amino_acid_list}
+    media1 = {k:np.zeros((8, 8)) for k in wp1.amino_acid_list}
+    media2 = {k:np.zeros((8, 8)) for k in wp1.amino_acid_list}
 
     for i in range(0,15,2):
-        for j in range(j,16,2):
+        for j in range(i+2,16,2):
 
-            # medium 1:
-            amino_acids1 = set(pathways[combinations[i]].keys())
-            amino_acids2 = set(pathways[combinations[j]].keys())
-            # iterate over all amino acids that are synthesized in species i and species j
-            for aa in amino_acids1 & amino_acids2:
-                # iterate over the paths to the amino acid in the different medias and check if they exist is both medias
-                for path1 in pathways[combinations[i]][aa]:
-                    path_found = False
-                    for path2 in pathways[combinations[j]][aa]:
-                        if nx.graphs_equal(path1, path2):
-                            path_found = True
-                    if not path_found:
-                        medium1[aa][i][j] += 1
-                for path2 in pathways[combinations[i]][aa]:
-                    path_found = False
-                    for path1 in pathways[combinations[j]][aa]:
-                        if nx.graphs_equal(path1, path2):
-                            path_found = True
-                    if not path_found:
-                        medium1[aa][i][j] += 1
-            # iterate over all amino acids that are only synthesized in species i
-            for aa in amino_acids1.difference(amino_acids2):
-                medium1[aa][i][j] = len(pathways[combinations[i]][aa])
-            # iterate over all amino acids that are only synthesized in species j
-            for aa in amino_acids2.difference(amino_acids1):
-                medium1[aa][i][j] = len(pathways[combinations[j]][aa])
-            # iterate over all amino acids that are not synthesized neither in i nor in j
-            for aa in set(wp1.amino_acid_list).difference(amino_acids1 & amino_acids2):
-                medium1[aa][i][j] = 'X'
+            compare_pathways_species(media1, i, j, pathways)
+            compare_pathways_species(media2, i+1, j+1, pathways)
 
-            # medium 2:
-            amino_acids1 = set(pathways[combinations[i+1]].keys())
-            amino_acids2 = set(pathways[combinations[j+1]].keys())
-            # iterate over all amino acids that are synthesized in species i and species j
-            for aa in amino_acids1 & amino_acids2:
-                # iterate over the paths to the amino acid in the different medias and check if they exist is both medias
-                for path1 in pathways[combinations[i+1]][aa]:
-                    path_found = False
-                    for path2 in pathways[combinations[j+1]][aa]:
-                        if nx.graphs_equal(path1, path2):
-                            path_found = True
-                    if not path_found:
-                        medium2[aa][i][j] += 1
-                for path2 in pathways[combinations[i+1]][aa]:
-                    path_found = False
-                    for path1 in pathways[combinations[j+1]][aa]:
-                        if nx.graphs_equal(path1, path2):
-                            path_found = True
-                    if not path_found:
-                        medium2[aa][i][j] += 1
-            # iterate over all amino acids that are only synthesized in species i
-            for aa in amino_acids1.difference(amino_acids2):
-                medium2[aa][i][j] = len(pathways[combinations[i+1]][aa])
-            # iterate over all amino acids that are only synthesized in species j
-            for aa in amino_acids2.difference(amino_acids1):
-                medium2[aa][i][j] = len(pathways[combinations[j+1]][aa])
-            # iterate over all amino acids that are not synthesized neither in i nor in j
-            for aa in set(wp1.amino_acid_list).difference(amino_acids1 & amino_acids2):
-                medium2[aa][i][j] = 'X'
-
-    return [medium1, medium2]
+    return [media1, media2]
 
 def alternative_react_paths():
     pass
