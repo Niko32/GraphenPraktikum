@@ -33,6 +33,7 @@ amino_acid_dict = {
 }
 
 cofactors = ["AMP", "ADP", "ATP", "NAD(+)", "NADH", "NADP(+)", "NADPH", "CTP", "CoA", "H2O", "NH4(+)", "hydrogen sulfide"]
+cofactors.extend(["GDP", "FAD", "FADH2", "UTP", "heme b", "FMN", "phosphate", "CO2"])
 
 class Reaction():
     def __init__(self, bigg_id: str, metanetx_id: str, reversible: bool, educts: List[str],
@@ -52,7 +53,14 @@ def seperate_blocks(file_path: str) -> List[List[str]]:
     as a list of lists of four strings
     """
 
-    reaction_blocks = []
+    extra_block = [
+        "Bigg ID: R_LEUTA MetaNetXId: MNXR192685 Reversible: True",
+        "ECs: 2.6.1.42;2.6.1.6;2.6.1.67",
+        "L-leucine + 2-oxoglutarate = 4-methyl-2-oxopentanoate + L-glutamate",
+        "CC(C)C[CH](C(=O)O)N.O=C([O-])CCC(=O)C(=O)[O-]>>CC(C)CC(=O)C(=O)[O-].[NH3+][CH](CCC(=O)[O-])C(=O)[O-]"
+    ]
+
+    reaction_blocks = [extra_block]
     reaction_block = []
     skip = False
 
@@ -169,28 +177,23 @@ def _create_gif(image_paths: List[str]):
     images[0].save("plots/traversal.gif", save_all = True, 
                    append_images = images[1:], optimize = False, 
                    duration = len(image_paths)*5)
-
-def bf_traversal(G: nx.DiGraph, metabolite: str, verbose = False) -> nx.DiGraph:
-    """ 
-    Takes a metabolites to form a subgraph constructed from them
-    """
-
-    print("##### bf_traversal #####")
     
-    # Assume there is enough energy, water and phosphor in the system
-    for cofactor in cofactors:
-        G.nodes[cofactor]["visited"] = True
-
-    # Mark the starting node as visited
-    G.nodes[metabolite]["visited"] = True
-
-    # Define nodes to search
-    outgoing_edges: List[Tuple[str, str, dict]] = G.edges(metabolite, data="visited")
+def _search_edges(G: nx.DiGraph, start_nodes: List[str], reverse = False, verbose = False):
+    """
+    Takes a graph and a set of starting nodes to perform bf search and rerturn the resulting subgraph 
+    """
+    
+    outgoing_edges: List[Tuple[str, str, dict]] = []
     new_outgoing_edges: List[Tuple[str, str, bool]] = []
+
+    # Mark the starting nodes as visited
+    for node in start_nodes:
+        G.nodes[node]["visited"] = True
+        outgoing_edges.extend(G.edges(node, data="visited"))
 
     iteration = 0
 
-    # Search every outgoing edge
+    # Loop as long as there is a non empty queue
     while len(outgoing_edges) > 0:
         print(f"### Iteration {iteration} ###")
 
@@ -199,12 +202,13 @@ def bf_traversal(G: nx.DiGraph, metabolite: str, verbose = False) -> nx.DiGraph:
             s = _build_visited_subgraph(G)
             draw_graph(s, f"plots/{iteration:02}.png")
 
+        # Visit all edges in the current queue
         for u, v, visited in outgoing_edges:
 
             print(f"Traversing edge ({u},{v})")
 
             # Skip visiting the node if it does not have all required inputs
-            if not _inputs_complete(G, v):
+            if not reverse and not _inputs_complete(G, v):
                 continue
 
             # Visit the node
@@ -217,58 +221,49 @@ def bf_traversal(G: nx.DiGraph, metabolite: str, verbose = False) -> nx.DiGraph:
         new_outgoing_edges = []
 
     # Save the graph figure
-    s = _build_visited_subgraph(G)
-
+    G = _build_visited_subgraph(G)
     if verbose:
         draw_graph(s, f"plots/{iteration:02}.png")
         _create_gif([f"plots/{file}" for file in os.listdir("plots")])
 
+    return G
+
+def bf_traversal(G: nx.DiGraph, metabolite: str, verbose = False) -> nx.DiGraph:
+    """ 
+    Takes a metabolites to form a subgraph constructed from them
+    """  
+
+    print("##### bf_traversal #####")
+
+    start_nodes = cofactors + [metabolite]
+    H = _search_edges(G, start_nodes, verbose=verbose)
+
     # Print out amino acids that have been reached
-    reached_acids = set(s.nodes.keys()).intersection(amino_acid_list)
+    reached_acids = set(H.nodes.keys()).intersection(amino_acid_list)
     print(len(reached_acids), "/", len(amino_acid_list), "acids have been reached")
 
-    return s
+    return H
 
 def reverse_bf_traversal(G: nx.DiGraph) -> List[nx.DiGraph]:
 
     print("##### reverse_bf_traversal #####")
     
-    # Reverse the edges
+    # Reverse the edges and set new start nodes
     G = G.reverse()
-
-    # Unvisit the nodes
     nx.set_node_attributes(G, False, "visited")
 
+    # Exclude acids that are not in the graph
+    acids = set(amino_acid_list).intersection(G.nodes)
+
     subgraphs = []
-    outgoing_edges: List[Tuple[str, str, bool]] = []
-    new_outgoing_edges: List[Tuple[str, str, bool]] = []
 
     # Create one subgraph for every amino acid
-    for acid in amino_acid_list:
+    for acid in acids:
 
-        # Skip acids are not in the graph
-        if not G.nodes.get(acid):
-            continue
+        print(f"Creating subgraph for {acid}")
+        H = _search_edges(G, [acid], reverse=True)
 
-        # Mark the amino acid as visited
-        G, outgoing_edges = _visit_node(G, acid)
-
-        # Search every outgoing edge
-        while len(outgoing_edges) > 0:
-            for u, v, visited in outgoing_edges:
-
-                # Visit the next node
-                G, edges = _visit_node(G, v)
-                new_outgoing_edges.extend(edges) 
-            
-            # Continue with the next iteration
-            outgoing_edges = new_outgoing_edges
-            new_outgoing_edges = []
-
-            # Construct a subgraph from all nodes that have been visited
-            s = _build_visited_subgraph(G)
-
-            subgraphs.append(s)
+        subgraphs.append(H)
             
     return subgraphs
 
@@ -288,7 +283,14 @@ def draw_graph(G: nx.DiGraph, output = ""):
         nodes[i] = node
         sizes[i] = 50 - 49 * (reaction_flag or 0)
         labels[node] = "" if reaction_flag else node
-        color_map[i] = "Blue" if reaction_flag else "Green"
+        if node in amino_acid_list:
+            color_map[i] = "Red"
+        elif node == "D-glucose":
+            color_map[i] = "Yellow"
+        elif reaction_flag:
+            color_map[i] = "Blue"
+        else:
+            color_map[i] = "Green"
 
     nx.draw(G, pos=nx.layout.kamada_kawai_layout(G), node_color=color_map, with_labels=True, 
             nodelist=nodes, node_size=sizes, font_size=5, width=0.1, arrowsize=4, labels=labels)
@@ -311,12 +313,11 @@ def build_subgraph(file_path: str) -> nx.DiGraph:
     reaction_block_list = seperate_blocks(file_path)
     reactions = [extract_compounds(rb) for rb in reaction_block_list]
     G = construct_graph(reactions)
-    s = bf_traversal(G, "D-glucose", True)
-    # Why is not a single amino aicid reached?
-    draw_graph(s)
-    A = reverse_bf_traversal(s)
-    draw_graph(A[0])
-    return intersect_subgraph(s,A)
+    G = bf_traversal(G, "D-glucose")
+    file_name = file_path.split("/")[-1]
+    draw_graph(G, output=f"plots/{file_name}")
+    A = reverse_bf_traversal(G)
+    return intersect_subgraph(G,A)
 
 if __name__ == "__main__":
-    build_subgraph("sihumix/acacae_adam/acacae_adam.smiles_list")
+    build_subgraph("sihumix/cbuty_adam/cbuty_adam.smiles_list")
