@@ -26,7 +26,7 @@ combinations = [
         "lplantarum_cimIV"
     ]
 
-def generate_subgraphs() -> dict[str, nx.DiGraph]:
+def generate_subgraphs(load=True) -> dict[str, nx.DiGraph]:
     '''
     Generate all subgraphs for all organism and medium combinations and output them in a dictionary
     '''
@@ -35,25 +35,37 @@ def generate_subgraphs() -> dict[str, nx.DiGraph]:
 
     subgraphs = []
     for i, path in enumerate(file_paths):
-        subgraph = wp1.build_subgraph(path)
 
-        # Save the subgraph
-        with open(f"subgraphs/{combinations[i]}", "wb") as f:
-            pickle.dump(subgraph, f)
+        save_path = f"subgraphs/{combinations[i]}"
+        
+        if load:
+            with open(save_path, "rb") as f:
+                # Load the subgraphs instead of building them
+                subgraph = pickle.load(f)
+        else:
+            with open(save_path, "wb") as f:
+                # Build and save the subgraph
+                subgraph = wp1.build_subgraph(path)
+                pickle.dump(subgraph, f)
             
         subgraphs.append(subgraph)
 
     return dict(zip(combinations, subgraphs))
 
 def generate_pathways() -> dict[str, dict[str, list[str]]]:
+    """ Returns the shortest path for every amino acid in every combination of medium and species """
     subgraphs = generate_subgraphs()
-    amino_acid_list = wp1.amino_acid_list
-    p = {}
-    for c, s in subgraphs.items():
-        for a in amino_acid_list:
-            p[c] = dict(zip(a, list(nx.shortest_simple_paths(s, "D-glucose", a))[0]))
+    pathways = {}
+    for combination, s in subgraphs.items():
+        amino_acids = set(wp1.amino_acid_list).intersection(s.nodes)
+        amino_acid_paths = {}
+        for a in amino_acids:
+            print(f"Finding shortest simple path for {a} in {combination}")
+            shortest_path = [node for node in list(nx.shortest_path(s, "D-glucose", a)) if node.startswith("R_")]
+            amino_acid_paths[a] = shortest_path
+        pathways[combination] = amino_acid_paths
 
-    return dict(zip(subgraphs.keys, p))
+    return pathways
 
 def compare_nr_amino_acids(pathways: dict[str, dict[str, list[str]]]):
     '''
