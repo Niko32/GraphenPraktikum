@@ -307,7 +307,7 @@ def draw_graph(G: nx.DiGraph, output = ""):
     # Clear the figure
     plt.clf()
 
-def build_subgraph(file_path: str) -> nx.DiGraph:
+def build_subgraph(file_path: str, verbose = False) -> nx.DiGraph:
     """ 
     Builds a subgraph containing the paths from glucose to all amino acids 
     for one combination of molecule and medium 
@@ -315,10 +315,11 @@ def build_subgraph(file_path: str) -> nx.DiGraph:
     reaction_block_list = seperate_blocks(file_path)
     reactions = [extract_compounds(rb) for rb in reaction_block_list]
     G = construct_graph(reactions)
-    G = bf_traversal(G, "D-glucose")
-    file_name = file_path.split("/")[-1]
-    draw_graph(G, output=f"plots/finished/{file_name}.png")
-    A = reverse_bf_traversal(G)
+    S = bf_traversal(G, "D-glucose")
+    if verbose:
+        file_name = file_path.split("/")[-1]
+        draw_graph(G, output=f"plots/finished/{file_name}.png")
+    A = reverse_bf_traversal(S)
     return intersect_subgraph(G,A)
 
 if __name__ == "__main__":
