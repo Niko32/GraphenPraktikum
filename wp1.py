@@ -273,7 +273,9 @@ def intersect_subgraph(s: nx.DiGraph, subgraphs: List[nx.DiGraph]) -> nx.DiGraph
     """ Intersection of the given subgraphs """
     A = nx.DiGraph()
     for sub in subgraphs:
-        A = nx.union(A, sub.reverse())
+        sub = sub.reverse()
+        A.add_nodes_from(sub.nodes(data=True))
+        A.add_edges_from(sub.edges(data=True))
 
     return nx.intersection(s,A)
 
