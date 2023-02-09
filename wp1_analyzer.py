@@ -78,21 +78,25 @@ def compare_nr_amino_acids(pathways: dict[str, dict[str, list[str]]]):
     '''
 
     number_amino_acids = []
-    df = pd.DataFrame([([0] * len(wp1.amino_acid_list)) for i in len(combinations)], columns = wp1.amino_acid_list, index = combinations)
+    df = pd.DataFrame([([0] * len(wp1.amino_acid_list)) for i in range(len(combinations))], columns = wp1.amino_acid_list, index = combinations)
     for c in combinations:
         number_amino_acids.append(len(pathways[c]))
         for aa in wp1.amino_acid_list:
             if aa in pathways[c].keys():
-                df[aa][c] = 'X'
+                df[aa][c] = 1
 
     # barplot for overall number of amino acids that are synthesized per species and medium
     plt.bar(combinations, number_amino_acids)
     plt.xlabel("species and media")
     plt.ylabel("number of amino acids")
+    plt.yticks(np.arange(0, 20, step=2))
+    plt.xticks(rotation = 90)
     plt.show()
 
-    # table that shows which amino acids are synthesized per combination
-    df.head()
+    # heatmap that shows which amino acids are synthesized per combination
+    plt.title("synthezised amino acids")
+    sns.heatmap(df, cbar=False)
+    plt.show()
 
 def compare_rec_based_on_organism(pathways: dict[str, dict[str, list[str]]]):
     '''
@@ -100,40 +104,31 @@ def compare_rec_based_on_organism(pathways: dict[str, dict[str, list[str]]]):
     Visualization as a heatmap
     '''
 
-    df = pd.DataFrame(np.zeros((8, len(wp1.amino_acid_list))), columns = wp1.amino_acid_list)
+    df = pd.DataFrame(columns = wp1.amino_acid_list)
 
     # iterate over the species
     for i in range(0,len(combinations),2):
         species = combinations[i].split('_')[0]
-        df.rename(index = {i/2 : species})
+        new_row = pd.DataFrame(np.zeros((1,len(wp1.amino_acid_list))), index=[species], columns = wp1.amino_acid_list)
+        df = pd.concat([df, new_row])
         # get the synthesized amino acid set for each media in the given species
         media1_amino_acids = pathways[combinations[i]].keys()
         media2_amino_acids = pathways[combinations[i+1]].keys()
         # iterate over the amino acids in media1
         for aa in media1_amino_acids:
+            path1 = pathways[combinations[i]][aa]
+            # if the amino acid is also synthesized in media2 count the different reactions in the pathways
             if aa in media2_amino_acids:
-                # iterate over the paths to the amino acid in the different medias and check if they exist is both medias
-                for path1 in pathways[combinations[i]][aa]:
-                    path_found = False
-                    for path2 in pathways[combinations[i+1]][aa]:
-                        if nx.utils.graphs_equal(path1, path2):
-                            path_found = True
-                    if not path_found:
-                        df[aa][species] += 1
-                for path2 in pathways[combinations[i]][aa]:
-                    path_found = False
-                    for path1 in pathways[combinations[i+1]][aa]:
-                        if nx.utils.graphs_equal(path1, path2):
-                            path_found = True
-                    if not path_found:
-                        df[aa][species] += 1
-            # if the amino acid is not synthesized in media 2 all pathways are different
+                path2 = pathways[combinations[i+1]][aa]
+                df[aa][species] = len(list(set(path1).intersection(path2)))
+            # if the amino acid is not synthesized in media2 all reactions in the pathway of media1 are different
             else:
-                df[aa][species] = len(pathways[combinations[i]][aa])
-        for aa in media2_amino_acids:
-            # if the amino acid is not synthesized in media 1 all pathways are different
-            if not aa in media1_amino_acids:
-                df[aa][species] = len(pathways[combinations[i+1]][aa])
+                df[aa][species] = len(path1)
+        # all amino acids that are synthezised in media2 but not in media 1
+        for aa in set(media2_amino_acids).difference(media1_amino_acids):
+            path2 = pathways[combinations[i+1]][aa]
+            df[aa][species] = len(pathways[combinations[i+1]][aa])
+        # all amino acids which are neither synthesized in media1 nor in media2
         for aa in set(wp1.amino_acid_list).difference(media1_amino_acids & media2_amino_acids):
             df[aa][species] = np.nan
 
@@ -160,7 +155,6 @@ def compare_rec_based_on_organism(pathways: dict[str, dict[str, list[str]]]):
         linewidth=0.5,
         linecolor="black",
         vmin=-1,
-        vmax=1,
         xticklabels=True,
         yticklabels=True)
     plt.show()
@@ -175,13 +169,13 @@ def path_exists(pathways: list[list[str]], path: list[str]):
             return True
     return False
 
-def compare_rec_based_on_medium(pathways: dict[str, dict[str, list[nx.DiGraph]]]) -> list[dict[str, list]]:
+def compare_rec_based_on_medium(pathways: dict[str, dict[str, list[nx.DiGraph]]]):
     '''
     For the same medium, are there notable differences in the reconstructed pathways between species?
-    Save the number of pairwise different pathways for each amino acid and medium in a matrix which coulms and rows represent the different species
+    Visualization with a heatmap that shows how many different pathways exist over all species per media and amino acid
     '''
 
-    # dictionaries with a cubic matrix for every amino acid
+    # data frame with medias in the rows and amino acids in the columns
     df = pd.DataFrame(np.zeros((2, len(wp1.amino_acid_list))), columns = wp1.amino_acid_list, index = ["adam", "cimIV"])
 
     for aa in wp1.amino_acid_list:
