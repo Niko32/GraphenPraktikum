@@ -194,7 +194,7 @@ def compare_rec_based_on_medium(pathways: dict[str, dict[str, list[nx.DiGraph]]]
     sns.heatmap(df)
     plt.show()
 
-def alternative_react_paths():
+def alternative_react_paths(pathways: dict[str, dict[str, list[str]]]):
     '''
     Are there/How many alternative reaction paths exist to synthesize each amino acid?
     '''
@@ -202,9 +202,12 @@ def alternative_react_paths():
     number_of_paths = {}
     for a in wp1.amino_acid_list:
         all_paths = []
-        pathway_dict = generate_pathways()
-        for p in pathway_dict.values():
-            all_paths.append(p[a])
+        for path in pathways.values():
+            if a in path.keys():
+                all_paths.append(path[a])
+            else:
+                all_paths.append([])
+        all_paths = [path for path in all_paths if path != []]
         number_of_paths[a] = len(np.unique(all_paths))
 
     plt.bar(wp1.amino_acid_list, number_of_paths.values())
@@ -218,4 +221,5 @@ if __name__ == "__main__":
     compare_nr_amino_acids(pathways)
     compare_rec_based_on_organism(pathways)
     media1, media2 = compare_rec_based_on_medium(pathways)
+    alternative_react_paths(pathways)
     
