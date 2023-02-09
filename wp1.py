@@ -180,7 +180,7 @@ def _create_gif(image_paths: List[str]):
                    append_images = images[1:], optimize = False, 
                    duration = len(image_paths)*5)
     
-def _search_edges(G: nx.DiGraph, start_nodes: List[str], reverse = False, verbose = False):
+def _search_edges(G: nx.DiGraph, start_nodes: List[str], reverse = False, verbose = False, n = None):
     """
     Takes a graph and a set of starting nodes to perform bf search and rerturn the resulting subgraph 
     """
@@ -188,8 +188,14 @@ def _search_edges(G: nx.DiGraph, start_nodes: List[str], reverse = False, verbos
     outgoing_edges: List[Tuple[str, str, dict]] = []
     new_outgoing_edges: List[Tuple[str, str, bool]] = []
 
+    # Unvisit all nodes
+    nx.set_node_attributes(G, False, "visited")
+
+    # Assure the starting nodes are in G
+    start_nodes = set(start_nodes).intersection(G.nodes)
+
     # Mark the starting nodes as visited
-    for node in set(start_nodes).intersection(G.nodes):
+    for node in start_nodes:
         G.nodes[node]["visited"] = True
         outgoing_edges.extend(G.edges(node, data="visited"))
 
@@ -222,6 +228,10 @@ def _search_edges(G: nx.DiGraph, start_nodes: List[str], reverse = False, verbos
         outgoing_edges = new_outgoing_edges
         new_outgoing_edges = []
 
+        # Stop after number of iterations is reached
+        if n and n <= iteration:
+            break
+
     # Save the graph figure
     G = _build_visited_subgraph(G)
     if verbose:
@@ -230,15 +240,15 @@ def _search_edges(G: nx.DiGraph, start_nodes: List[str], reverse = False, verbos
 
     return G
 
-def bf_traversal(G: nx.DiGraph, metabolites: List[str] = [], verbose = False) -> nx.DiGraph:
+def bf_traversal(G: nx.DiGraph, metabolites: List[str] = [], verbose = False, n: Union[int, None] = None, use_cofactors = True) -> nx.DiGraph:
     """ 
     Takes a set of metabolites to form a subgraph constructed from them
     """  
 
     print("##### bf_traversal #####")
 
-    start_nodes = cofactors + metabolites
-    H = _search_edges(G, start_nodes, verbose=verbose)
+    start_nodes = cofactors + metabolites if use_cofactors else metabolites  
+    H = _search_edges(G, start_nodes, verbose=verbose, n=n)
 
     # Print out amino acids that have been reached
     reached_acids = set(H.nodes.keys()).intersection(amino_acid_list)
