@@ -230,14 +230,14 @@ def _search_edges(G: nx.DiGraph, start_nodes: List[str], reverse = False, verbos
 
     return G
 
-def bf_traversal(G: nx.DiGraph, metabolite: str, verbose = False) -> nx.DiGraph:
+def bf_traversal(G: nx.DiGraph, metabolites: List[str] = [], verbose = False) -> nx.DiGraph:
     """ 
-    Takes a metabolites to form a subgraph constructed from them
+    Takes a set of metabolites to form a subgraph constructed from them
     """  
 
     print("##### bf_traversal #####")
 
-    start_nodes = cofactors + [metabolite]
+    start_nodes = cofactors + metabolites
     H = _search_edges(G, start_nodes, verbose=verbose)
 
     # Print out amino acids that have been reached
@@ -317,12 +317,21 @@ def build_subgraph(file_path: str, verbose = False) -> nx.DiGraph:
     reaction_block_list = seperate_blocks(file_path)
     reactions = [extract_compounds(rb) for rb in reaction_block_list]
     G = construct_graph(reactions)
-    S = bf_traversal(G, "D-glucose")
+
+    S = bf_traversal(G, ["D-glucose"])
     if verbose:
         file_name = file_path.split("/")[-1]
         draw_graph(G, output=f"plots/finished/{file_name}.png")
     A = reverse_bf_traversal(S)
-    return intersect_subgraph(G,A)
+
+    subgraph = intersect_subgraph(G,A)
+
+    # Remove cofactors
+    for cofactor in cofactors:
+        if cofactor in subgraph:
+            subgraph.remove_node(cofactor)
+
+    return subgraph
 
 if __name__ == "__main__":
     build_subgraph("sihumix/ecoli_cimIV/ecoli_cimIV.smiles_list")

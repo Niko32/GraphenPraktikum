@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 from matplotlib.colors import ListedColormap
+import yaml
 
 combinations = [
         "acacae_adam",
@@ -64,6 +65,10 @@ def generate_pathways() -> dict[str, dict[str, list[str]]]:
             shortest_path = [node for node in list(nx.shortest_path(s, "D-glucose", a)) if node.startswith("R_")]
             amino_acid_paths[a] = shortest_path
         pathways[combination] = amino_acid_paths
+
+    # Save the pathways
+    with open("pathways.yml", "w") as f:
+        yaml.safe_dump(pathways, f)
 
     return pathways
 

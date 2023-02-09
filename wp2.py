@@ -1,0 +1,1 @@
+# input: list of proteins to synthesize -> find the amino acid composition
