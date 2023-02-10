@@ -11,8 +11,41 @@ from constants import COFACTORS, SEPCIES_MEDIUM_COMBINATIONS, AMINO_ACIDS
 def parse_fasta(file_path: str) -> dict[str, str]:
     """ Takes in a fasta file and outputs a dict containing the name of the protein and its amino acid chain """
 
+    protein_dict = {}
+
+    with open(file_path, 'r') as f:
+        for l in f:
+            if l[0] == '>':
+                # save the curent protein name and create a dict entry
+                curent_protein = l[1:].rstrip('\n')
+                protein_dict[curent_protein] = ""
+            else:
+                # append the sequence line to the sequence of the curently read in protein
+                protein_dict[curent_protein] + l.rstrip('\n')
+
+    return protein_dict
+
+
 def get_ratios(proteins: dict[str, str]) -> dict[AminoAcid, float]:
     """ Takes a list of proteins to calculate the ratio of amino acids in the entire proteome """
+
+    # first set number of each amino acid to 0
+    aminoacid_ratio = {}
+    for aa in AminoAcid:
+        aminoacid_ratio[aa] = 0
+
+    # iterate over all proteins sum up the length of each protein and count the amino acids
+    proteom_len = 0
+    for p in proteins:
+        proteom_len += len(proteins[p])
+        for aa in proteins[p]:
+            aminoacid_ratio[aa] += 1
+
+    # divide the number of amino acids through the length of the proteom
+    for aa in AminoAcid:
+        aminoacid_ratio[aa] = aminoacid_ratio[aa] / proteom_len
+
+    return aminoacid_ratio
 
 def add_biomass_reaction(G: nx.DiGraph, ratios: dict[AminoAcid, float]) -> nx.DiGraph:
     """ Takes the subgraph containing all amino acids and adds a biomass reaction and node to it """
