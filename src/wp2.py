@@ -5,7 +5,7 @@ import pulp
 import pickle
 
 from custom_types import AminoAcid, Protein
-from constants import COFACTORS, SEPCIES_MEDIUM_COMBINATIONS, AMINO_ACIDS
+from constants import COFACTORS, SEPCIES_MEDIUM_COMBINATIONS, AMINO_ACIDS, AMINO_ACID_DICT
 
 
 
@@ -22,7 +22,7 @@ def parse_fasta(file_path: str) -> dict[str, str]:
                 protein_dict[curent_protein] = ""
             else:
                 # append the sequence line to the sequence of the curently read in protein
-                protein_dict[curent_protein] + l.rstrip('\n')
+                protein_dict[curent_protein] = protein_dict[curent_protein] + l.rstrip('\n')
 
     return protein_dict
 
@@ -32,7 +32,7 @@ def get_ratios(proteins: dict[str, str]) -> dict[AminoAcid, float]:
 
     # first set number of each amino acid to 0
     aminoacid_ratio = {}
-    for aa in AminoAcid:
+    for aa in AMINO_ACIDS:
         aminoacid_ratio[aa] = 0
 
     # iterate over all proteins sum up the length of each protein and count the amino acids
@@ -40,10 +40,10 @@ def get_ratios(proteins: dict[str, str]) -> dict[AminoAcid, float]:
     for p in proteins:
         proteom_len += len(proteins[p])
         for aa in proteins[p]:
-            aminoacid_ratio[aa] += 1
+            aminoacid_ratio[AMINO_ACID_DICT[aa]] += 1
 
     # divide the number of amino acids through the length of the proteom
-    for aa in AminoAcid:
+    for aa in AMINO_ACIDS:
         aminoacid_ratio[aa] = aminoacid_ratio[aa] / proteom_len
 
     return aminoacid_ratio
