@@ -7,26 +7,6 @@ import pickle
 from custom_types import AminoAcid, Protein
 from constants import PROTEINS, SEPCIES_MEDIUM_COMBINATIONS
 
-def find_protein_composition(G: nx.DiGraph, protein: Protein) -> dict[AminoAcid, float]:
-    """ 
-    Get the composition of amino acids of a give protein. 
-    Returns a dict containing amino acids as keys and their ratio in the protein as values.
-    """
-
-    composition = {}
-
-    raise NotImplementedError
-
-    # Assure the ratios add to one
-    assert np.sum(composition.values()) == 1.
-
-    return composition
-
-# def parse_proteome(file_path: str) -> list[list[str]]:
-#     """ Takes in a file_path of the proteome file to output a block of string representing one protein """
-
-# def parse_block(protein_block: list[str]) -> dict[str, str]:
-#     """ Takes a block of strings to output a dict containing the name of the protein and its amnino acid chain """
 
 def parse_fasta(file_path: str) -> dict[str, str]:
     """ Takes in a fasta file and outputs a dict containing the name of the protein and its amino acid chain """
