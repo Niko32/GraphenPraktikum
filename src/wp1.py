@@ -250,7 +250,10 @@ def intersect_subgraph(s: nx.DiGraph, subgraphs: List[nx.DiGraph]) -> nx.DiGraph
         A.add_nodes_from(sub.nodes(data=True))
         A.add_edges_from(sub.edges(data=True))
 
-    return nx.intersection(s,A)
+    G = A.copy()
+    G.remove_nodes_from(n for n in A if n not in s)
+    G.remove_edges_from(e for e in A.edges if e not in s.edges)
+    return G
 
 def draw_graph(G: nx.DiGraph, output = ""):
 

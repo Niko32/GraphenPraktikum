@@ -54,7 +54,7 @@ def add_biomass_reaction(G: nx.DiGraph, ratios: dict[AminoAcid, float]) -> nx.Di
     # Add the biomass reaction and output node
     G.add_node("R_biomass", reaction=True)
     G.add_node("biomass")
-    G.add_edge("R_biomass", "biomass")
+    G.add_edge("R_biomass", "biomass", weight=1)
 
     # Add edges from the amino acids to the biomass node
     amino_acids_in_the_graph = set(AMINO_ACIDS).intersection(G.nodes)
@@ -69,7 +69,7 @@ def add_input_reactions(G: nx.DiGraph) -> nx.DiGraph:
     # Add a node for every cofactor and connect it to the cofactor
     for cofactor in [*COFACTORS, "D-glucose"]:
         input_reaction = f"R_{cofactor}"
-        G.add_node(input_reaction)
+        G.add_node(input_reaction, reaction=True)
         G.add_edge(input_reaction, cofactor, weight=1)
 
     return G
@@ -108,12 +108,14 @@ def add_constraints(model: pulp.LpProblem, V: dict[str: pulp.LpVariable], G: nx.
             model += V[v] >= 0
 
     # Add reaction equations iterating over all compound nodes
-    for node in G.nodes(data="reaction"):
-        # Filter out reactions
-        if node[1]:
+    for compound, is_reaction in G.nodes(data="reaction"):
+
+        # Skip reactions
+        if is_reaction:
             continue
-        predessecors = [e[2]["weight"] * V[e[0]] for e in G.in_edges(node, data=True)]
-        successors = [e[2]["weight"] * V[e[1]] for e in G.edges(node, data=True)]
+
+        predessecors = [data["weight"] * V[u] for u, v, data in G.in_edges(compound, data=True)]
+        successors = [data["weight"] * V[v] for u, v, data in G.out_edges(compound, data=True)]
 
         model += pulp.lpSum(predessecors) == pulp.lpSum(successors)
 
@@ -130,4 +132,9 @@ if __name__ == "__main__":
     model += variables["R_biomass"], "Profit"
     model = add_constraints(model, variables, G)
     model.solve()
+
+    # Print results
     pulp.LpStatus[model.status]
+    for v in variables.values():
+        print(v.name,":", v.varValue)
+    print(pulp.value(model.objective))
