@@ -108,13 +108,14 @@ def add_constraints(model: pulp.LpProblem, V: dict[str: pulp.LpVariable], G: nx.
             model += V[v] >= 0
 
     # Add reaction equations iterating over all compound nodes
-    nodes = G.nodes(data="reaction")
-    for node in nodes:
-        if not node.get("reaction"):
-            predessecors = [G.edges[node, p]["weight"] * V[p] for p in G.predecessors(node)]
-            successors = [G.edges[node, p]["weight"] * V[p] for p in G.successors(node)]
+    for node in G.nodes(data="reaction"):
+        # Filter out reactions
+        if node[1]:
+            continue
+        predessecors = [e[2]["weight"] * V[e[0]] for e in G.in_edges(node, data=True)]
+        successors = [e[2]["weight"] * V[e[1]] for e in G.edges(node, data=True)]
 
-            model += pulp.lpSum(predessecors) == pulp.lpSum(successors)
+        model += pulp.lpSum(predessecors) == pulp.lpSum(successors)
 
     return model
 

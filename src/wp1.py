@@ -307,4 +307,4 @@ def build_subgraph(file_path: str, verbose = False) -> nx.DiGraph:
     return subgraph
 
 if __name__ == "__main__":
-    build_subgraph("sihumix/ecoli_cimIV/ecoli_cimIV.smiles_list")
+    build_subgraph("data/sihumix/ecoli_cimIV/ecoli_cimIV.smiles_list")
