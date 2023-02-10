@@ -5,7 +5,7 @@ import pulp
 import pickle
 
 from custom_types import AminoAcid, Protein
-from constants import PROTEINS, SEPCIES_MEDIUM_COMBINATIONS, AMINO_ACIDS
+from constants import COFACTORS, SEPCIES_MEDIUM_COMBINATIONS, AMINO_ACIDS
 
 
 def parse_fasta(file_path: str) -> dict[str, str]:
@@ -31,6 +31,14 @@ def add_biomass_reaction(G: nx.DiGraph, ratios: dict[AminoAcid, float]) -> nx.Di
 
 def add_input_reactions(G: nx.DiGraph) -> nx.DiGraph:
     """ Take the graph and adds input and output reactions to it """
+
+    # Add a node for every cofactor and connect it to the cofactor
+    for cofactor in [*COFACTORS, "D-glucose"]:
+        input_reaction = f"R_{cofactor}"
+        G.add_node(input_reaction)
+        G.add_edge(input_reaction, cofactor, weight=1)
+
+    return G
 
 def load_graph():
     save_path = f"output/subgraphs/{SEPCIES_MEDIUM_COMBINATIONS[0]}"
