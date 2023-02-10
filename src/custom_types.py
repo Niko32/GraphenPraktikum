@@ -21,7 +21,7 @@ AminoAcid = Literal[
     "L-isoleucine", 
     "glycine", 
     "L-alanine", 
-    "L-Leucine"
+    "L-leucine"
 ]
 
 SpeciesMediumCombination = Literal[
