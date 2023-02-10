@@ -17,9 +17,6 @@ def get_ratios(proteins: dict[str, str]) -> dict[AminoAcid, float]:
 def add_biomass_reaction(G: nx.DiGraph, ratios: dict[AminoAcid, float]) -> nx.DiGraph:
     """ Takes the subgraph containing all amino acids and adds a biomass reaction and node to it """
 
-def get_constraints(G: nx.DiGraph):
-    """"""
-
 def load_graph():
     save_path = f"output/subgraphs/{SEPCIES_MEDIUM_COMBINATIONS[0]}"
     with open(save_path, "rb") as f:
