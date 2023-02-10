@@ -8,6 +8,7 @@ from custom_types import AminoAcid, Protein
 from constants import COFACTORS, SEPCIES_MEDIUM_COMBINATIONS, AMINO_ACIDS
 
 
+
 def parse_fasta(file_path: str) -> dict[str, str]:
     """ Takes in a fasta file and outputs a dict containing the name of the protein and its amino acid chain """
 
@@ -92,9 +93,30 @@ def get_variables(G: nx.DiGraph) -> dict[str, pulp.LpVariable]:
 
     return variables
 
-def add_constraints(model: pulp.LpProblem, G: nx.DiGraph) -> pulp.LpProblem:
+def add_constraints(model: pulp.LpProblem, V: dict[str: pulp.LpVariable], G: nx.DiGraph) -> pulp.LpProblem:
     """ Add the constraints to the model  including input constraints and a glucose constraint """
+    # Add glucose constraint
+    model += V["R_D-glucose"] >= 10
 
+    # Add constraints for each cofactors
+    for cofactor in COFACTORS:
+        model += V["R_" + cofactor] >= -1000
+
+    # Add constraints for all inner nodes
+    for v in V.keys():
+        if not v in COFACTORS:
+            model += V[v] >= 0
+
+    # Add reaction equations iterating over all compound nodes
+    nodes = G.nodes(data="reaction")
+    for node in nodes:
+        if not node.get("reaction"):
+            predessecors = [G.edges[node, p]["weight"] * V[p] for p in G.predecessors(node)]
+            successors = [G.edges[node, p]["weight"] * V[p] for p in G.successors(node)]
+
+            model += pulp.lpSum(predessecors) == pulp.lpSum(successors)
+
+    return model
 
 if __name__ == "__main__":
     proteins = parse_fasta("data/proteomes/Anaerostipes_caccae.faa")
@@ -105,6 +127,6 @@ if __name__ == "__main__":
     model = pulp.LpProblem("Maximising_Problem", pulp.LpMaximize)
     variables = get_variables(G)
     model += variables["R_biomass"], "Profit"
-    model = add_constraints(model, G)
+    model = add_constraints(model, variables, G)
     model.solve()
     pulp.LpStatus[model.status]
