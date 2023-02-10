@@ -1,0 +1,558 @@
+0	2-dodecanoyl-sn-glycero-3-phosphoethanolamine	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][C@H]([CH2][OH])[CH2][O][P](=[O])([O-])[O][CH2][CH2][NH3+]
+1	ATP	[NH2][c]1[n][cH][n][c]2[c]1[n][cH][n]2[C@@H]1[O][C@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]1[OH]
+2	dodecanoate	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O-]
+3	AMP	[NH2][c]1[n][cH][n][c]2[c]1[n][cH][n]2[C@@H]1[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]1[OH]
+4	Phosphatidylethanolamine (didodecanoyl, n-C12:0)	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][CH2][CH2][NH3+])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+5	diphosphate	[O]=[P]([O-])([O-])[O][P](=[O])([O-])[OH]
+6	PE(0:0/14:0)	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][C@H]([CH2][OH])[CH2][O][P](=[O])([OH])[O][CH2][CH2][NH2]
+7	tetradecanoate	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O-]
+8	Phosphatidylethanolamine (ditetradecanoyl, n-C14:0)	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][CH2][CH2][NH3+])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+9	2-Acyl-sn-glycero-3-phosphoethanolamine (n-C14:1)	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([OH])[CH2][O][P](=[O])([O-])[O][CH2][CH2][NH3+]
+10	(9Z)-tetradecenoate	[CH3][CH2][CH2][CH2]/[CH]=[CH]\[CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O-]
+11	Phosphatidylethanolamine (ditetradec-7-enoyl, n-C14:1)	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][CH2][CH2][NH3+])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3]
+12	2-hexadecanoyl-sn-glycero-3-phosphoethanolamine	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][C@H]([CH2][OH])[CH2][O][P](=[O])([OH])[O][CH2][CH2][NH2]
+13	hexadecanoate	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O-]
+14	1,2-dihexadecanoyl-sn-glycero-3-phosphoethanolamine	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][C@H]([CH2][O][P](=[O])([O-])[O][CH2][CH2][NH3+])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+15	2-octadecanoyl-sn-glycero-3-phosphoethanolamine zwitterion	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][C@H]([CH2][OH])[CH2][O][P](=[O])([O-])[O][CH2][CH2][NH3+]
+16	octadecanoate	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O-]
+17	1,2-distearoylphosphatidylethanolamine	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([OH])[O][CH2][CH2][NH2])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+18	2-Acyl-sn-glycero-3-phosphoethanolamine (n-C18:1)	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([OH])[CH2][O][P](=[O])([O-])[O][CH2][CH2][NH3+]
+19	(9Z)-octadecenoate	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2]/[CH]=[CH]\[CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O-]
+20	Phosphatidylethanolamine (dioctadec-11-enoyl, n-C18:1)	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][CH2][CH2][NH3+])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3]
+21	2-Acyl-sn-glycero-3-phosphoglycerol (n-C14:1)	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([OH])[CH2][O][P](=[O])([O-])[O][CH2][CH]([OH])[CH2][OH]
+22	Phosphatidylglycerol (ditetradec-7-enoyl, n-C14:1)	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][CH2][CH]([OH])[CH2][OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3]
+23	2-hexadecanoyl-sn-glycero-3-phospho-(1'-sn-glycerol)	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][C@H]([CH2][OH])[CH2][O][P](=[O])([O-])[O][CH2][C@@H]([OH])[CH2][OH]
+24	dipalmitoyl phosphatidylglycerol	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([OH])[O][CH2][CH]([OH])[CH2][OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+25	2-dehydropantoate	[CH3][C]([CH3])([CH2][OH])[C](=[O])[C](=[O])[O-]
+26	3-methyl-2-oxobutanoate	[CH3][CH]([CH3])[C](=[O])[C](=[O])[O-]
+27	formaldehyde	[CH2]=[O]
+28	2-oxoglutarate	[O]=[C]([O-])[CH2][CH2][C](=[O])[C](=[O])[O-]
+29	H(+)	[H+]
+30	isochorismate	[CH2]=[C]([O][C@H]1[CH]=[CH][CH]=[C]([C](=[O])[O-])[C@@H]1[OH])[C](=[O])[O-]
+31	2-succinyl-6-hydroxycyclohexa-2,4-diene-1-carboxylate	[O]=[C]([OH])[CH2][CH2][C](=[O])[C]1=[CH][CH]=[CH][CH]([OH])[CH]1[C](=[O])[OH]
+32	CO2	[O]=[C]=[O]
+33	pyruvate	[CH3][C](=[O])[C](=[O])[O-]
+34	L-Alanyl-gamma-D-glutamyl-meso-2,6-diaminoheptanedioate	[CH3][C@H]([NH2])[C](=[O])[NH][C@H]([CH2][CH2][C](=[O])[NH][C@@H]([CH2][CH2][CH2][C@@H]([NH2])[C](=[O])[OH])[C](=[O])[OH])[C](=[O])[OH]
+35	H2O	[OH2]
+36	ADP	[NH2][c]1[n][cH][n][c]2[c]1[n][cH][n]2[C@@H]1[O][C@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]1[OH]
+37	phosphate	[O]=[P]([O-])([O-])[OH]
+38	3-sulfino-L-alanine	[NH3+][C@@H]([CH2][S](=[O])[O-])[C](=[O])[O-]
+39	3-sulfinylpyruvic acid	[O]=[C]([OH])[C](=[O])[CH2][S](=[O])[OH]
+40	L-glutamate	[NH3+][C@@H]([CH2][CH2][C](=[O])[O-])[C](=[O])[O-]
+41	L-4-hydroxyglutamate semialdehyde	[NH3+][C@@H]([CH2][C@@H]([OH])[CH]=[O])[C](=[O])[O-]
+42	NAD(+)	[NH2][C](=[O])[c]1[cH][cH][cH][n+]([C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]3[O][C@@H]([n]4[cH][n][c]5[c]([NH2])[n][cH][n][c]45)[C@H]([OH])[C@@H]3[OH])[C@@H]([OH])[C@H]2[OH])[cH]1
+43	(4S)-4-hydroxy-L-glutamate	[NH3+][C@@H]([CH2][C@@H]([OH])[C](=[O])[O-])[C](=[O])[O-]
+44	NADH	[NH2][C](=[O])[C]1=[CH][N]([C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]3[O][C@@H]([n]4[cH][n][c]5[c]([NH2])[n][cH][n][c]45)[C@H]([OH])[C@@H]3[OH])[C@@H]([OH])[C@H]2[OH])[CH]=[CH][CH2]1
+45	4-hydroxy-L-threonine	[NH3+][C@H]([C](=[O])[O-])[C@H]([OH])[CH2][OH]
+46	glycolaldehyde	[O]=[CH][CH2][OH]
+47	glycine	[NH3+][CH2][C](=[O])[O-]
+48	4-(phosphooxy)-L-threonine	[NH3+][C@H]([C](=[O])[O-])[C@H]([OH])[CH2][O][P](=[O])([O-])[O-]
+49	L-alanine-D-glutamate-meso-2,6-diaminoheptanedioate-D-alanine	[CH3][CH]([NH3+])[C](=[O])[NH][CH]([CH2][CH2][CH2][CH]([NH][C](=[O])[CH2][CH2][CH]([NH][C](=[O])[CH]([CH3])[NH3+])[C](=[O])[O-])[C](=[O])[O-])[C](=[O])[O-]
+50	D-alanine	[CH3][C@@H]([NH3+])[C](=[O])[O-]
+51	5-dehydro-D-gluconate	[O]=[C]([CH2][OH])[C@@H]([OH])[C@H]([OH])[C@@H]([OH])[C](=[O])[O-]
+52	NADPH	[NH2][C](=[O])[C]1=[CH][N]([C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]3[O][C@@H]([n]4[cH][n][c]5[c]([NH2])[n][cH][n][c]45)[C@H]([O][P](=[O])([O-])[O-])[C@@H]3[OH])[C@@H]([OH])[C@H]2[OH])[CH]=[CH][CH2]1
+53	D-gluconate	[O]=[C]([O-])[C@H]([OH])[C@@H]([OH])[C@H]([OH])[C@H]([OH])[CH2][OH]
+54	NADP(+)	[NH2][C](=[O])[c]1[cH][cH][cH][n+]([C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]3[O][C@@H]([n]4[cH][n][c]5[c]([NH2])[n][cH][n][c]45)[C@H]([O][P](=[O])([O-])[O-])[C@@H]3[OH])[C@@H]([OH])[C@H]2[OH])[cH]1
+55	alpha-D-galactose	[OH][CH2][C@H]1[O][C@H]([OH])[C@H]([OH])[C@@H]([OH])[C@H]1[OH]
+56	alpha-D-galactose 6-phosphate	[O]=[P]([OH])([OH])[O][CH2][C@H]1[O][C@H]([OH])[C@H]([OH])[C@@H]([OH])[C@H]1[OH]
+57	sulfaniumyl group	[*][SH2+]
+58	Cis-tetradec-7-enoyl-[acyl-carrier protein] (n-C14:1)	[CH2]=[CH][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[S][CH2][CH2][NH][C](=[O])[CH2][CH2][NH][C](=[O])[CH]([OH])[C]([CH3])([CH3])[CH2][O][P](=[O])([O-])[O][*]
+59	(9Z)-hexadecenoate	[CH3][CH2][CH2][CH2][CH2][CH2]/[CH]=[CH]\[CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O-]
+60	Cis-hexadec-9-enoyl-[acyl-carrier protein] (n-C16:1)	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[S][CH2][CH2][NH][C](=[O])[CH2][CH2][NH][C](=[O])[CH]([OH])[C]([CH3])([CH3])[CH2][O][P](=[O])([O-])[O][*]
+61	Dodecanoyl-[acyl-carrier protein]	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[S][*]
+62	acetyl-CoA	[CH3][C](=[O])[S][CH2][CH2][NH][C](=[O])[CH2][CH2][NH][C](=[O])[C@H]([OH])[C]([CH3])([CH3])[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-]
+63	hydrogencarbonate	[O]=[C]([O-])[OH]
+64	malonyl-CoA	[CH3][C]([CH3])([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-])[C@@H]([OH])[C](=[O])[NH][CH2][CH2][C](=[O])[NH][CH2][CH2][S][C](=[O])[CH2][C](=[O])[O-]
+65	N-acetyl-D-glucosamine	[CH3][C](=[O])[NH][C@H]1[CH]([OH])[O][C@H]([CH2][OH])[C@@H]([OH])[C@@H]1[OH]
+66	N-acetyl-alpha-D-glucosamine 6-phosphate	[CH3][C](=[O])[NH][C@H]1[C@@H]([OH])[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@@H]1[OH]
+67	N-acetyl-L-glutamate	[CH3][C](=[O])[NH][C@@H]([CH2][CH2][C](=[O])[O-])[C](=[O])[O-]
+68	N-acetyl-L-glutamyl 5-phosphate	[CH3][C](=[O])[NH][C@@H]([CH2][CH2][C](=[O])[O][P](=[O])([O-])[O-])[C](=[O])[O-]
+69	CoA	[CH3][C]([CH3])([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-])[C@@H]([OH])[C](=[O])[NH][CH2][CH2][C](=[O])[NH][CH2][CH2][SH]
+70	2-oxobutanoate	[CH3][CH2][C](=[O])[C](=[O])[O-]
+71	(S)-2-ethyl-2-hydroxy-3-oxobutanoate	[CH3][CH2][C@]([OH])([C]([CH3])=[O])[C](=[O])[O-]
+72	acetate	[CH3][C](=[O])[O-]
+73	acetyl phosphate	[CH3][C](=[O])[O][P](=[O])([O-])[O-]
+74	(2S)-2-acetolactate	[CH3][C](=[O])[C@]([CH3])([OH])[C](=[O])[O-]
+75	N-acetylmuramate 6-phosphate	[CH3][C](=[O])[NH][CH]1[CH]([OH])[O][CH]([CH2][O][P](=[O])([O-])[OH])[CH]([OH])[CH]1[O][CH]([CH3])[C](=[O])[O-]
+76	(R)-lactate	[CH3][C@@H]([OH])[C](=[O])[O-]
+77	(2E)-butenoyl-CoA	[CH3]/[CH]=[CH]/[C](=[O])[S][CH2][CH2][NH][C](=[O])[CH2][CH2][NH][C](=[O])[C@H]([OH])[C]([CH3])([CH3])[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-]
+78	butanoyl-CoA	[CH3][CH2][CH2][C](=[O])[S][CH2][CH2][NH][C](=[O])[CH2][CH2][NH][C](=[O])[C@H]([OH])[C]([CH3])([CH3])[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-]
+79	FAD	[CH3][c]1[cH][c]2[n][c]3[c](=[O])[nH][c](=[O])[n][c]-3[n]([CH2][C@H]([OH])[C@H]([OH])[C@H]([OH])[CH2][O][P](=[O])([OH])[O][P](=[O])([OH])[O][CH2][C@H]3[O][C@@H]([n]4[cH][n][c]5[c]([NH2])[n][cH][n][c]45)[C@H]([OH])[C@@H]3[OH])[c]2[cH][c]1[CH3]
+80	FADH2	[CH3][c]1[cH][c]2[c]([cH][c]1[CH3])[N]([CH2][C@H]([OH])[C@H]([OH])[C@H]([OH])[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]3[cH][n][c]4[c]([NH2])[n][cH][n][c]34)[C@H]([OH])[C@@H]1[OH])[c]1[nH][c](=[O])[nH][c](=[O])[c]1[NH]2
+81	(2E)-hexenoyl-CoA	[CH3][CH2][CH2]/[CH]=[CH]/[C](=[O])[S][CH2][CH2][NH][C](=[O])[CH2][CH2][NH][C](=[O])[C@H]([OH])[C]([CH3])([CH3])[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-]
+82	hexanoyl-CoA	[CH3][CH2][CH2][CH2][CH2][C](=[O])[S][CH2][CH2][NH][C](=[O])[CH2][CH2][NH][C](=[O])[C@H]([OH])[C]([CH3])([CH3])[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-]
+83	octanoyl-CoA	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[S][CH2][CH2][NH][C](=[O])[CH2][CH2][NH][C](=[O])[C@H]([OH])[C]([CH3])([CH3])[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-]
+84	(2E)-octenoyl-CoA	[CH3][CH2][CH2][CH2][CH2]/[CH]=[CH]/[C](=[O])[S][CH2][CH2][NH][C](=[O])[CH2][CH2][NH][C](=[O])[C@H]([OH])[C]([CH3])([CH3])[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-]
+85	tetradecanoyl-CoA	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[S][CH2][CH2][NH][C](=[O])[CH2][CH2][NH][C](=[O])[C@H]([OH])[C]([CH3])([CH3])[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-]
+86	(2E)-tetradecenoyl-CoA	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2]/[CH]=[CH]/[C](=[O])[S][CH2][CH2][NH][C](=[O])[CH2][CH2][NH][C](=[O])[C@H]([OH])[C]([CH3])([CH3])[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-]
+87	hexadecanoyl-CoA	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[S][CH2][CH2][NH][C](=[O])[CH2][CH2][NH][C](=[O])[C@H]([OH])[C]([CH3])([CH3])[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-]
+88	(2E)-hexadecenoyl-CoA	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2]/[CH]=[CH]/[C](=[O])[S][CH2][CH2][NH][C](=[O])[CH2][CH2][NH][C](=[O])[C@H]([OH])[C]([CH3])([CH3])[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-]
+89	N(2)-acetyl-L-ornithine	[CH3][C](=[O])[NH][C@@H]([CH2][CH2][CH2][NH3+])[C](=[O])[O-]
+90	L-ornithine	[NH3+][CH2][CH2][CH2][C@H]([NH3+])[C](=[O])[O-]
+91	citrate	[O]=[C]([O-])[CH2][C]([OH])([CH2][C](=[O])[O-])[C](=[O])[O-]
+92	isocitrate(3-)	[O]=[C]([O-])[CH2][CH]([C](=[O])[O-])[CH]([OH])[C](=[O])[O-]
+93	N-acetyl-L-glutamate 5-semialdehyde	[CH3][C](=[O])[NH][C@@H]([CH2][CH2][CH]=[O])[C](=[O])[O-]
+94	FMN	[CH3][c]1[cH][c]2[n][c]3[c](=[O])[nH][c](=[O])[n][c]-3[n]([CH2][C@H]([OH])[C@H]([OH])[C@H]([OH])[CH2][O][P](=[O])([OH])[OH])[c]2[cH][c]1[CH3]
+95	riboflavin	[CH3][c]1[cH][c]2[n][c]3[c](=[O])[n-][c](=[O])[n][c]-3[n]([CH2][C@H]([OH])[C@H]([OH])[C@H]([OH])[CH2][OH])[c]2[cH][c]1[CH3]
+96	propanoate	[CH3][CH2][C](=[O])[O-]
+97	propanoyl-CoA	[CH3][CH2][C](=[O])[S][CH2][CH2][NH][C](=[O])[CH2][CH2][NH][C](=[O])[C@H]([OH])[C]([CH3])([CH3])[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-]
+98	O-acetyl-L-serine	[CH3][C](=[O])[O][CH2][C@H]([NH3+])[C](=[O])[O-]
+99	Thioredoxin	[*][NH][C@@H]([CH2][SH])[C](=[O])[NH][C@@H]([*])[C](=[O])[NH][C@@H]([*])[C](=[O])[NH][C@@H]([CH2][SH])[C]([*])=[O]
+100	thiosulfate	[O]=[S](=[O])([O-])[SH]
+101	L-cysteine	[NH3+][C@@H]([CH2][SH])[C](=[O])[O-]
+102	sulfite	[O]=[S]([O-])[O-]
+103	thioredoxin disulfide	[*][NH][C@@H]([CH2][S][S][CH2][C@H]([NH][*])[C]([*])=[O])[C]([*])=[O]
+104	hydrogenselenide	[SeH-]
+105	L-selenocysteine	[NH3+][C@@H]([CH2][SeH])[C](=[O])[O-]
+106	(R)-acetoin	[CH3][C](=[O])[C@@H]([CH3])[OH]
+107	diacetyl	[CH3][C](=[O])[C]([CH3])=[O]
+108	adenosine	[NH2][c]1[n][cH][n][c]2[c]1[n][cH][n]2[C@@H]1[O][C@H]([CH2][OH])[C@@H]([OH])[C@H]1[OH]
+109	inosine	[OH][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([OH])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[OH]
+110	NH4(+)	[NH4+]
+111	4-amino-4-deoxychorismate	[CH2]=[C]([O][C@@H]1[CH]=[C]([C](=[O])[O-])[CH]=[CH][C@H]1[NH3+])[C](=[O])[O-]
+112	4-aminobenzoate	[NH2][c]1[cH][cH][c]([C](=[O])[O-])[cH][cH]1
+113	chorismate	[CH2]=[C]([O][C@@H]1[CH]=[C]([C](=[O])[O-])[CH]=[CH][C@H]1[OH])[C](=[O])[O-]
+114	L-glutamine	[NH2][C](=[O])[CH2][CH2][C@H]([NH3+])[C](=[O])[O-]
+115	triphosphate	[O]=[P]([O-])([O-])[O][P](=[O])([O-])[O][P](=[O])([O-])[O-]
+116	GTP	[NH2][c]1[n][c]2[c]([n][cH][n]2[C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]2[OH])[c](=[O])[nH]1
+117	GDP	[NH2][c]1[n][c]2[c]([n][cH][n]2[C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]2[OH])[c](=[O])[nH]1
+118	ITP	[O]=[c]1[nH][cH][n][c]2[c]1[n][cH][n]2[C@@H]1[O][C@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]1[OH]
+119	IDP	[O]=[c]1[nH][cH][n][c]2[c]1[n][cH][n]2[C@@H]1[O][C@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]1[OH]
+120	dAMP	[NH2][c]1[n][cH][n][c]2[c]1[n][cH][n]2[C@H]1[CH2][C@H]([OH])[C@@H]([CH2][O][P](=[O])([O-])[O-])[O]1
+121	dATP	[NH2][c]1[n][cH][n][c]2[c]1[n][cH][n]2[C@H]1[CH2][C@H]([OH])[C@@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[O]1
+122	dADP	[NH2][c]1[n][cH][n][c]2[c]1[n][cH][n]2[C@H]1[CH2][C@H]([OH])[C@@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[O]1
+123	3',5'-cyclic AMP	[NH2][c]1[n][cH][n][c]2[c]1[n][cH][n]2[C@@H]1[O][C@@H]2[CH2][O][P](=[O])([O-])[O][C@H]2[C@H]1[OH]
+124	ADP-alpha-D-glucose	[NH2][c]1[n][cH][n][c]2[c]1[n][cH][n]2[C@@H]1[O][C@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][C@H]2[O][C@H]([CH2][OH])[C@@H]([OH])[C@H]([OH])[C@H]2[OH])[C@@H]([OH])[C@H]1[OH]
+125	D-glucopyranose 1-phosphate	[O]=[P]([O-])([O-])[O][CH]1[O][C@H]([CH2][OH])[C@@H]([OH])[C@H]([OH])[C@H]1[OH]
+126	ADP-ribose	[NH2][c]1[n][cH][n][c]2[c]1[n][cH][n]2[C@@H]1[O][C@H]([CH2][O][P](=[O])([OH])[O][P](=[O])([OH])[O][CH2][C@H]2[O][C@@H]([OH])[C@H]([OH])[C@@H]2[OH])[C@@H]([OH])[C@H]1[OH]
+127	alpha-D-ribose 5-phosphate	[O]=[P]([OH])([OH])[O][CH2][C@H]1[O][C@H]([OH])[C@H]([OH])[C@@H]1[OH]
+128	adenine	[NH2][c]1[n][cH][n][c]2[nH][cH][n][c]12
+129	5-phospho-alpha-D-ribose 1-diphosphate	[O]=[P]([O-])([O-])[O][CH2][C@H]1[O][C@H]([O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[C@H]([OH])[C@@H]1[OH]
+130	adenosine 5'-phosphosulfate	[NH2][c]1[n][cH][n][c]2[c]1[n][cH][n]2[C@@H]1[O][C@H]([CH2][O][P](=[O])([O-])[O][S](=[O])(=[O])[O-])[C@@H]([OH])[C@H]1[OH]
+131	3'-phosphoadenylyl sulfate	[NH2][c]1[n][cH][n][c]2[c]1[n][cH][n]2[C@@H]1[O][C@H]([CH2][O][P](=[O])([O-])[O][S](=[O])(=[O])[O-])[C@@H]([O][P](=[O])([O-])[O-])[C@H]1[OH]
+132	N6-(1,2-Dicarboxyethyl)-AMP	[O]=[C]([OH])[CH2][C@H]([NH][c]1[n][cH][n][c]2[c]1[n][cH][n]2[C@@H]1[O][C@H]([CH2][O][P](=[O])([OH])[OH])[C@@H]([OH])[C@H]1[OH])[C](=[O])[OH]
+133	fumarate	[O]=[C]([O-])/[CH]=[CH]/[C](=[O])[O-]
+134	(2S)-2-[5-amino-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamido]succinate	[NH2][c]1[c]([C](=[O])[NH][C@@H]([CH2][C](=[O])[O-])[C](=[O])[O-])[n][cH][n]1[C@@H]1[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]1[OH]
+135	5-amino-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamide	[NH2][C](=[O])[c]1[n][cH][n]([C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]2[OH])[c]1[NH2]
+136	L-aspartate	[NH3+][C@@H]([CH2][C](=[O])[O-])[C](=[O])[O-]
+137	IMP	[O]=[c]1[nH][cH][n][c]2[c]1[n][cH][n]2[C@@H]1[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]1[OH]
+138	alpha-D-glucosamine 6-phosphate	[NH3+][C@H]1[C@@H]([OH])[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@@H]1[OH]
+139	N-Acetyl-D-glucosamine(anhydrous)N-Acetylmuramyl-tripeptide	[CH3][C](=[O])[NH][C]1=[CH][O][CH]([CH2][OH])[CH]([O][CH]2[O][CH]([CH2][OH])[CH]([OH])[CH]([OH])[CH]2[NH][C]([CH3])=[O])[CH]1[O][CH]([CH3])[C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([CH2][CH2][C](=[O])[OH])[C](=[O])[NH][CH]([CH2][CH2][CH2][CH]([NH2])[C](=[O])[OH])[C](=[O])[OH]
+140	N-Acetyl-D-glucosamine(anhydrous)N-Acetylmuramic acid	[CH3][C](=[O])[NH][C]1=[CH][O][CH]([CH2][OH])[CH]([O][CH]2[O][CH]([CH2][OH])[CH]([OH])[CH]([OH])[CH]2[NH][C]([CH3])=[O])[CH]1[O][CH]([CH3])[C](=[O])[O-]
+141	N-Acetyl-D-glucosamine(anhydrous)N-Acetylmuramyl-tetrapeptide	[CH3][C](=[O])[NH][C]1=[CH][O][CH]([CH2][OH])[CH]([O][CH]2[O][CH]([CH2][OH])[CH]([OH])[CH]([OH])[CH]2[NH][C]([CH3])=[O])[CH]1[O][CH]([CH3])[C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([CH2][CH2][C](=[O])[O-])[C](=[O])[NH][CH]([CH2][CH2][CH2][CH]([NH3+])[C](=[O])[O-])[C](=[O])[NH][CH]([CH3])[C](=[O])[O-]
+142	1,6-anhydrous-N-Acetylmuramyl-tetrapeptide	[CH3][C](=[O])[NH][C]1=[CH][O][CH]([CH2][OH])[CH]([OH])[CH]1[O][CH]([CH3])[C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([CH2][CH2][C](=[O])[O-])[C](=[O])[NH][CH]([CH2][CH2][CH2][CH]([NH3+])[C](=[O])[O-])[C](=[O])[NH][CH]([CH3])[C](=[O])[O-]
+143	agmatine	[NH2][C](=[NH2+])[NH][CH2][CH2][CH2][CH2][NH3+]
+144	N-carbamoylputrescine	[NH2][C](=[O])[NH][CH2][CH2][CH2][CH2][NH3+]
+145	1,6-anhydrous-N-Acetylmuramate	[CH3][C](=[O])[NH][C]1=[CH][O][CH]([CH2][OH])[CH]([OH])[CH]1[O][CH]([CH3])[C](=[O])[O-]
+146	1-dodecanoyl-sn-glycerol 3-phosphate	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][C@@H]([OH])[CH2][O][P](=[O])([O-])[O-]
+147	1,2-didodecanoyl-sn-glycerol 3-phosphate	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+148	a1-tetradec-7-enoyl-sn-glycerol 3-phosphate	[CH3][CH2][CH2][CH2][CH2][CH2]/[CH]=[CH]\[CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][C@@H]([OH])[CH2][O][P](=[O])([O-])[O-]
+149	1,2-ditetradec-7-enoyl-sn-glycerol 3-phosphate	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3]
+150	dGDP	[NH2][c]1[n][c]2[c]([n][cH][n]2[C@H]2[CH2][C@H]([OH])[C@@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[O]2)[c](=[O])[nH]1
+151	phosphoenolpyruvate	[CH2]=[C]([O][P](=[O])([O-])[O-])[C](=[O])[O-]
+152	dGTP	[NH2][c]1[n][c]2[c]([n][cH][n]2[C@H]2[CH2][C@H]([OH])[C@@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[O]2)[c](=[O])[nH]1
+153	S-adenosyl-L-homocysteine	[NH2][c]1[n][cH][n][c]2[c]1[n][cH][n]2[C@@H]1[O][C@H]([CH2][S][CH2][CH2][C@H]([NH3+])[C](=[O])[O-])[C@@H]([OH])[C@H]1[OH]
+154	S-Ribosyl-L-homocysteine	[NH3+][CH]([CH2][CH2][S][CH]1[O][CH]([CH2][OH])[CH]([OH])[CH]1[OH])[C](=[O])[O-]
+155	L-homocysteine	[NH3+][C@@H]([CH2][CH2][SH])[C](=[O])[O-]
+156	5-amino-1-(5-phospho-beta-D-ribosyl)imidazole	[NH2][c]1[cH][nH+][cH][n]1[C@@H]1[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]1[OH]
+157	4-amino-5-hydroxymethyl-2-methylpyrimidine	[CH3][c]1[n][cH][c]([CH2][OH])[c]([NH2])[n]1
+158	(6S)-10-formyltetrahydrofolate	[NH2][c]1[n][c]2[c]([c](=[O])[nH]1)[NH][C@@H]([CH2][N]([CH]=[O])[c]1[cH][cH][c]([C](=[O])[NH][C@@H]([CH2][CH2][C](=[O])[O-])[C](=[O])[O-])[cH][cH]1)[CH2][NH]2
+159	5-formamido-1-(5-phospho-D-ribosyl)imidazole-4-carboxamide	[NH2][C](=[O])[c]1[n][cH][n]([C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]2[OH])[c]1[NH][CH]=[O]
+160	(6S)-5,6,7,8-tetrahydrofolate	[NH2][c]1[n][c]2[c]([c](=[O])[nH]1)[NH][C@@H]([CH2][NH][c]1[cH][cH][c]([C](=[O])[NH][C@@H]([CH2][CH2][C](=[O])[O-])[C](=[O])[O-])[cH][cH]1)[CH2][NH]2
+161	5-amino-1-(5-phospho-D-ribosyl)imidazole-4-carboxylate	[NH2][c]1[c]([C](=[O])[O-])[nH+][cH][n]1[C@@H]1[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]1[OH]
+162	succinyl-CoA	[CH3][C]([CH3])([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-])[C@@H]([OH])[C](=[O])[NH][CH2][CH2][C](=[O])[NH][CH2][CH2][S][C](=[O])[CH2][CH2][C](=[O])[O-]
+163	7,8-dihydroneopterin 3'-triphosphate	[NH2][c]1[n][c]2[c]([c](=[O])[nH]1)[N]=[C]([C@H]([OH])[C@H]([OH])[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[CH2][NH]2
+164	a 7,8-dihydroneopterin	[NH2][c]1[n][c]2[c]([c](=[O])[nH]1)[N]=[C]([CH]([OH])[CH]([OH])[CH2][OH])[CH2][NH]2
+165	D-alanyl-D-alanine	[CH3][C@@H]([NH3+])[C](=[O])[NH][C@H]([CH3])[C](=[O])[O-]
+166	L-alanine	[CH3][C@H]([NH3+])[C](=[O])[O-]
+167	L-alanyl-D-glutamate	[CH3][C@H]([NH3+])[C](=[O])[NH][C@H]([CH2][CH2][C](=[O])[O-])[C](=[O])[O-]
+168	L-alanyl-L-glutamate	[CH3][C@H]([NH3+])[C](=[O])[NH][C@@H]([CH2][CH2][C](=[O])[O-])[C](=[O])[O-]
+169	D-glutamate	[NH3+][C@H]([CH2][CH2][C](=[O])[O-])[C](=[O])[O-]
+170	methanol	[CH3][OH]
+171	D-glyceraldehyde	[O]=[CH][C@H]([OH])[CH2][OH]
+172	glycerol	[OH][CH2][CH]([OH])[CH2][OH]
+173	(S)-lactaldehyde	[CH3][C@H]([OH])[CH]=[O]
+174	methylglyoxal	[CH3][C](=[O])[CH]=[O]
+175	ethanol	[CH3][CH2][OH]
+176	acetaldehyde	[CH3][CH]=[O]
+177	formate	[O]=[CH][O-]
+178	propanal	[CH3][CH2][CH]=[O]
+179	dihydroxyacetone phosphate	[O]=[C]([CH2][OH])[CH2][O][P](=[O])([O-])[O-]
+180	dihydroxyacetone	[O]=[C]([CH2][OH])[CH2][OH]
+181	hydroxyacetone	[CH3][C](=[O])[CH2][OH]
+182	(S)-propane-1,2-diol	[CH3][C@H]([OH])[CH2][OH]
+183	1,6-anhydrous-N-Acetylmuramyl-tripeptide	[CH3][C](=[O])[NH][C]1=[CH][O][CH]([CH2][OH])[CH]([OH])[CH]1[O][CH]([CH3])[C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([CH2][CH2][C](=[O])[O-])[C](=[O])[NH][CH]([CH2][CH2][CH2][CH]([NH3+])[C](=[O])[O-])[C](=[O])[O-]
+184	2-demethylmenaquinol-8	[CH3][C]([CH3])=[CH][CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][c]1[cH][c]([OH])[c]2[cH][cH][cH][cH][c]2[c]1[OH]
+185	(S)-S-adenosyl-L-methionine	[CH3][S@@+]([CH2][CH2][C@H]([NH3+])[C](=[O])[O-])[CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[OH]
+186	menaquinol-8	[CH3][C]([CH3])=[CH][CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][c]1[c]([CH3])[c]([OH])[c]2[cH][cH][cH][cH][c]2[c]1[OH]
+187	2-demethylmenaquinone-8	[CH3][C]([CH3])=[CH][CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][C]1=[CH][C](=[O])[c]2[cH][cH][cH][cH][c]2[C]1=[O]
+188	anthranilate	[NH2][c]1[cH][cH][cH][cH][c]1[C](=[O])[O-]
+189	N-(5-phospho-beta-D-ribosyl)anthranilate	[O]=[C]([O-])[c]1[cH][cH][cH][cH][c]1[NH][C@@H]1[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]1[OH]
+190	FMNH2	[CH3][c]1[cH][c]2[c]([cH][c]1[CH3])[N]([CH2][C@H]([OH])[C@H]([OH])[C@H]([OH])[CH2][O][P](=[O])([O-])[O-])[c]1[nH][c](=[O])[nH][c](=[O])[c]1[NH]2
+191	P(1),P(4)-bis(5'-adenosyl) tetraphosphate	[NH2][c]1[n][cH][n][c]2[c]1[n][cH][n]2[C@@H]1[O][C@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]2[O][C@@H]([n]3[cH][n][c]4[c]([NH2])[n][cH][n][c]34)[C@H]([OH])[C@@H]2[OH])[C@@H]([OH])[C@H]1[OH]
+192	(R)-4'-phosphopantetheine	[CH3][C]([CH3])([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C](=[O])[NH][CH2][CH2][C](=[O])[NH][CH2][CH2][SH]
+193	3'-dephospho-CoA	[CH3][C]([CH3])([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[OH])[C@@H]([OH])[C](=[O])[NH][CH2][CH2][C](=[O])[NH][CH2][CH2][SH]
+194	5-amino-6-(5-phospho-D-ribosylamino)uracil	[NH2][c]1[c]([NH][C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]2[OH])[nH][c](=[O])[nH][c]1=[O]
+195	5-amino-6-(5-phospho-D-ribitylamino)uracil	[NH2][c]1[c]([NH][CH2][C@H]([OH])[C@H]([OH])[C@H]([OH])[CH2][O][P](=[O])([O-])[O-])[nH][c](=[O])[nH][c]1=[O]
+196	aldehydo-L-arabinose	[O]=[CH][C@H]([OH])[C@@H]([OH])[C@@H]([OH])[CH2][OH]
+197	L-arabinitol	[OH][CH2][C@H]([OH])[CH]([OH])[C@@H]([OH])[CH2][OH]
+198	L-arginine	[NH2][C](=[NH2+])[NH][CH2][CH2][CH2][C@H]([NH3+])[C](=[O])[O-]
+199	N-(L-Arginino)succinate	[NH]=[C]([NH][CH2][CH2][CH2][C@H]([NH2])[C](=[O])[OH])[NH][C@@H]([CH2][C](=[O])[OH])[C](=[O])[OH]
+200	L-citrulline	[NH2][C](=[O])[NH][CH2][CH2][CH2][C@H]([NH3+])[C](=[O])[O-]
+201	L-arogenate	[NH3+][C@@H]([CH2][C]1([C](=[O])[O-])[CH]=[CH][CH]([OH])[CH]=[CH]1)[C](=[O])[O-]
+202	L-phenylalanine	[NH3+][C@@H]([CH2][c]1[cH][cH][cH][cH][cH]1)[C](=[O])[O-]
+203	L-aspartate 4-semialdehyde	[NH3+][C@@H]([CH2][CH]=[O])[C](=[O])[O-]
+204	4-phospho-L-aspartate	[NH3+][C@@H]([CH2][C](=[O])[O][P](=[O])([O-])[O-])[C](=[O])[O-]
+205	L-asparagine	[NH2][C](=[O])[CH2][C@H]([NH3+])[C](=[O])[O-]
+206	beta-alanine	[NH3+][CH2][CH2][C](=[O])[O-]
+207	carbamoyl phosphate	[NH2][C](=[O])[O][P](=[O])([O-])[O-]
+208	N-carbamoyl-L-aspartate	[NH2][C](=[O])[NH][C@@H]([CH2][C](=[O])[O-])[C](=[O])[O-]
+209	iminosuccinate	[NH2+]=[C]([CH2][C](=[O])[O-])[C](=[O])[O-]
+210	succinate	[O]=[C]([O-])[CH2][CH2][C](=[O])[O-]
+211	oxaloacetate	[O]=[C]([O-])[CH2][C](=[O])[C](=[O])[O-]
+212	2-oxo-3-sulfanylpropanoate	[O]=[C]([O-])[C](=[O])[CH2][SH]
+213	L-allo-threonine	[CH3][C@H]([OH])[C@H]([NH3+])[C](=[O])[O-]
+214	(2S)-2-amino-3-oxobutanoate	[CH3][C](=[O])[C@H]([NH3+])[C](=[O])[O-]
+215	1-(5-Phosphoribosyl)-ATP	[NH2][c]1[c]2[n][cH][n]([CH]3[O][CH]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][P](=[O])([O-])[OH])[CH]([OH])[CH]3[OH])[c]2[n][cH][n+]1[CH]1[O][CH]([CH2][O][P](=[O])([O-])[OH])[CH]([OH])[CH]1[OH]
+216	adenosine 3',5'-bisphosphate	[NH2][c]1[n][cH][n][c]2[c]1[n][cH][n]2[C@@H]1[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([O][P](=[O])([O-])[O-])[C@H]1[OH]
+217	biotin	[O]=[C]([O-])[CH2][CH2][CH2][CH2][C@@H]1[S][CH2][C@@H]2[NH][C](=[O])[NH][C@H]12
+218	3-(carbamoylamino)propanoate	[NH2][C](=[O])[NH][CH2][CH2][C](=[O])[O-]
+219	Ca(2+)	[Ca+2]
+220	H2O2	[OH][OH]
+221	O2	[O]=[O]
+222	putrescine	[NH3+][CH2][CH2][CH2][CH2][NH3+]
+223	Cd(2+)	[Cd+2]
+224	CTP	[NH2][c]1[cH][cH][n]([C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]2[OH])[c](=[O])[n]1
+225	beta-D-fructose 6-phosphate	[O]=[P]([O-])([O-])[O][CH2][C@H]1[O][C@]([OH])([CH2][OH])[C@@H]([OH])[C@@H]1[OH]
+226	CDP	[NH2][c]1[cH][cH][n]([C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]2[OH])[c](=[O])[n]1
+227	beta-D-fructose 1,6-bisphosphate	[O]=[P]([O-])([O-])[O][CH2][C@H]1[O][C@]([OH])([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@@H]1[OH]
+228	cytidine	[NH2][c]1[cH][cH][n]([C@@H]2[O][C@H]([CH2][OH])[C@@H]([OH])[C@H]2[OH])[c](=[O])[n]1
+229	dTTP	[CH3][c]1[cH][n]([C@H]2[CH2][C@H]([OH])[C@@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[O]2)[c](=[O])[nH][c]1=[O]
+230	CMP	[NH2][c]1[cH][cH][n]([C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]2[OH])[c](=[O])[n]1
+231	dTDP	[CH3][c]1[cH][n]([C@H]2[CH2][C@H]([OH])[C@@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[O]2)[c](=[O])[nH][c]1=[O]
+232	4-CDP-2-C-methyl-D-erythritol	[CH3][C@]([OH])([CH2][OH])[C@H]([OH])[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][cH][c]([NH2])[n][c]2=[O])[C@H]([OH])[C@@H]1[OH]
+233	4-CDP-2-C-methyl-D-erythritol 2-phosphate	[CH3][C@@]([CH2][OH])([O][P](=[O])([O-])[O-])[C@H]([OH])[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][cH][c]([NH2])[n][c]2=[O])[C@H]([OH])[C@@H]1[OH]
+234	choline	[CH3][N+]([CH3])([CH3])[CH2][CH2][OH]
+235	prephenate	[O]=[C]([O-])[C](=[O])[CH2][C@]1([C](=[O])[O-])[CH]=[CH][C@@H]([OH])[CH]=[CH]1
+236	5-O-(1-carboxyvinyl)-3-phosphoshikimate	[CH2]=[C]([O][C@@H]1[CH2][C]([C](=[O])[O-])=[CH][C@@H]([O][P](=[O])([O-])[O-])[C@H]1[OH])[C](=[O])[O-]
+237	Cardiolipin (tetratetradecanoyl, n-C14:0)	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][CH2][CH]([OH])[CH2][O][P](=[O])([O-])[O][CH2][CH]([CH2][O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+238	dimyristoyl phosphatidic acid	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([OH])[OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+239	Phosphatidylglycerol (ditetradecanoyl, n-C14:0)	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][CH2][CH]([OH])[CH2][OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+240	Cardiolipin (tetratetradec-7-enoyl, n-C14:1)	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][CH2][CH]([OH])[CH2][O][P](=[O])([O-])[O][CH2][CH]([CH2][O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3]
+241	Cardiolipin (tetrahexadecanoyl, n-C16:0)	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][CH2][CH]([OH])[CH2][O][P](=[O])([O-])[O][CH2][CH]([CH2][O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+242	1,2-dihexadecanoyl-sn-glycero-3-phosphate	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][C@H]([CH2][O][P](=[O])([O-])[O-])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+243	Cardiolipin (tetrahexadec-9-enoyl, n-C16:1)	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][CH2][CH]([OH])[CH2][O][P](=[O])([O-])[O][CH2][CH]([CH2][O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3]
+244	1,2-dihexadec-9-enoyl-sn-glycerol 3-phosphate	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3]
+245	Phosphatidylglycerol (dihexadec-9-enoyl, n-C16:1)	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][CH2][CH]([OH])[CH2][OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3]
+246	Cardiolipin (tetraoctadecanoyl, n-C18:0)	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][CH2][CH]([OH])[CH2][O][P](=[O])([O-])[O][CH2][CH]([CH2][O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+247	3-(Phosphonooxy)-1,2-propanediyl dioctadecanoate	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([OH])[OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+248	distearoyl phosphatidylglycerol	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([OH])[O][CH2][CH]([OH])[CH2][OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+249	Cardiolipin (tetraoctadec-11-enoyl, n-C18:1)	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][CH2][CH]([OH])[CH2][O][P](=[O])([O-])[O][CH2][CH]([CH2][O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3]
+250	1,2-dioctadec-11-enoyl-sn-glycerol 3-phosphate	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3]
+251	Phosphatidylglycerol (dioctadec-11-enoyl, n-C18:1)	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][CH2][CH]([OH])[CH2][OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3]
+252	UMP	[O]=[c]1[cH][cH][n]([C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]2[OH])[c](=[O])[nH]1
+253	chloramphenicol	[O]=[C]([NH][C@H]([CH2][OH])[C@H]([OH])[c]1[cH][cH][c]([N+](=[O])[O-])[cH][cH]1)[CH]([Cl])[Cl]
+254	Co(2+)	[Co+2]
+255	chromate	[O]=[Cr](=[O])([O-])[O-]
+256	cytosine	[NH2][c]1[cH][cH][nH][c](=[O])[n]1
+257	uracil	[O]=[c]1[cH][cH][nH][c](=[O])[nH]1
+258	D-tagatose 1-phosphate	[O]=[P]([O-])([O-])[O][CH2][C]1([OH])[O][CH2][C@@H]([OH])[C@H]([OH])[C@@H]1[OH]
+259	D-tagatofuranose 1,6-bisphosphate	[O]=[P]([O-])([O-])[O][CH2][C@H]1[O][C]([OH])([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]1[OH]
+260	(9Z)-hexadecenoyl-CoA	[CH3][CH2][CH2][CH2][CH2][CH2]/[CH]=[CH]\[CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[S][CH2][CH2][NH][C](=[O])[CH2][CH2][NH][C](=[O])[C@H]([OH])[C]([CH3])([CH3])[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-]
+261	UTP	[O]=[c]1[cH][cH][n]([C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]2[OH])[c](=[O])[nH]1
+262	Cu(2+)	[Cu+2]
+263	hydrogen sulfide	[SH-]
+264	L,L-cystathionine	[NH3+][C@@H]([CH2][CH2][S][CH2][C@H]([NH3+])[C](=[O])[O-])[C](=[O])[O-]
+265	uridine	[O]=[c]1[cH][cH][n]([C@@H]2[O][C@H]([CH2][OH])[C@@H]([OH])[C@H]2[OH])[c](=[O])[nH]1
+266	D-ribose	[OH][CH2][C@H]1[O][CH]([OH])[C@H]([OH])[C@@H]1[OH]
+267	dCMP	[NH2][c]1[cH][cH][n]([C@H]2[CH2][C@H]([OH])[C@@H]([CH2][O][P](=[O])([O-])[O-])[O]2)[c](=[O])[n]1
+268	dCDP	[NH2][c]1[cH][cH][n]([C@H]2[CH2][C@H]([OH])[C@@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[O]2)[c](=[O])[n]1
+269	5-methylcytosine	[CH3][c]1[cH][nH][c](=[O])[n][c]1[NH2]
+270	D-serine	[NH3+][C@H]([CH2][OH])[C](=[O])[O-]
+271	3-hydroxypyruvate	[O]=[C]([O-])[C](=[O])[CH2][OH]
+272	2'-deoxyadenosine	[NH2][c]1[n][cH][n][c]2[c]1[n][cH][n]2[C@H]1[CH2][C@H]([OH])[C@@H]([CH2][OH])[O]1
+273	2'-deoxyinosine	[O]=[c]1[nH][cH][n][c]2[c]1[n][cH][n]2[C@H]1[CH2][C@H]([OH])[C@@H]([CH2][OH])[O]1
+274	1,2-Diacyl-sn-glycerol (didodecanoyl, n-C12:0)	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+275	1,2 ditetradecanoylglycerol	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+276	1,2-Diacyl-sn-glycerol (ditetradec-7-enoyl, n-C14:1)	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3]
+277	1,2-dihexadecanoyl-sn-glycerol	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][C@H]([CH2][OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+278	1,2-Diacyl-sn-glycerol (dihexadec-9-enoyl, n-C16:1)	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3]
+279	1,2-Diacyl-sn-glycerol (dioctadecanoyl, n-C18:0)	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+280	1,2-Diacyl-sn-glycerol (dioctadec-11-enoyl, n-C18:1)	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3]
+281	meso-2,6-diaminoheptanedioate	[NH3+][C@@H]([CH2][CH2][CH2][C@@H]([NH3+])[C](=[O])[O-])[C](=[O])[O-]
+282	L-lysine	[NH3+][CH2][CH2][CH2][CH2][C@H]([NH3+])[C](=[O])[O-]
+283	(2S,6S)-2,6-diaminoheptanedioate	[NH3+][C@@H]([CH2][CH2][CH2][C@H]([NH3+])[C](=[O])[O-])[C](=[O])[O-]
+284	CDP-1,2-didodecanoylglycerol	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][CH]1[O][CH]([n]2[cH][cH][c]([NH2])[n][c]2=[O])[CH]([OH])[CH]1[OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+285	CDP-1,2-ditetradecanoylglycerol	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][CH]1[O][CH]([n]2[cH][cH][c]([NH2])[n][c]2=[O])[CH]([OH])[CH]1[OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+286	CDP-1,2-ditetradec-7-enoylglycerol	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][CH]1[O][CH]([n]2[cH][cH][c]([NH2])[n][c]2=[O])[CH]([OH])[CH]1[OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3]
+287	1,2-dihexadecanoyl-sn-glycero-3-CDP	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][C@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][cH][c]([NH2])[n][c]2=[O])[C@H]([OH])[C@@H]1[OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+288	CDP-1,2-dihexadec-9-enoylglycerol	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][CH]1[O][CH]([n]2[cH][cH][c]([NH2])[n][c]2=[O])[CH]([OH])[CH]1[OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3]
+289	CDP-1,2-dioctadecanoylglycerol	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][CH]1[O][CH]([n]2[cH][cH][c]([NH2])[n][c]2=[O])[CH]([OH])[CH]1[OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+290	CDP-1,2-dioctadec-11-enoylglycerol	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][CH]1[O][CH]([n]2[cH][cH][c]([NH2])[n][c]2=[O])[CH]([OH])[CH]1[OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3]
+291	dITP	[O]=[c]1[nH][cH][n][c]2[c]1[n][cH][n]2[C@H]1[CH2][C@H]([OH])[C@@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[O]1
+292	D-ribulose 5-phosphate	[O]=[C]([CH2][OH])[C@H]([OH])[C@H]([OH])[CH2][O][P](=[O])([O-])[O-]
+293	2-hydroxy-3-oxobutyl phosphate	[CH3][C](=[O])[CH]([OH])[CH2][O][P](=[O])([OH])[OH]
+294	dUMP	[O]=[c]1[cH][cH][n]([C@H]2[CH2][C@H]([OH])[C@@H]([CH2][O][P](=[O])([O-])[O-])[O]2)[c](=[O])[nH]1
+295	dCTP	[NH2][c]1[cH][cH][n]([C@H]2[CH2][C@H]([OH])[C@@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[O]2)[c](=[O])[n]1
+296	dUTP	[O]=[c]1[cH][cH][n]([C@H]2[CH2][C@H]([OH])[C@@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[O]2)[c](=[O])[nH]1
+297	2'-deoxycytidine	[NH2][c]1[cH][cH][n]([C@H]2[CH2][C@H]([OH])[C@@H]([CH2][OH])[O]2)[c](=[O])[n]1
+298	2'-deoxyuridine	[O]=[c]1[cH][cH][n]([C@H]2[CH2][C@H]([OH])[C@@H]([CH2][OH])[O]2)[c](=[O])[nH]1
+299	D-erythrose 4-phosphate	[O]=[CH][C@H]([OH])[C@H]([OH])[CH2][O][P](=[O])([O-])[O-]
+300	7-phospho-2-dehydro-3-deoxy-D-arabino-heptonate	[O]=[C]([O-])[C](=[O])[CH2][C@@H]([OH])[C@H]([OH])[C@H]([OH])[CH2][O][P](=[O])([O-])[O-]
+301	dGMP	[NH2][c]1[n][c]2[c]([n][cH][n]2[C@H]2[CH2][C@H]([OH])[C@@H]([CH2][O][P](=[O])([O-])[O-])[O]2)[c](=[O])[nH]1
+302	2'-deoxyguanosine	[NH2][c]1[n][c]2[c]([n][cH][n]2[C@H]2[CH2][C@H]([OH])[C@@H]([CH2][OH])[O]2)[c](=[O])[nH]1
+303	(2R)-2,3-dihydroxy-3-methylbutanoate	[CH3][C]([CH3])([OH])[C@@H]([OH])[C](=[O])[O-]
+304	(2R,3R)-2,3-dihydroxy-3-methylpentanoate	[CH3][CH2][C@@]([CH3])([OH])[C@@H]([OH])[C](=[O])[O-]
+305	(S)-3-methyl-2-oxopentanoate	[CH3][CH2][C@H]([CH3])[C](=[O])[C](=[O])[O-]
+306	(S)-2,3-dihydrodipicolinate	[O]=[C]([O-])[C]1=[N][C@H]([C](=[O])[O-])[CH2][CH]=[CH]1
+307	(S)-2,3,4,5-tetrahydrodipicolinate	[O]=[C]([O-])[C]1=[N][C@H]([C](=[O])[O-])[CH2][CH2][CH2]1
+308	7,8-dihydrofolate	[NH2][c]1[n][c]2[c]([c](=[O])[nH]1)[N]=[C]([CH2][NH][c]1[cH][cH][c]([C](=[O])[NH][C@@H]([CH2][CH2][C](=[O])[O-])[C](=[O])[O-])[cH][cH]1)[CH2][NH]2
+309	7,8-dihydropteroate	[NH2][c]1[n][c]2[c]([c](=[O])[nH]1)[N]=[C]([CH2][NH][c]1[cH][cH][c]([C](=[O])[O-])[cH][cH]1)[CH2][NH]2
+310	1,4-dihydroxy-2-naphthoate	[O]=[C]([O-])[c]1[cH][c]([OH])[c]2[cH][cH][cH][cH][c]2[c]1[OH]
+311	all-trans-octaprenyl diphosphate	[CH3][C]([CH3])=[CH][CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O-]
+312	2-succinylbenzoyl-CoA	[CH3][C]([CH3])([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-])[C@@H]([OH])[C](=[O])[NH][CH2][CH2][C](=[O])[NH][CH2][CH2][S][C](=[O])[CH2][CH2][C](=[O])[c]1[cH][cH][cH][cH][c]1[C](=[O])[O-]
+313	1,4-dihydroxy-2-naphthoyl-CoA	[CH3][C]([CH3])([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-])[C@@H]([OH])[C](=[O])[NH][CH2][CH2][C](=[O])[NH][CH2][CH2][S][C](=[O])[c]1[cH][c]([OH])[c]2[cH][cH][cH][cH][c]2[c]1[OH]
+314	6-hydroxymethyl-7,8-dihydropterin	[NH2][c]1[n][c]2[c]([c](=[O])[nH]1)[N]=[C]([CH2][OH])[CH2][NH]2
+315	(S)-dihydroorotate	[O]=[C]1[CH2][C@@H]([C](=[O])[O-])[NH][C](=[O])[NH]1
+316	orotate	[O]=[C]([O-])[c]1[cH][c](=[O])[nH][c](=[O])[nH]1
+317	5,6-dihydrouracil	[O]=[C]1[CH2][CH2][NH][C](=[O])[NH]1
+318	2,5-diamino-6-hydroxy-4-(5-phosphoribosylamino)-pyrimidine	[NH2][c]1[n][c]([OH])[c]([NH2])[c]([NH][C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]2[OH])[n]1
+319	(7,8-dihydropterin-6-yl)methyl diphosphate	[NH2][c]1[n][c]2[c]([c](=[O])[nH]1)[N]=[C]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[CH2][NH]2
+320	3-dehydroquinate	[O]=[C]1[CH2][C@@]([OH])([C](=[O])[O-])[CH2][C@@H]([OH])[C@@H]1[OH]
+321	3-dehydroshikimate	[O]=[C]([O-])[C]1=[CH][C](=[O])[C@@H]([OH])[C@H]([OH])[CH2]1
+322	dimethylallyl diphosphate	[CH3][C]([CH3])=[CH][CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O-]
+323	isopentenyl diphosphate	[CH2]=[C]([CH3])[CH2][CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O-]
+324	(2E)-geranyl diphosphate	[CH3][C]([CH3])=[CH][CH2][CH2]/[C]([CH3])=[CH]/[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O-]
+325	(2E)-4-hydroxy-3-methylbut-2-enyl diphosphate	[CH3]/[C](=[CH]\[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[CH2][OH]
+326	deamido-NAD(+)	[NH2][c]1[n][cH][n][c]2[c]1[n][cH][n]2[C@@H]1[O][C@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]2[O][C@@H]([n+]3[cH][cH][cH][c]([C](=[O])[O-])[cH]3)[C@H]([OH])[C@@H]2[OH])[C@@H]([OH])[C@H]1[OH]
+327	nicotinate beta-D-ribonucleotide	[O]=[C]([O-])[c]1[cH][cH][cH][n+]([C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]2[OH])[cH]1
+328	Dihydroneopterin monophosphate	[NH2][c]1[n][c]2[c]([c](=[O])[nH]1)[N]=[C]([CH]([OH])[CH]([OH])[CH2][O][P](=[O])([O-])[OH])[CH2][NH]2
+329	(2E,6E)-farnesyl diphosphate	[CH3][C]([CH3])=[CH][CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O-]
+330	all-trans-decaprenyl diphosphate	[CH3][C]([CH3])=[CH][CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][CH2]/[C]([CH3])=[CH]/[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O-]
+331	(R)-pantoate	[CH3][C]([CH3])([CH2][OH])[C@@H]([OH])[C](=[O])[O-]
+332	2-aminomalonate semialdehyde	[NH3+][C@@H]([CH]=[O])[C](=[O])[O-]
+333	dTMP	[CH3][c]1[cH][n]([C@H]2[CH2][C@H]([OH])[C@@H]([CH2][O][P](=[O])([O-])[O-])[O]2)[c](=[O])[nH][c]1=[O]
+334	dUDP	[O]=[c]1[cH][cH][n]([C@H]2[CH2][C@H]([OH])[C@@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[O]2)[c](=[O])[nH]1
+335	2-deoxy-alpha-D-ribose 1-phosphate	[O]=[P]([O-])([O-])[O][C@@H]1[CH2][C@H]([OH])[C@@H]([CH2][OH])[O]1
+336	1-deoxy-D-xylulose 5-phosphate	[CH3][C](=[O])[C@@H]([OH])[C@H]([OH])[CH2][O][P](=[O])([O-])[O-]
+337	2-C-methyl-D-erythritol 4-phosphate	[CH3][C@]([OH])([CH2][OH])[C@H]([OH])[CH2][O][P](=[O])([O-])[O-]
+338	glyceraldehyde 3-phosphate	[O]=[CH][CH]([OH])[CH2][O][P](=[O])([OH])[OH]
+339	4-phospho-D-erythronate	[O]=[C]([O-])[C@H]([OH])[C@H]([OH])[CH2][O][P](=[O])([O-])[O-]
+340	(2R)-2-phosphoglycerate	[O]=[C]([O-])[C@@H]([CH2][OH])[O][P](=[O])([O-])[O-]
+341	beta-D-fructose 1-phosphate	[O]=[P]([O-])([O-])[O][CH2][C@@]1([OH])[O][C@H]([CH2][OH])[C@@H]([OH])[C@@H]1[OH]
+342	beta-D-fructose	[OH][CH2][C@H]1[O][C@]([OH])([CH2][OH])[C@@H]([OH])[C@@H]1[OH]
+343	dodecanoyl-CoA	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[S][CH2][CH2][NH][C](=[O])[CH2][CH2][NH][C](=[O])[C@H]([OH])[C]([CH3])([CH3])[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-]
+344	a tetradecenoyl-CoA (n-C14:1CoA)	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][C](=[O])[S][CH2][CH2][NH][C](=[O])[CH2][CH2][NH][C](=[O])[C@H]([OH])[C]([CH3])([CH3])[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-]
+345	octadecanoyl-CoA	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[S][CH2][CH2][NH][C](=[O])[CH2][CH2][NH][C](=[O])[C@H]([OH])[C]([CH3])([CH3])[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-]
+346	(9Z)-octadecenoyl-CoA	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2]/[CH]=[CH]\[CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[S][CH2][CH2][NH][C](=[O])[CH2][CH2][NH][C](=[O])[C@H]([OH])[C]([CH3])([CH3])[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-]
+347	(9Z,12Z)-octadecadienoyl-CoA	[CH3][CH2][CH2][CH2][CH2]/[CH]=[CH]\[CH2]/[CH]=[CH]\[CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[S][CH2][CH2][NH][C](=[O])[CH2][CH2][NH][C](=[O])[C@H]([OH])[C]([CH3])([CH3])[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-]
+348	(9Z,12Z)-octadecadienoate	[CH3][CH2][CH2][CH2][CH2]/[CH]=[CH]\[CH2]/[CH]=[CH]\[CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O-]
+349	vaccenic acid	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[OH]
+350	Vaccenyl coenzyme A	[CH3][CH2][CH2][CH2][CH2][CH2]/[CH]=[CH]\[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[S][CH2][CH2][N]=[C]([OH])[CH2][CH2][N]=[C]([OH])[CH]([OH])[C]([CH3])([CH3])[CH2][O][P](=[O])([OH])[O][P](=[O])([OH])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([OH])[OH]
+351	sedoheptulose 1,7-bisphosphate	[O]=[C]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]([OH])[C@H]([OH])[C@H]([OH])[CH2][O][P](=[O])([O-])[O-]
+352	Fe(2+)	[Fe+2]
+353	Fe(3+)	[Fe+3]
+354	sucrose 6(F)-phosphate	[O]=[P]([O-])([O-])[O][CH2][C@H]1[O][C@@]([CH2][OH])([O][C@H]2[O][C@H]([CH2][OH])[C@@H]([OH])[C@H]([OH])[C@H]2[OH])[C@@H]([OH])[C@@H]1[OH]
+355	D-glucose 6-phosphate	[O]=[P]([O-])([O-])[O][CH2][C@H]1[O][CH]([OH])[C@H]([OH])[C@@H]([OH])[C@@H]1[OH]
+356	N(1)-(5-phospho-beta-D-ribosyl)glycinamide	[NH3+][CH2][C](=[O])[NH][C@@H]1[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]1[OH]
+357	5,10-methenyltetrahydrofolate	[NH2][c]1[n][c]2[c]([c](=[O])[nH]1)[N+]1=[CH][N]([c]3[cH][cH][c]([C](=[O])[NH][C@@H]([CH2][CH2][C](=[O])[O-])[C](=[O])[O-])[cH][cH]3)[CH2][C@H]1[CH2][NH]2
+358	N(2)-formyl-N(1)-(5-phospho-beta-D-ribosyl)glycinamide	[O]=[CH][NH][CH2][C](=[O])[NH][C@@H]1[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]1[OH]
+359	a reduced ferredoxin [iron-sulfur] cluster	[*][*][Fe+2]1([*][*])[S-2][Fe+3]([*][*])([*][*])[S-2]1
+360	an oxidized ferredoxin [iron-sulfur] cluster	[*][*][Fe+3]1([*][*])[S-2][Fe+3]([*][*])([*][*])[S-2]1
+361	folate	[NH2][c]1[n][c]2[n][cH][c]([CH2][NH][c]3[cH][cH][c]([C](=[O])[NH][C@@H]([CH2][CH2][C](=[O])[O-])[C](=[O])[O-])[cH][cH]3)[n][c]2[c](=[O])[nH]1
+362	5-formyltetrahydrofolate	[NH2][c]1[n][c]2[c]([c](=[O])[nH]1)[N]([CH]=[O])[C@@H]([CH2][NH][c]1[cH][cH][c]([C](=[O])[NH][C@@H]([CH2][CH2][C](=[O])[O-])[C](=[O])[O-])[cH][cH]1)[CH2][NH]2
+363	5-Formiminotetrahydrofolic acid	[NH]=[CH][N]1[c]2[c]([n][c]([NH2])[nH][c]2=[O])[NH][CH2][CH]1[CH2][NH][c]1[cH][cH][c]([C](=[O])[NH][CH]([CH2][CH2][C](=[O])[OH])[C](=[O])[OH])[cH][cH]1
+364	(S)-malate	[O]=[C]([O-])[CH2][C@H]([OH])[C](=[O])[O-]
+365	D-glucose	[OH][CH2][C@H]1[O][CH]([OH])[C@H]([OH])[C@@H]([OH])[C@@H]1[OH]
+366	sn-glycerol 3-phosphate	[O]=[P]([O-])([O-])[O][CH2][C@H]([OH])[CH2][OH]
+367	L-glutamyl 5-phosphate	[NH3+][C@@H]([CH2][CH2][C](=[O])[O][P](=[O])([O-])[O-])[C](=[O])[O-]
+368	L-glutamate 5-semialdehyde	[NH3+][C@@H]([CH2][CH2][CH]=[O])[C](=[O])[O-]
+369	beta-D-glucose 6-phosphate	[O]=[P]([O-])([O-])[O][CH2][C@H]1[O][C@@H]([OH])[C@H]([OH])[C@@H]([OH])[C@@H]1[OH]
+370	6-phospho-D-glucono-1,5-lactone	[O]=[C]1[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]([OH])[C@H]1[OH]
+371	alpha-D-galactose 1-phosphate	[O]=[P]([O-])([O-])[O][C@H]1[O][C@H]([CH2][OH])[C@H]([OH])[C@H]([OH])[C@H]1[OH]
+372	beta-D-glucose	[OH][CH2][C@H]1[O][C@@H]([OH])[C@H]([OH])[C@@H]([OH])[C@@H]1[OH]
+373	UDP-alpha-D-glucose	[O]=[c]1[cH][cH][n]([C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][C@H]3[O][C@H]([CH2][OH])[C@@H]([OH])[C@H]([OH])[C@H]3[OH])[C@@H]([OH])[C@H]2[OH])[c](=[O])[nH]1
+374	(2R)-3-phospho-glyceroyl phosphate	[O]=[C]([O][P](=[O])([O-])[O-])[C@H]([OH])[CH2][O][P](=[O])([O-])[O-]
+375	Enzyme N6-(lipoyl)lysine	[*][NH][C](=[O])[CH2][CH2][CH2][CH2][CH]1[CH2][CH2][S][S]1
+376	S Aminomethyldihydrolipoylprotein	[*][NH][C](=[O])[CH2][CH2][CH2][CH2][CH]([SH])[CH2][CH2][S][CH2][NH2]
+377	Enzyme N6-(dihydrolipoyl)lysine	[*][NH][C](=[O])[CH2][CH2][CH2][CH2][CH]([SH])[CH2][CH2][SH]
+378	(6R)-5,10-methylene-5,6,7,8-tetrahydrofolate	[NH2][c]1[n][c]2[c]([c](=[O])[nH]1)[N]1[CH2][N]([c]3[cH][cH][c]([C](=[O])[NH][C@@H]([CH2][CH2][C](=[O])[O-])[C](=[O])[O-])[cH][cH]3)[CH2][C@H]1[CH2][NH]2
+379	guanosine 3',5'-bis(diphosphate)	[NH2][c]1[n][c]2[c]([n][cH][n]2[C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[OH])[C@@H]([O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[C@H]2[OH])[c](=[O])[nH]1
+380	GDP-alpha-D-mannose	[NH2][c]1[n][c]2[c]([n][cH][n]2[C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][C@H]3[O][C@H]([CH2][OH])[C@@H]([OH])[C@H]([OH])[C@@H]3[OH])[C@@H]([OH])[C@H]2[OH])[c](=[O])[nH]1
+381	GMP	[NH2][c]1[n][c]2[c]([n][cH][n]2[C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]2[OH])[c](=[O])[nH]1
+382	alpha-D-mannose 1-phosphate	[O]=[P]([O-])([O-])[O][C@H]1[O][C@H]([CH2][OH])[C@@H]([OH])[C@H]([OH])[C@@H]1[OH]
+383	guanosine 3'-diphosphate 5'-triphosphate	[NH2][c]1[n][c]2[c]([n][cH][n]2[C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[C@@H]([O][P](=[O])([O-])[O][P](=[O])([O-])[OH])[C@H]2[OH])[c](=[O])[nH]1
+384	L-serine	[NH3+][C@@H]([CH2][OH])[C](=[O])[O-]
+385	Glycogen	[OH][CH2][CH]1[O][CH]([O][CH]2[CH]([CH2][OH])[O][CH]([O][CH]3[CH]([CH2][OH])[O][CH]([O][CH]4[CH]([CH2][OH])[O][CH]([OH])[CH]([OH])[CH]4[OH])[CH]([OH])[CH]3[OH])[CH]([OH])[CH]2[OH])[CH]([OH])[CH]([OH])[CH]1[OH]
+386	Branching glycogen	[OH][CH2][CH]1[O][CH]([O][CH2][CH]2[O][CH]([O][CH]3[CH]([CH2][OH])[O][CH]([OH])[CH]([OH])[CH]3[OH])[CH]([OH])[CH]([OH])[CH]2[O][CH]2[O][CH]([CH2][OH])[CH]([OH])[CH]([OH])[CH]2[OH])[CH]([OH])[CH]([OH])[CH]1[OH]
+387	4-aminobutanoate	[NH3+][CH2][CH2][CH2][C](=[O])[O-]
+388	N-formyl-L-glutamate	[O]=[CH][NH][C@@H]([CH2][CH2][C](=[O])[O-])[C](=[O])[O-]
+389	alpha-D-glucose	[OH][CH2][C@H]1[O][C@H]([OH])[C@H]([OH])[C@@H]([OH])[C@@H]1[OH]
+390	alpha-D-glucose 6-phosphate	[O]=[P]([O-])([O-])[O][CH2][C@H]1[O][C@H]([OH])[C@H]([OH])[C@@H]([OH])[C@@H]1[OH]
+391	5-phospho-beta-D-ribosylamine	[NH3+][C@@H]1[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]1[OH]
+392	glycine betaine	[CH3][N+]([CH3])([CH3])[CH2][C](=[O])[O-]
+393	(R)-glycerate	[O]=[C]([O-])[C@H]([OH])[CH2][OH]
+394	(2R)-3-phosphoglycerate	[O]=[C]([O-])[C@H]([OH])[CH2][O][P](=[O])([O-])[O-]
+395	glutathione	[NH3+][C@@H]([CH2][CH2][C](=[O])[NH][C@@H]([CH2][SH])[C](=[O])[NH][CH2][C](=[O])[O-])[C](=[O])[O-]
+396	(R)-S-lactoylglutathione	[CH3][C@@H]([OH])[C](=[O])[S][CH2][C@H]([NH][C](=[O])[CH2][CH2][C@H]([NH3+])[C](=[O])[O-])[C](=[O])[NH][CH2][C](=[O])[O-]
+397	(S)-lactate	[CH3][C@H]([OH])[C](=[O])[O-]
+398	XMP	[O]=[c]1[nH][c](=[O])[c]2[n][cH][n]([C@@H]3[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]3[OH])[c]2[nH]1
+399	6-phospho-D-gluconate	[O]=[C]([O-])[C@H]([OH])[C@@H]([OH])[C@H]([OH])[C@H]([OH])[CH2][O][P](=[O])([O-])[O-]
+400	glycerophosphatidylethanolamine	[NH2][CH2][CH2][O][P](=[O])([OH])[O][CH2][CH]([OH])[CH2][OH]
+401	ethanolamine	[NH3+][CH2][CH2][OH]
+402	sn-glycero-3-phospho-(1'-rac-glycerol)	[O]=[P]([O-])([O][CH2][CH]([OH])[CH2][OH])[O][CH2][C@H]([OH])[CH2][OH]
+403	XTP	[O]=[c]1[nH][c](=[O])[c]2[n][cH][n]([C@@H]3[O][C@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]3[OH])[c]2[nH]1
+404	3',5'-cyclic GMP	[NH2][c]1[n][c]2[c]([n][cH][n]2[C@@H]2[O][C@@H]3[CH2][O][P](=[O])([O-])[O][C@H]3[C@H]2[OH])[c](=[O])[nH]1
+405	guanine	[NH2][c]1[n][c]2[nH][cH][n][c]2[c](=[O])[nH]1
+406	xanthine	[O]=[c]1[nH][c](=[O])[c]2[n][cH][nH][c]2[nH]1
+407	N-formimidoyl-L-glutamate	[NH2+]=[CH][NH][C@@H]([CH2][CH2][C](=[O])[O-])[C](=[O])[O-]
+408	L-methionine	[CH3][S][CH2][CH2][C@H]([NH3+])[C](=[O])[O-]
+409	D-mannose	[OH][CH2][C@H]1[O][CH]([OH])[C@@H]([OH])[C@@H]([OH])[C@@H]1[OH]
+410	alpha-D-mannose 6-phosphate	[O]=[P]([O-])([O-])[O][CH2][C@H]1[O][C@H]([OH])[C@@H]([OH])[C@@H]([OH])[C@@H]1[OH]
+411	L-histidine	[NH3+][C@@H]([CH2][c]1[cH][nH][cH][n]1)[C](=[O])[O-]
+412	urocanate	[O]=[C]([O-])[CH]=[CH][c]1[cH][nH][cH][n]1
+413	L-histidinol	[NH3+][C@H]([CH2][OH])[CH2][c]1[cH][nH][cH][n]1
+414	L-histidinol phosphate	[NH3+][C@H]([CH2][O][P](=[O])([O-])[O-])[CH2][c]1[cH][nH][cH][n]1
+415	K(+)	[K+]
+416	4-amino-2-methyl-5-(phosphooxymethyl)pyrimidine	[CH3][c]1[n][cH][c]([CH2][O][P](=[O])([O-])[O-])[c]([NH2])[n]1
+417	UDP	[O]=[c]1[cH][cH][n]([C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]2[OH])[c](=[O])[nH]1
+418	(3R,5S)-1-pyrroline-3-hydroxy-5-carboxylate	[O]=[C]([O-])[C@@H]1[CH2][C@@H]([OH])[CH]=[N]1
+419	trans-4-hydroxy-L-proline	[O]=[C]([O-])[C@@H]1[CH2][C@@H]([OH])[CH2][NH2+]1
+420	3-phosphooxypyruvate	[O]=[C]([O-])[C](=[O])[CH2][O][P](=[O])([O-])[O-]
+421	L-homoserine	[NH3+][C@@H]([CH2][CH2][OH])[C](=[O])[O-]
+422	O-succinyl-L-homoserine	[NH3+][C@@H]([CH2][CH2][O][C](=[O])[CH2][CH2][C](=[O])[O-])[C](=[O])[O-]
+423	3-(imidazol-4-yl)-2-oxopropyl phosphate	[O]=[C]([CH2][O][P](=[O])([O-])[O-])[CH2][c]1[cH][nH][cH][n]1
+424	hypoxanthine	[O]=[c]1[nH][cH][n][c]2[n][cH][nH][c]12
+425	pyridoxamine 5'-phosphate	[CH3][c]1[n][cH][c]([CH2][O][P](=[O])([O-])[O-])[c]([CH2][NH3+])[c]1[OH]
+426	pyridoxamine	[CH3][c]1[n][cH][c]([CH2][OH])[c]([CH2][NH3+])[c]1[OH]
+427	(S)-oxalosuccinate	[O]=[C]([O-])[CH2][C@H]([C](=[O])[O-])[C](=[O])[C](=[O])[O-]
+428	5-[(5-phospho-1-deoxy-D-ribulos-1-ylimino)methylamino]-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamide	[NH2][C](=[O])[c]1[n][cH][n]([C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]2[OH])[c]1[NH][CH]=[N][CH2][C](=[O])[C@H]([OH])[C@H]([OH])[CH2][O][P](=[O])([O-])[O-]
+429	D-erythro-1-(imidazol-4-yl)glycerol 3-phosphate	[O]=[P]([O-])([O-])[O][CH2][C@@H]([OH])[C@@H]([OH])[c]1[cH][nH][cH][n]1
+430	1-(2-carboxyphenylamino)-1-deoxy-D-ribulose 5-phosphate	[O]=[C]([O-])[c]1[cH][cH][cH][cH][c]1[NH][CH2][C](=[O])[C@H]([OH])[C@H]([OH])[CH2][O][P](=[O])([O-])[O-]
+431	(1S,2R)-1-C-(indol-3-yl)glycerol 3-phosphate	[O]=[P]([O-])([O-])[O][CH2][C@@H]([OH])[C@@H]([OH])[c]1[cH][nH][c]2[cH][cH][cH][cH][c]12
+432	L-isoleucine	[CH3][CH2][C@H]([CH3])[C@H]([NH3+])[C](=[O])[O-]
+433	myo-inositol	[OH][C@H]1[C@H]([OH])[C@@H]([OH])[C@H]([OH])[C@@H]([OH])[C@H]1[OH]
+434	5-dehydro-2-deoxy-D-gluconate	[O]=[C]([O-])[CH2][C@@H]([OH])[C@H]([OH])[C](=[O])[CH2][OH]
+435	(2R,3S)-3-isopropylmalate	[CH3][CH]([CH3])[C@H]([C](=[O])[O-])[C@@H]([OH])[C](=[O])[O-]
+436	(2S)-2-isopropyl-3-oxosuccinate	[CH3][CH]([CH3])[C@H]([C](=[O])[O-])[C](=[O])[C](=[O])[O-]
+437	2-isopropylmaleate	[CH3][CH]([CH3])/[C](=[CH]/[C](=[O])[O-])[C](=[O])[O-]
+438	(2S)-2-isopropylmalate	[CH3][CH]([CH3])[C@@]([OH])([CH2][C](=[O])[O-])[C](=[O])[O-]
+439	3-(4-oxo-4,5-dihydro-1H-imidazol-5-yl)propanoic acid	[O]=[C]([OH])[CH2][CH2][CH]1[NH][CH]=[N][C]1=[O]
+440	(R)-lactaldehyde	[CH3][C@@H]([OH])[CH]=[O]
+441	(R)-propane-1,2-diol	[CH3][C@@H]([OH])[CH2][OH]
+442	5'-phosphoguanylyl(3'->5')guanosine	[NH2][c]1[n][c]2[c]([n][cH][n]2[C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O][C@@H]3[C@@H]([CH2][O][P](=[O])([O-])[O-])[O][C@@H]([n]4[cH][n][c]5[c](=[O])[nH][c]([NH2])[n][c]45)[C@@H]3[OH])[C@@H]([OH])[C@H]2[OH])[c](=[O])[nH]1
+443	L-threonine	[CH3][C@@H]([OH])[C@H]([NH3+])[C](=[O])[O-]
+444	O-phospho-L-threonine	[CH3][C@@H]([O][P](=[O])([O-])[O-])[C@H]([NH3+])[C](=[O])[O-]
+445	thymine	[CH3][c]1[cH][nH][c](=[O])[nH][c]1=[O]
+446	two disacharide linked murein units, pentapeptide crosslinked tetrapeptide (A2pm->D-ala) (middle of chain)	[CH3][C](=[O])[NH][C]1=[CH][O][CH]([CH2][OH])[CH]2[O][CH]3[O][CH]([CH2][OH])[CH]([O][CH]4[O][CH]([CH2][OH])[CH]([O][CH]5[O][CH]([CH2][OH])[CH]([OH])[CH]([OH])[CH]5[NH][C]([CH3])=[O])[CH]([O][CH]([CH3])[C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([CH2][CH2][C](=[O])[OH])[C](=[O])[NH][CH]([CH2][CH2][CH2][CH]([NH2])[C](=[O])[OH])[C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([C](=[O])[OH])[CH2][CH2][CH2][CH]([C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([CH3])[C](=[O])[OH])[NH][C](=[O])[CH]([CH2][CH2][C](=[O])[OH])[NH][C](=[O])[CH]([CH3])[NH][C](=[O])[CH]([CH3])[O][CH]12)[CH]4[NH][C]([CH3])=[O])[CH]([OH])[CH]3[NH][C]([CH3])=[O]
+447	two disacharide linked murein units, tetrapeptide crosslinked tetrapeptide (A2pm->D-ala) (middle of chain)	[CH3][C](=[O])[NH][C]1=[CH][O][CH]([CH2][OH])[CH]2[O][CH]3[O][CH]([CH2][OH])[CH]([O][CH]4[O][CH]([CH2][OH])[CH]([O][CH]5[O][CH]([CH2][OH])[CH]([OH])[CH]([OH])[CH]5[NH][C]([CH3])=[O])[CH]([O][CH]([CH3])[C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([CH2][CH2][C](=[O])[O-])[C](=[O])[NH][CH]([CH2][CH2][CH2][CH]([NH2])[C](=[O])[O-])[C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([C](=[O])[O-])[CH2][CH2][CH2][CH]([C](=[O])[NH][CH]([CH3])[C](=[O])[O-])[NH][C](=[O])[CH]([CH2][CH2][C](=[O])[O-])[NH][C](=[O])[CH]([CH3])[NH][C](=[O])[CH]([CH3])[O][CH]12)[CH]4[NH][C]([CH3])=[O])[CH]([OH])[CH]3[NH][C]([CH3])=[O]
+448	Two linked disacharide pentapeptide and tetrapeptide murein units (uncrosslinked, middle of chain)	[CH3][C](=[O])[NH][C]1=[CH][O][CH]([CH2][OH])[CH]([O][CH]2[O][CH]([CH2][OH])[CH]([O][CH]3[O][CH]([CH2][OH])[CH]([O][CH]4[O][CH]([CH2][OH])[CH]([OH])[CH]([OH])[CH]4[NH][C]([CH3])=[O])[CH]([O][CH]([CH3])[C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([CH2][CH2][C](=[O])[O-])[C](=[O])[NH][CH]([CH2][CH2][CH2][CH]([NH3+])[C](=[O])[O-])[C](=[O])[NH][CH]([CH3])[C](=[O])[O-])[CH]3[NH][C]([CH3])=[O])[CH]([OH])[CH]2[NH][C]([CH3])=[O])[CH]1[O][CH]([CH3])[C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([CH2][CH2][C](=[O])[O-])[C](=[O])[NH][CH]([CH2][CH2][CH2][CH]([NH3+])[C](=[O])[O-])[C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([CH3])[C](=[O])[O-]
+449	Two linked disacharide tetrapeptide murein units (uncrosslinked, middle of chain)	[CH3][C](=[O])[NH][C]1=[CH][O][CH]([CH2][OH])[CH]([O][CH]2[O][CH]([CH2][OH])[CH]([O][CH]3[O][CH]([CH2][OH])[CH]([O][CH]4[O][CH]([CH2][OH])[CH]([OH])[CH]([OH])[CH]4[NH][C]([CH3])=[O])[CH]([O][CH]([CH3])[C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([CH2][CH2][C](=[O])[O-])[C](=[O])[NH][CH]([CH2][CH2][CH2][CH]([NH3+])[C](=[O])[O-])[C](=[O])[NH][CH]([CH3])[C](=[O])[O-])[CH]3[NH][C]([CH3])=[O])[CH]([OH])[CH]2[NH][C]([CH3])=[O])[CH]1[O][CH]([CH3])[C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([CH2][CH2][C](=[O])[O-])[C](=[O])[NH][CH]([CH2][CH2][CH2][CH]([NH3+])[C](=[O])[O-])[C](=[O])[NH][CH]([CH3])[C](=[O])[O-]
+450	Two linked disacharide pentapeptide and tripeptide murein units (uncrosslinked, middle of chain)	[CH3][C](=[O])[NH][C]1=[CH][O][CH]([CH2][OH])[CH]([O][CH]2[O][CH]([CH2][OH])[CH]([O][CH]3[O][CH]([CH2][OH])[CH]([O][CH]4[O][CH]([CH2][OH])[CH]([OH])[CH]([OH])[CH]4[NH][C]([CH3])=[O])[CH]([O][CH]([CH3])[C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([CH2][CH2][C](=[O])[O-])[C](=[O])[NH][CH]([CH2][CH2][CH2][CH]([NH3+])[C](=[O])[O-])[C](=[O])[O-])[CH]3[NH][C]([CH3])=[O])[CH]([OH])[CH]2[NH][C]([CH3])=[O])[CH]1[O][CH]([CH3])[C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([CH2][CH2][C](=[O])[O-])[C](=[O])[NH][CH]([CH2][CH2][CH2][CH]([NH3+])[C](=[O])[O-])[C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([CH3])[C](=[O])[O-]
+451	Two linked disacharide tetrapeptide and tripeptide murein units (uncrosslinked, middle of chain)	[CH3][C](=[O])[NH][C]1=[CH][O][CH]([CH2][OH])[CH]([O][CH]2[O][CH]([CH2][OH])[CH]([O][CH]3[O][CH]([CH2][OH])[CH]([O][CH]4[O][CH]([CH2][OH])[CH]([OH])[CH]([OH])[CH]4[NH][C]([CH3])=[O])[CH]([O][CH]([CH3])[C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([CH2][CH2][C](=[O])[O-])[C](=[O])[NH][CH]([CH2][CH2][CH2][CH]([NH3+])[C](=[O])[O-])[C](=[O])[O-])[CH]3[NH][C]([CH3])=[O])[CH]([OH])[CH]2[NH][C]([CH3])=[O])[CH]1[O][CH]([CH3])[C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([CH2][CH2][C](=[O])[O-])[C](=[O])[NH][CH]([CH2][CH2][CH2][CH]([NH3+])[C](=[O])[O-])[C](=[O])[NH][CH]([CH3])[C](=[O])[O-]
+452	2-C-methyl-D-erythritol 2,4-cyclic diphosphate	[CH3][C@@]1([CH2][OH])[O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[OH]
+453	D-methionine	[CH3][S][CH2][CH2][C@@H]([NH3+])[C](=[O])[O-]
+454	(6S)-5-methyl-5,6,7,8-tetrahydrofolate	[CH3][N]1[c]2[c]([n][c]([NH2])[nH][c]2=[O])[NH][CH2][C@@H]1[CH2][NH][c]1[cH][cH][c]([C](=[O])[NH][C@@H]([CH2][CH2][C](=[O])[O-])[C](=[O])[O-])[cH][cH]1
+455	Mg(2+)	[Mg+2]
+456	1D-myo-inositol 1-phosphate	[O]=[P]([O-])([O-])[O][C@H]1[C@H]([OH])[C@@H]([OH])[C@H]([OH])[C@@H]([OH])[C@H]1[OH]
+457	Two disacharide linked murein units, pentapeptide corsslinked tripeptide (A2pm->A2pm) (middle of chain)	[CH3][C](=[O])[NH][C]1=[CH][O][CH]([CH2][OH])[CH]2[O][CH]3[O][CH]([CH2][OH])[CH]([O][CH]4[O][CH]([CH2][OH])[CH]([O][CH]5[O][CH]([CH2][OH])[CH]([OH])[CH]([OH])[CH]5[NH][C]([CH3])=[O])[CH]([O][CH]([CH3])[C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([CH2][CH2][C](=[O])[O-])[C](=[O])[NH][CH]([CH2][CH2][CH2][CH]([NH3+])[C](=[O])[O-])[C](=[O])[NH][CH]([C](=[O])[O-])[CH2][CH2][CH2][CH]([C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([CH3])[C](=[O])[O-])[NH][C](=[O])[CH]([CH2][CH2][C](=[O])[O-])[NH][C](=[O])[CH]([CH3])[NH][C](=[O])[CH]([CH3])[O][CH]12)[CH]4[NH][C]([CH3])=[O])[CH]([OH])[CH]3[NH][C]([CH3])=[O]
+458	two disacharide linked murein units, tripeptide crosslinked tripeptide (A2pm->A2pm) (middle of chain)	[CH3][C](=[O])[NH][C]1=[CH][O][CH]([CH2][OH])[CH]2[O][CH]3[O][CH]([CH2][OH])[CH]([O][CH]4[O][CH]([CH2][OH])[CH]([O][CH]5[O][CH]([CH2][OH])[CH]([OH])[CH]([OH])[CH]5[NH][C]([CH3])=[O])[CH]([O][CH]([CH3])[C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([CH2][CH2][C](=[O])[OH])[C](=[O])[NH][CH]([CH2][CH2][CH2][CH]([NH2])[C](=[O])[OH])[C](=[O])[NH][CH]([C](=[O])[OH])[CH2][CH2][CH2][CH]([C](=[O])[OH])[NH][C](=[O])[CH]([CH2][CH2][C](=[O])[OH])[NH][C](=[O])[CH]([CH3])[NH][C](=[O])[CH]([CH3])[O][CH]12)[CH]4[NH][C]([CH3])=[O])[CH]([OH])[CH]3[NH][C]([CH3])=[O]
+459	Two linked disacharide tripeptide murein units (uncrosslinked, middle of chain)	[CH3][C](=[O])[NH][C]1=[CH][O][CH]([CH2][OH])[CH]([O][CH]2[O][CH]([CH2][OH])[CH]([O][CH]3[O][CH]([CH2][OH])[CH]([O][CH]4[O][CH]([CH2][OH])[CH]([OH])[CH]([OH])[CH]4[NH][C]([CH3])=[O])[CH]([O][CH]([CH3])[C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([CH2][CH2][C](=[O])[O-])[C](=[O])[NH][CH]([CH2][CH2][CH2][CH]([NH3+])[C](=[O])[O-])[C](=[O])[O-])[CH]3[NH][C]([CH3])=[O])[CH]([OH])[CH]2[NH][C]([CH3])=[O])[CH]1[O][CH]([CH3])[C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([CH2][CH2][C](=[O])[O-])[C](=[O])[NH][CH]([CH2][CH2][CH2][CH]([NH3+])[C](=[O])[O-])[C](=[O])[O-]
+460	(S)-methylmalonyl-CoA	[CH3][C@@H]([C](=[O])[O-])[C](=[O])[S][CH2][CH2][NH][C](=[O])[CH2][CH2][NH][C](=[O])[C@H]([OH])[C]([CH3])([CH3])[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-]
+461	(R)-methylmalonyl-CoA	[CH3][C@H]([C](=[O])[O-])[C](=[O])[S][CH2][CH2][NH][C](=[O])[CH2][CH2][NH][C](=[O])[C@H]([OH])[C]([CH3])([CH3])[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-]
+462	Mn(2+)	[Mn+2]
+463	beta-nicotinamide D-ribonucleotide	[NH2][C](=[O])[c]1[cH][cH][cH][n+]([C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]2[OH])[cH]1
+464	nicotinamide	[NH2][C](=[O])[c]1[cH][cH][cH][n][cH]1
+465	nicotinate	[O]=[C]([O-])[c]1[cH][cH][cH][n][cH]1
+466	Na(+)	[Na+]
+467	dIDP	[O]=[c]1[nH][cH][n][c]2[c]1[n][cH][n]2[C@H]1[CH2][C@H]([OH])[C@@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[O]1
+468	Ni(2+)	[Ni+2]
+469	beta-nicotinamide D-riboside	[NH2][C](=[O])[c]1[cH][cH][cH][n+]([C@@H]2[O][C@H]([CH2][OH])[C@@H]([OH])[C@H]2[OH])[cH]1
+470	quinolinate	[O]=[C]([O-])[c]1[cH][cH][cH][n][c]1[C](=[O])[O-]
+471	alpha-D-ribose 1-phosphate	[O]=[P]([O-])([O-])[O][C@H]1[O][C@H]([CH2][OH])[C@@H]([OH])[C@H]1[OH]
+472	beta-D-ribosylnicotinate	[O]=[C]([O-])[c]1[cH][cH][cH][n+]([C@@H]2[O][C@H]([CH2][OH])[C@@H]([OH])[C@H]2[OH])[cH]1
+473	xanthosine	[O]=[c]1[nH][c](=[O])[c]2[n][cH][n]([C@@H]3[O][C@H]([CH2][OH])[C@@H]([OH])[C@H]3[OH])[c]2[nH]1
+474	dIMP	[O]=[c]1[nH][cH][n][c]2[c]1[n][cH][n]2[C@H]1[CH2][C@H]([OH])[C@@H]([CH2][O][P](=[O])([O-])[O-])[O]1
+475	thymidine	[CH3][c]1[cH][n]([C@H]2[CH2][C@H]([OH])[C@@H]([CH2][OH])[O]2)[c](=[O])[nH][c]1=[O]
+476	guanosine	[NH2][c]1[n][c]2[c]([n][cH][n]2[C@@H]2[O][C@H]([CH2][OH])[C@@H]([OH])[C@H]2[OH])[c](=[O])[nH]1
+477	(R)-3-hydroxy-2-oxo-4-phosphooxybutanoate	[O]=[C]([O-])[C](=[O])[C@H]([OH])[CH2][O][P](=[O])([O-])[O-]
+478	4-methyl-2-oxopentanoate	[CH3][CH]([CH3])[CH2][C](=[O])[C](=[O])[O-]
+479	orotidine 5'-phosphate	[O]=[C]([O-])[c]1[cH][c](=[O])[nH][c](=[O])[n]1[C@@H]1[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]1[OH]
+480	succinate semialdehyde	[O]=[CH][CH2][CH2][C](=[O])[O-]
+481	(S)-1-pyrroline-5-carboxylate	[O]=[C]([O-])[C@@H]1[CH2][CH2][CH]=[N]1
+482	L-proline	[O]=[C]([O-])[C@@H]1[CH2][CH2][CH2][NH2+]1
+483	2-phenylacetate	[O]=[C]([O-])[CH2][c]1[cH][cH][cH][cH][cH]1
+484	phenylacetyl-CoA	[CH3][C]([CH3])([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-])[C@@H]([OH])[C](=[O])[NH][CH2][CH2][C](=[O])[NH][CH2][CH2][S][C](=[O])[CH2][c]1[cH][cH][cH][cH][cH]1
+485	(R)-pantothenate	[CH3][C]([CH3])([CH2][OH])[C@@H]([OH])[C](=[O])[NH][CH2][CH2][C](=[O])[O-]
+486	Undecaprenyl phosphate	[CH3][C]([CH3])=[CH][CH2][CH2][C]([CH3])=[CH][CH2][CH2][C]([CH3])=[CH][CH2][CH2][C]([CH3])=[CH][CH2][CH2][C]([CH3])=[CH][CH2][CH2][C]([CH3])=[CH][CH2][CH2][C]([CH3])=[CH][CH2][CH2][C]([CH3])=[CH][CH2][CH2][C]([CH3])=[CH][CH2][CH2][C]([CH3])=[CH][CH2][CH2][C]([CH3])=[CH][CH2][O][P](=[O])([O-])[OH]
+487	UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-gamma-D-glutamyl-meso-2,6-diaminopimeloyl-D-alanyl-D-alanine	[CH3][C](=[O])[NH][C@H]1[C@@H]([O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]2[O][C@@H]([n]3[cH][cH][c](=[O])[nH][c]3=[O])[C@H]([OH])[C@@H]2[OH])[O][C@H]([CH2][OH])[C@@H]([OH])[C@@H]1[O][C@H]([CH3])[C](=[O])[NH][C@@H]([CH3])[C](=[O])[NH][C@H]([CH2][CH2][C](=[O])[NH][C@@H]([CH2][CH2][CH2][C@@H]([NH3+])[C](=[O])[O-])[C](=[O])[NH][C@H]([CH3])[C](=[O])[NH][C@H]([CH3])[C](=[O])[O-])[C](=[O])[O-]
+488	Undecaprenyl-diphospho-N-acetylmuramoyl-L-alanyl-D-glutamyl-meso-2,6-diaminopimeloyl-D-alanyl-D-alanine	[CH3][C](=[O])[NH][CH]1[CH]([O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][CH]=[C]([CH3])[CH2][CH2][CH]=[C]([CH3])[CH2][CH2][CH]=[C]([CH3])[CH2][CH2][CH]=[C]([CH3])[CH2][CH2][CH]=[C]([CH3])[CH2][CH2][CH]=[C]([CH3])[CH2][CH2][CH]=[C]([CH3])[CH2][CH2][CH]=[C]([CH3])[CH2][CH2][CH]=[C]([CH3])[CH2][CH2][CH]=[C]([CH3])[CH2][CH2][CH]=[C]([CH3])[CH3])[O][CH]([CH2][OH])[CH]([OH])[CH]1[O][CH]([CH3])[C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([CH2][CH2][C](=[O])[O-])[C](=[O])[NH][CH]([CH2][CH2][CH2][CH]([NH3+])[C](=[O])[O-])[C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([CH3])[C](=[O])[O-]
+489	(R)-dihydrolipoamide	[NH2][C](=[O])[CH2][CH2][CH2][CH2][C@@H]([SH])[CH2][CH2][SH]
+490	(R)-lipoamide	[NH2][C](=[O])[CH2][CH2][CH2][CH2][C@@H]1[CH2][CH2][S][S]1
+491	pyridoxine 5'-phosphate	[CH3][c]1[n][cH][c]([CH2][O][P](=[O])([O-])[O-])[c]([CH2][OH])[c]1[OH]
+492	pyridoxal 5'-phosphate	[CH3][c]1[n][cH][c]([CH2][O][P](=[O])([O-])[O-])[c]([CH]=[O])[c]1[OH]
+493	Phosphatidylethanolamine (dihexadec-9enoyl, n-C16:1)	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][CH2][CH2][NH3+])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3]
+494	D-sedoheptulose 7-phosphate	[O]=[C]([CH2][OH])[C@@H]([OH])[C@H]([OH])[C@H]([OH])[C@H]([OH])[CH2][O][P](=[O])([O-])[O-]
+495	dilauroyl phosphatidylglycerol	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([OH])[O][CH2][CH]([OH])[CH2][OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+496	Phosphatidylglycerophosphate (didodecanoyl, n-C12:0)	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][CH2][CH]([OH])[CH2][O][P](=[O])([O-])[OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+497	Phosphatidylglycerophosphate (ditetradecanoyl, n-C14:0)	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][CH2][CH]([OH])[CH2][O][P](=[O])([O-])[OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+498	Phosphatidylglycerophosphate (ditetradec-7-enoyl, n-C14:1)	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][CH2][CH]([OH])[CH2][O][P](=[O])([O-])[OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3]
+499	Phosphatidylglycerophosphate (dihexadecanoyl, n-C16:0)	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][CH2][CH]([OH])[CH2][O][P](=[O])([O-])[OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+500	Phosphatidylglycerophosphate (dihexadec-9-enoyl, n-C16:1)	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][CH2][CH]([OH])[CH2][O][P](=[O])([O-])[OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3]
+501	Phosphatidylglycerophosphate (dioctadecanoyl, n-C18:0)	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][CH2][CH]([OH])[CH2][O][P](=[O])([O-])[OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+502	Phosphatidylglycerophosphate (dioctadec-11-enoyl, n-C18:1)	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][CH2][CH]([OH])[CH2][O][P](=[O])([O-])[OH])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3]
+503	3-phenylpyruvate	[O]=[C]([O-])[C](=[O])[CH2][c]1[cH][cH][cH][cH][cH]1
+504	5-amino-6-(D-ribitylamino)uracil	[NH2][c]1[c]([NH][CH2][C@H]([OH])[C@H]([OH])[C@H]([OH])[CH2][OH])[nH][c](=[O])[nH][c]1=[O]
+505	4-amino-2-methyl-5-(diphosphooxymethyl)pyrimidine	[CH3][c]1[n][cH][c]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[c]([NH2])[n]1
+506	(R)-4'-phosphopantothenate	[CH3][C]([CH3])([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C](=[O])[NH][CH2][CH2][C](=[O])[O-]
+507	propanoyl phosphate	[CH3][CH2][C](=[O])[O][P](=[O])([O-])[O-]
+508	N-[(R)-4-phosphopantothenoyl]-L-cysteine	[CH3][C]([CH3])([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C](=[O])[NH][CH2][CH2][C](=[O])[NH][C@@H]([CH2][SH])[C](=[O])[O-]
+509	3-(4-hydroxyphenyl)pyruvate	[O]=[C]([O-])[C](=[O])[CH2][c]1[cH][cH][c]([OH])[cH][cH]1
+510	2-formamido-N(1)-(5-O-phospho-beta-D-ribosyl)acetamidine	[NH2+]=[C]([CH2][NH][CH]=[O])[NH][C@@H]1[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]1[OH]
+511	1-(5-Phosphoribosyl)-AMP	[NH2][c]1[c]2[n][cH][n]([CH]3[O][CH]([CH2][O][P](=[O])([O-])[OH])[CH]([OH])[CH]3[OH])[c]2[n][cH][n+]1[CH]1[O][CH]([CH2][O][P](=[O])([O-])[OH])[CH]([OH])[CH]1[OH]
+512	1-(5-phospho-beta-D-ribosyl)-5-[(5-phospho-beta-D-ribosylamino)methylideneamino]imidazole-4-carboxamide	[NH2][C](=[O])[c]1[n][cH][n]([C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]2[OH])[c]1/[N]=[CH]/[NH][C@@H]1[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]1[OH]
+513	3-phosphoshikimate	[O]=[C]([O-])[C]1=[CH][C@@H]([O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]([OH])[CH2]1
+514	Phosphatidylserine (didodecanoyl, n-C12:0)	[CH3][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][CH2][CH2][NH][C](=[O])[O-])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH3]
+515	Phosphatidylserine (ditetradec-7-enoyl, n-C14:1)	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][CH2][CH2][NH][C](=[O])[O-])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3]
+516	Phosphatidylserine (dihexadec-9-enoyl, n-C16:1)	[CH3][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH2][CH2][C](=[O])[O][CH2][CH]([CH2][O][P](=[O])([O-])[O][CH2][CH2][NH][C](=[O])[O-])[O][C](=[O])[CH2][CH2][CH2][CH2][CH2][CH2][CH2][CH]=[CH][CH2][CH2][CH2][CH2][CH2][CH3]
+517	O-phospho-L-serine	[NH3+][C@@H]([CH2][O][P](=[O])([O-])[O-])[C](=[O])[O-]
+518	psi-UMP	[O]=[c]1[nH][cH][c]([C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O-])[C@@H]([OH])[C@H]2[OH])[c](=[O])[nH]1
+519	6,7-Dimethyl-8-(1-D-ribityl)lumazine	[CH3][c]1[n][c]2[c](=[O])[nH][c](=[O])[n][c]-2[n]([CH2][CH]([OH])[CH]([OH])[CH]([OH])[CH2][OH])[c]1[CH3]
+520	L-ribulose 5-phosphate	[O]=[C]([CH2][OH])[C@@H]([OH])[C@@H]([OH])[CH2][O][P](=[O])([O-])[O-]
+521	D-xylulose 5-phosphate	[O]=[C]([CH2][OH])[C@@H]([OH])[C@H]([OH])[CH2][O][P](=[O])([O-])[O-]
+522	sulfate	[O]=[S](=[O])([O-])[O-]
+523	N-succinyl-(2S,6S)-2,6-diaminoheptanedioate	[NH3+][C@@H]([CH2][CH2][CH2][C@H]([NH][C](=[O])[CH2][CH2][C](=[O])[O-])[C](=[O])[O-])[C](=[O])[O-]
+524	(S)-2-succinylamino-6-oxoheptanedioate	[O]=[C]([O-])[CH2][CH2][C](=[O])[NH][C@@H]([CH2][CH2][CH2][C](=[O])[C](=[O])[O-])[C](=[O])[O-]
+525	L-adenosylselenohomocysteine	[NH2][c]1[n][cH][n][c]2[c]1[n][cH][n]2[C@@H]1[O][C@H]([CH2][Se][CH2][CH2][C@H]([NH2])[C](=[O])[OH])[C@@H]([OH])[C@H]1[OH]
+526	L-selenohomocysteine	[NH3+][C@@H]([CH2][CH2][SeH])[C](=[O])[O-]
+527	5-enolpyruvoyl-6-hydroxy-2-succinyl-cyclohex-3-ene-1-carboxylate	[CH2]=[C]([O][C@H]1[CH]=[CH][C@H]([C](=[O])[CH2][CH2][C](=[O])[O-])[C@@H]([C](=[O])[O-])[C@@H]1[OH])[C](=[O])[O-]
+528	shikimate	[O]=[C]([O-])[C]1=[CH][C@@H]([OH])[C@@H]([OH])[C@H]([OH])[CH2]1
+529	staphyloferrin A	[O]=[C]([OH])[CH2][C]([OH])([CH2][C](=[O])[NH][CH2][CH2][CH2][C@@H]([NH][C](=[O])[CH2][C]([OH])([CH2][C](=[O])[OH])[C](=[O])[OH])[C](=[O])[OH])[C](=[O])[OH]
+530	spermidine	[NH3+][CH2][CH2][CH2][CH2][NH2+][CH2][CH2][CH2][NH3+]
+531	O-phospho-L-homoserine	[NH3+][C@@H]([CH2][CH2][O][P](=[O])([O-])[O-])[C](=[O])[O-]
+532	2-succinylbenzoate	[O]=[C]([O-])[CH2][CH2][C](=[O])[c]1[cH][cH][cH][cH][c]1[C](=[O])[O-]
+533	L-tyrosine	[NH3+][C@@H]([CH2][c]1[cH][cH][c]([OH])[cH][cH]1)[C](=[O])[O-]
+534	4-hydroxybenzyl alcohol	[OH][CH2][c]1[cH][cH][c]([OH])[cH][cH]1
+535	4-methyl-5-(2-phosphooxyethyl)-thiazole	[CH3][c]1[n][cH][s][c]1[CH2][CH2][O][P](=[O])([O-])[O-]
+536	thiamine phosphate	[CH3][c]1[n][cH][c]([CH2][n+]2[cH][s][c]([CH2][CH2][O][P](=[O])([O-])[O-])[c]2[CH3])[c]([NH2])[n]1
+537	thiamine diphosphate	[CH3][c]1[n][cH][c]([CH2][n+]2[cH][s][c]([CH2][CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O-])[c]2[CH3])[c]([NH2])[n]1
+538	alpha,alpha-trehalose 6-phosphate	[O]=[P]([O-])([O-])[O][CH2][C@H]1[O][C@H]([O][C@H]2[O][C@H]([CH2][OH])[C@@H]([OH])[C@H]([OH])[C@H]2[OH])[C@H]([OH])[C@@H]([OH])[C@@H]1[OH]
+539	L-tryptophan	[NH3+][C@@H]([CH2][c]1[cH][nH][c]2[cH][cH][cH][cH][c]12)[C](=[O])[O-]
+540	indole	[cH]1[cH][cH][c]2[nH][cH][cH][c]2[cH]1
+541	UDP-N-acetylmuramoyl-L-alanyl-D-glutamate	[CH3][C](=[O])[NH][CH]1[CH]([O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][CH]2[O][CH]([n]3[cH][cH][c](=[O])[nH][c]3=[O])[CH]([OH])[CH]2[OH])[O][CH]([CH2][OH])[CH]([OH])[CH]1[O][CH]([CH3])[C](=[O])[NH][CH]([CH3])[C](=[O])[NH][CH]([CH2][CH2][C](=[O])[O-])[C](=[O])[O-]
+542	UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-gamma-D-glutamyl-meso-2,6-diaminoheptanedioate	[CH3][C](=[O])[NH][C@H]1[C@@H]([O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]2[O][C@@H]([n]3[cH][cH][c](=[O])[nH][c]3=[O])[C@H]([OH])[C@@H]2[OH])[O][C@H]([CH2][OH])[C@@H]([OH])[C@@H]1[O][C@H]([CH3])[C](=[O])[NH][C@@H]([CH3])[C](=[O])[NH][C@H]([CH2][CH2][C](=[O])[NH][C@@H]([CH2][CH2][CH2][C@@H]([NH3+])[C](=[O])[O-])[C](=[O])[O-])[C](=[O])[O-]
+543	UDP-N-acetyl-alpha-D-glucosamine	[CH3][C](=[O])[NH][C@H]1[C@@H]([O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]2[O][C@@H]([n]3[cH][cH][c](=[O])[nH][c]3=[O])[C@H]([OH])[C@@H]2[OH])[O][C@H]([CH2][OH])[C@@H]([OH])[C@@H]1[OH]
+544	UDP-N-acetyl-alpha-D-galactosamine	[CH3][C](=[O])[NH][C@H]1[C@@H]([O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]2[O][C@@H]([n]3[cH][cH][c](=[O])[nH][c]3=[O])[C@H]([OH])[C@@H]2[OH])[O][C@H]([CH2][OH])[C@H]([OH])[C@@H]1[OH]
+545	UDP-N-acetyl-3-O-(1-carboxyvinyl)-alpha-D-glucosamine	[CH2]=[C]([O][C@H]1[C@H]([OH])[C@@H]([CH2][OH])[O][C@H]([O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]2[O][C@@H]([n]3[cH][cH][c](=[O])[nH][c]3=[O])[C@H]([OH])[C@@H]2[OH])[C@@H]1[NH][C]([CH3])=[O])[C](=[O])[O-]
+546	N-acetyl-alpha-D-glucosamine 1-phosphate	[CH3][C](=[O])[NH][C@H]1[C@@H]([O][P](=[O])([O-])[O-])[O][C@H]([CH2][OH])[C@@H]([OH])[C@@H]1[OH]
+547	UDP-N-acetyl-alpha-D-muramoyl-L-alanine	[CH3][C](=[O])[NH][C@H]1[C@@H]([O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]2[O][C@@H]([n]3[cH][cH][c](=[O])[nH][c]3=[O])[C@H]([OH])[C@@H]2[OH])[O][C@H]([CH2][OH])[C@@H]([OH])[C@@H]1[O][C@H]([CH3])[C](=[O])[NH][C@@H]([CH3])[C](=[O])[O-]
+548	UDP-N-acetyl-alpha-D-muramate	[CH3][C](=[O])[NH][C@H]1[C@@H]([O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]2[O][C@@H]([n]3[cH][cH][c](=[O])[nH][c]3=[O])[C@H]([OH])[C@@H]2[OH])[O][C@H]([CH2][OH])[C@@H]([OH])[C@@H]1[O][C@H]([CH3])[C](=[O])[O-]
+549	undecaprenyl diphosphate	[CH3][C]([CH3])=[CH][CH2][CH2][C]([CH3])=[CH][CH2][CH2][C]([CH3])=[CH][CH2][CH2][C]([CH3])=[CH][CH2][CH2][C]([CH3])=[CH][CH2][CH2][C]([CH3])=[CH][CH2][CH2][C]([CH3])=[CH][CH2][CH2][C]([CH3])=[CH][CH2][CH2][C]([CH3])=[CH][CH2][CH2][C]([CH3])=[CH][CH2][CH2][C]([CH3])=[CH][CH2][O][P](=[O])([OH])[O][P](=[O])([OH])[OH]
+550	UDP-alpha-D-galactose	[O]=[c]1[cH][cH][n]([C@@H]2[O][C@H]([CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][C@H]3[O][C@H]([CH2][OH])[C@H]([OH])[C@H]([OH])[C@H]3[OH])[C@@H]([OH])[C@H]2[OH])[c](=[O])[nH]1
+551	urea	[NH2][C]([NH2])=[O]
+552	L-valine	[CH3][CH]([CH3])[C@H]([NH3+])[C](=[O])[O-]
+553	2-methylpropanoyl-CoA	[CH3][CH]([CH3])[C](=[O])[S][CH2][CH2][NH][C](=[O])[CH2][CH2][NH][C](=[O])[C@H]([OH])[C]([CH3])([CH3])[CH2][O][P](=[O])([O-])[O][P](=[O])([O-])[O][CH2][C@H]1[O][C@@H]([n]2[cH][n][c]3[c]([NH2])[n][cH][n][c]23)[C@H]([OH])[C@@H]1[O][P](=[O])([O-])[O-]
+554	D-xylose	[OH][CH]1[O][CH2][C@@H]([OH])[C@H]([OH])[C@H]1[OH]
+555	D-xylulose	[O]=[C]([CH2][OH])[C@@H]([OH])[C@H]([OH])[CH2][OH]
+556	Zn(2+)	[Zn+2]
+557	alpha-D-glucosamine 1-phosphate	[NH3+][C@H]1[C@@H]([O][P](=[O])([O-])[O-])[O][C@H]([CH2][OH])[C@@H]([OH])[C@@H]1[OH]

@@ -155,7 +155,7 @@ def path_exists(pathways: list[list[str]], path: list[str]):
             return True
     return False
 
-def compare_rec_based_on_medium(pathways: dict[SpeciesMediumCombination, dict[AminoAcid, list[nx.DiGraph]]]):
+def compare_rec_based_on_medium(pathways: dict[SpeciesMediumCombination, dict[AminoAcid, list[str]]]):
     '''
     For the same medium, are there notable differences in the reconstructed pathways between species?
     Visualization with a heatmap that shows how many different pathways exist over all species per media and amino acid
