@@ -132,4 +132,9 @@ if __name__ == "__main__":
     model += variables["R_biomass"], "Profit"
     model = add_constraints(model, variables, G)
     model.solve()
+
+    # Print results
     pulp.LpStatus[model.status]
+    for v in variables.values():
+        print(v.name,":", v.varValue)
+    print(pulp.value(model.objective))
