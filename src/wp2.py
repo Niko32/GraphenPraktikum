@@ -6,6 +6,7 @@ import pickle
 
 from custom_types import AminoAcid, Protein
 from constants import COFACTORS, SEPCIES_MEDIUM_COMBINATIONS, AMINO_ACIDS, AMINO_ACID_DICT
+from wp1 import draw_graph
 
 
 
@@ -68,9 +69,24 @@ def add_input_reactions(G: nx.DiGraph) -> nx.DiGraph:
 
     # Add a node for every cofactor and connect it to the cofactor
     for cofactor in [*COFACTORS, "D-glucose"]:
-        input_reaction = f"R_{cofactor}"
+        input_reaction = f"R_in_{cofactor}"
         G.add_node(input_reaction, reaction=True)
         G.add_edge(input_reaction, cofactor, weight=1)
+
+    return G
+
+def add_output_reactions(G: nx.DiGraph):
+    compounds = []
+    for compound, is_reaction in G.nodes(data="reaction"):
+
+        if is_reaction:
+            continue
+
+        compounds.append(compound)
+
+    for compound in compounds:
+        G.add_node(f"R_out_{compound}", reaction=True)
+        G.add_edge(compound, f"R_out_{compound}", weight=1)
 
     return G
 
@@ -96,16 +112,19 @@ def get_variables(G: nx.DiGraph) -> dict[str, pulp.LpVariable]:
 def add_constraints(model: pulp.LpProblem, V: dict[str: pulp.LpVariable], G: nx.DiGraph) -> pulp.LpProblem:
     """ Add the constraints to the model  including input constraints and a glucose constraint """
     # Add glucose constraint
-    model += V["R_D-glucose"] >= 10
+    model += V["R_in_D-glucose"] >= 10
+    model += V["R_in_D-glucose"] <= 1000
 
     # Add constraints for each cofactors
     for cofactor in COFACTORS:
-        model += V["R_" + cofactor] >= -1000
+        model += V["R_in_" + cofactor] >= -1000
+        model += V["R_in_" + cofactor] <= 1000
 
     # Add constraints for all inner nodes
     for v in V.keys():
         if not v in COFACTORS:
             model += V[v] >= 0
+            model += V[v] <= 1000
 
     # Add reaction equations iterating over all compound nodes
     for compound, is_reaction in G.nodes(data="reaction"):
@@ -127,6 +146,7 @@ if __name__ == "__main__":
     G = load_graph()
     G = add_biomass_reaction(G, ratios)
     G = add_input_reactions(G)
+    G = add_output_reactions(G)
     model = pulp.LpProblem("Maximising_Problem", pulp.LpMaximize)
     variables = get_variables(G)
     model += variables["R_biomass"], "Profit"
@@ -136,5 +156,6 @@ if __name__ == "__main__":
     # Print results
     pulp.LpStatus[model.status]
     for v in variables.values():
-        print(v.name,":", v.varValue)
+        if v.varValue > 0:
+            print(v.name,":", v.varValue)
     print(pulp.value(model.objective))
