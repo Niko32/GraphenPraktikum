@@ -156,5 +156,6 @@ if __name__ == "__main__":
     # Print results
     pulp.LpStatus[model.status]
     for v in variables.values():
-        print(v.name,":", v.varValue)
+        if v.varValue > 0:
+            print(v.name,":", v.varValue)
     print(pulp.value(model.objective))
