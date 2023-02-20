@@ -139,6 +139,11 @@ def add_constraints(model: pulp.LpProblem, V: dict[str: pulp.LpVariable], G: nx.
 
         predessecors = [data["weight"] * V[u] for u, v, data in G.in_edges(compound, data=True)]
         successors = [data["weight"] * V[v] for u, v, data in G.out_edges(compound, data=True)]
+        print(compound)
+        print(predessecors)
+        print(successors)
+        print(pulp.lpSum(predessecors) == pulp.lpSum(successors))
+        print("")
 
         model += pulp.lpSum(predessecors) == pulp.lpSum(successors)
 
