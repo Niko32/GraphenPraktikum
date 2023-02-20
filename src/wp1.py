@@ -277,8 +277,10 @@ def draw_graph(G: nx.DiGraph, output = "", show_reactions = False):
         else:
             color_map[i] = "Green"
 
+    weights = [G[u][v]["weight"] for u, v in G.edges]
+
     nx.draw(G, pos=nx.layout.kamada_kawai_layout(G), node_color=color_map, with_labels=True, 
-            nodelist=nodes, node_size=sizes, font_size=5, width=0.1, arrowsize=4, labels=labels)
+            nodelist=nodes, node_size=sizes, font_size=5, arrowsize=4, labels=labels, width=weights)
     
     # Save the figure
     if output:

@@ -8,7 +8,7 @@ from custom_types import AminoAcid, Protein
 from constants import COFACTORS, SEPCIES_MEDIUM_COMBINATIONS, AMINO_ACIDS, AMINO_ACID_DICT
 from wp1 import bf_traversal, draw_graph
 
-START_NODE = "H(+)"
+START_NODE = "D-glucose"
 
 
 def parse_fasta(file_path: str) -> dict[str, str]:
@@ -107,7 +107,7 @@ def get_variables(G: nx.DiGraph) -> dict[str, pulp.LpVariable]:
     # Add a reaction variable for every reaction in the graph
     for node in G.nodes:
         if node.startswith("R_"):
-            var = pulp.LpVariable(node, lowBound=0, upBound=50, cat='Integer')
+            var = pulp.LpVariable(node, cat='Integer')
             variables[node] = var
 
     return variables
@@ -126,7 +126,7 @@ def add_constraints(model: pulp.LpProblem, V: dict[str: pulp.LpVariable], G: nx.
 
     # Add constraints for all inner nodes
     for v in V.keys():
-        if not v in cofactors:
+        if not v in [f"R_in_{cofactor}" for cofactor in cofactors]:
             model += V[v] >= 0
             model += V[v] <= 1000
 
@@ -142,10 +142,11 @@ def add_constraints(model: pulp.LpProblem, V: dict[str: pulp.LpVariable], G: nx.
         print(compound)
         print(predessecors)
         print(successors)
-        print(pulp.lpSum(predessecors) == pulp.lpSum(successors))
+        print(pulp.lpSum(predessecors) - pulp.lpSum(successors))
         print("")
 
-        model += pulp.lpSum(predessecors) == pulp.lpSum(successors)
+        c = pulp.lpSum(predessecors) >= pulp.lpSum(successors)
+        model += c
 
     return model
 
@@ -156,15 +157,17 @@ if __name__ == "__main__":
     G = add_biomass_reactions(G, ratios)
 
     # Only look at a small subgraph
-    G = bf_traversal(G.reverse(), ["biomass"], n=4, use_cofactors=False).reverse()
+    #G = bf_traversal(G.reverse(), ["biomass"], n=4, use_cofactors=False).reverse()
 
     G = add_input_reactions(G)
-    #G = add_output_reactions(G)
-    draw_graph(G, show_reactions=True)
+    G = add_output_reactions(G)
+    #draw_graph(G, show_reactions=True)
     model = pulp.LpProblem("Maximising_Problem", pulp.LpMaximize)
     variables = get_variables(G)
     model += variables["R_out_biomass"], "Profit"
     model = add_constraints(model, variables, G)
+    
+    print(model)
     model.solve()
 
     # Print results
