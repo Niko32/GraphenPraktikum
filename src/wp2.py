@@ -76,13 +76,19 @@ def add_input_reactions(G: nx.DiGraph) -> nx.DiGraph:
     return G
 
 def add_output_reactions(G: nx.DiGraph):
+    compounds = []
     for compound, is_reaction in G.nodes(data="reaction"):
 
         if is_reaction:
             continue
 
-        G.add_node(f"out_{compound}", reaction=True)
-        G.add_edge(compound, f"out_{compound}", weight=1)
+        compounds.append(compound)
+
+    for compound in compounds:
+        G.add_node(f"R_out_{compound}", reaction=True)
+        G.add_edge(compound, f"R_out_{compound}", weight=1)
+
+    return G
 
 def load_graph():
     save_path = f"output/subgraphs/{SEPCIES_MEDIUM_COMBINATIONS[0]}"
