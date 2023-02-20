@@ -149,7 +149,7 @@ if __name__ == "__main__":
 
     # Only look at a small subgraph
     G = bf_traversal(G.reverse(), ["biomass"], n=4, use_cofactors=False).reverse()
-    #draw_graph(G)
+    draw_graph(G)
 
     G = add_input_reactions(G)
     G = add_output_reactions(G)
