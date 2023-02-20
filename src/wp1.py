@@ -203,14 +203,14 @@ def _search_edges(G: nx.DiGraph, start_nodes: List[str], reverse = False, verbos
 
     return G
 
-def bf_traversal(G: nx.DiGraph, metabolites: List[str] = [], verbose = False, n: int = None, use_COFACTORS = True) -> nx.DiGraph:
+def bf_traversal(G: nx.DiGraph, metabolites: List[str] = [], verbose = False, n: int = None, use_cofactors = True) -> nx.DiGraph:
     """ 
     Takes a set of metabolites to form a subgraph constructed from them
     """  
 
     print("##### bf_traversal #####")
 
-    start_nodes = COFACTORS + metabolites if use_COFACTORS else metabolites  
+    start_nodes = COFACTORS + metabolites if use_cofactors else metabolites  
     H = _search_edges(G, start_nodes, verbose=verbose, n=n)
 
     # Print out amino acids that have been reached

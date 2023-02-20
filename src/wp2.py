@@ -6,8 +6,9 @@ import pickle
 
 from custom_types import AminoAcid, Protein
 from constants import COFACTORS, SEPCIES_MEDIUM_COMBINATIONS, AMINO_ACIDS, AMINO_ACID_DICT
-from wp1 import draw_graph
+from wp1 import bf_traversal, draw_graph
 
+START_NODE = "H(+)"
 
 
 def parse_fasta(file_path: str) -> dict[str, str]:
@@ -68,7 +69,7 @@ def add_input_reactions(G: nx.DiGraph) -> nx.DiGraph:
     """ Take the graph and adds input and output reactions to it """
 
     # Add a node for every cofactor and connect it to the cofactor
-    for cofactor in [*COFACTORS, "D-glucose"]:
+    for cofactor in [*COFACTORS, START_NODE]:
         input_reaction = f"R_in_{cofactor}"
         G.add_node(input_reaction, reaction=True)
         G.add_edge(input_reaction, cofactor, weight=1)
@@ -112,8 +113,8 @@ def get_variables(G: nx.DiGraph) -> dict[str, pulp.LpVariable]:
 def add_constraints(model: pulp.LpProblem, V: dict[str: pulp.LpVariable], G: nx.DiGraph) -> pulp.LpProblem:
     """ Add the constraints to the model  including input constraints and a glucose constraint """
     # Add glucose constraint
-    model += V["R_in_D-glucose"] >= 10
-    model += V["R_in_D-glucose"] <= 1000
+    model += V[f"R_in_{START_NODE}"] >= 10
+    model += V[f"R_in_{START_NODE}"] <= 1000
 
     # Add constraints for each cofactors
     for cofactor in COFACTORS:
@@ -145,6 +146,11 @@ if __name__ == "__main__":
     ratios = get_ratios(proteins)
     G = load_graph()
     G = add_biomass_reaction(G, ratios)
+
+    # Only look at a small subgraph
+    G = bf_traversal(G.reverse(), ["biomass"], n=4, use_cofactors=False).reverse()
+    #draw_graph(G)
+
     G = add_input_reactions(G)
     G = add_output_reactions(G)
     model = pulp.LpProblem("Maximising_Problem", pulp.LpMaximize)
