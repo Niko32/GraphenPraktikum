@@ -68,8 +68,10 @@ def add_biomass_reaction(G: nx.DiGraph, ratios: dict[AminoAcid, float]) -> nx.Di
 def add_input_reactions(G: nx.DiGraph) -> nx.DiGraph:
     """ Take the graph and adds input and output reactions to it """
 
+    cofactors = set(COFACTORS).intersection(G.nodes)
+
     # Add a node for every cofactor and connect it to the cofactor
-    for cofactor in [*COFACTORS, START_NODE]:
+    for cofactor in [*cofactors, START_NODE]:
         input_reaction = f"R_in_{cofactor}"
         G.add_node(input_reaction, reaction=True)
         G.add_edge(input_reaction, cofactor, weight=1)
@@ -117,13 +119,14 @@ def add_constraints(model: pulp.LpProblem, V: dict[str: pulp.LpVariable], G: nx.
     model += V[f"R_in_{START_NODE}"] <= 1000
 
     # Add constraints for each cofactors
-    for cofactor in COFACTORS:
+    cofactors = set(COFACTORS).intersection(G.nodes)
+    for cofactor in cofactors:
         model += V["R_in_" + cofactor] >= -1000
         model += V["R_in_" + cofactor] <= 1000
 
     # Add constraints for all inner nodes
     for v in V.keys():
-        if not v in COFACTORS:
+        if not v in cofactors:
             model += V[v] >= 0
             model += V[v] <= 1000
 
@@ -149,10 +152,10 @@ if __name__ == "__main__":
 
     # Only look at a small subgraph
     G = bf_traversal(G.reverse(), ["biomass"], n=4, use_cofactors=False).reverse()
-    #draw_graph(G)
 
     G = add_input_reactions(G)
     G = add_output_reactions(G)
+    #draw_graph(G)
     model = pulp.LpProblem("Maximising_Problem", pulp.LpMaximize)
     variables = get_variables(G)
     model += variables["R_biomass"], "Profit"
@@ -164,4 +167,4 @@ if __name__ == "__main__":
     for v in variables.values():
         if v.varValue > 0:
             print(v.name,":", v.varValue)
-    print(pulp.value(model.objective))
+    print("Model Objective:", pulp.value(model.objective))
