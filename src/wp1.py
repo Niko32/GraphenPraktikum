@@ -255,7 +255,7 @@ def intersect_subgraph(s: nx.DiGraph, subgraphs: List[nx.DiGraph]) -> nx.DiGraph
     G.remove_edges_from(e for e in A.edges if e not in s.edges)
     return G
 
-def draw_graph(G: nx.DiGraph, output = ""):
+def draw_graph(G: nx.DiGraph, output = "", show_reactions = False):
 
     print("Drawing Graph...")
 
@@ -264,10 +264,13 @@ def draw_graph(G: nx.DiGraph, output = ""):
     for i, (node, reaction_flag) in enumerate(G.nodes(data="reaction")):
         nodes[i] = node
         sizes[i] = 50 - 49 * (reaction_flag or 0)
-        labels[node] = "" if reaction_flag else node
+        if show_reactions:
+            labels[node] = node
+        else:
+            labels[node] = "" if reaction_flag else node
         if node in AMINO_ACIDS:
             color_map[i] = "Red"
-        elif node == "D-glucose":
+        elif node in ["D-glucose", "biomass"]:
             color_map[i] = "Yellow"
         elif reaction_flag:
             color_map[i] = "Blue"

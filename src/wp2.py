@@ -50,18 +50,18 @@ def get_ratios(proteins: dict[str, str]) -> dict[AminoAcid, float]:
 
     return aminoacid_ratio
 
-def add_biomass_reaction(G: nx.DiGraph, ratios: dict[AminoAcid, float]) -> nx.DiGraph:
+def add_biomass_reactions(G: nx.DiGraph, ratios: dict[AminoAcid, float]) -> nx.DiGraph:
     """ Takes the subgraph containing all amino acids and adds a biomass reaction and node to it """
 
     # Add the biomass reaction and output node
-    G.add_node("R_biomass", reaction=True)
     G.add_node("biomass")
-    G.add_edge("R_biomass", "biomass", weight=1)
 
     # Add edges from the amino acids to the biomass node
     amino_acids_in_the_graph = set(AMINO_ACIDS).intersection(G.nodes)
     for amino_acid in amino_acids_in_the_graph:
-        G.add_edge(amino_acid, "R_biomass", weight=ratios[amino_acid])
+        G.add_node(f"R_{amino_acid}", reaction=True)
+        G.add_edge(amino_acid, f"R_{amino_acid}", weight=1)
+        G.add_edge(f"R_{amino_acid}", "biomass", weight=ratios[amino_acid])
 
     return G
 
@@ -153,17 +153,17 @@ if __name__ == "__main__":
     proteins = parse_fasta("data/proteomes/Anaerostipes_caccae.faa")
     ratios = get_ratios(proteins)
     G = load_graph()
-    G = add_biomass_reaction(G, ratios)
+    G = add_biomass_reactions(G, ratios)
 
     # Only look at a small subgraph
     G = bf_traversal(G.reverse(), ["biomass"], n=4, use_cofactors=False).reverse()
 
     G = add_input_reactions(G)
-    G = add_output_reactions(G)
-    #draw_graph(G)
+    #G = add_output_reactions(G)
+    draw_graph(G, show_reactions=True)
     model = pulp.LpProblem("Maximising_Problem", pulp.LpMaximize)
     variables = get_variables(G)
-    model += variables["R_biomass"], "Profit"
+    model += variables["R_out_biomass"], "Profit"
     model = add_constraints(model, variables, G)
     model.solve()
 
