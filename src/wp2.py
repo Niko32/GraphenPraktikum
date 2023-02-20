@@ -136,6 +136,11 @@ def add_constraints(model: pulp.LpProblem, V: dict[str: pulp.LpVariable], G: nx.
 
         predessecors = [data["weight"] * V[u] for u, v, data in G.in_edges(compound, data=True)]
         successors = [data["weight"] * V[v] for u, v, data in G.out_edges(compound, data=True)]
+        print(compound)
+        print(predessecors)
+        print(successors)
+        print(pulp.lpSum(predessecors) == pulp.lpSum(successors))
+        print("")
 
         model += pulp.lpSum(predessecors) == pulp.lpSum(successors)
 
@@ -149,7 +154,7 @@ if __name__ == "__main__":
 
     # Only look at a small subgraph
     G = bf_traversal(G.reverse(), ["biomass"], n=4, use_cofactors=False).reverse()
-    draw_graph(G)
+    #draw_graph(G)
 
     G = add_input_reactions(G)
     G = add_output_reactions(G)
