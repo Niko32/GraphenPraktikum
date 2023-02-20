@@ -69,7 +69,7 @@ def add_input_reactions(G: nx.DiGraph) -> nx.DiGraph:
 
     # Add a node for every cofactor and connect it to the cofactor
     for cofactor in [*COFACTORS, "D-glucose"]:
-        input_reaction = f"R_{cofactor}"
+        input_reaction = f"R_in_{cofactor}"
         G.add_node(input_reaction, reaction=True)
         G.add_edge(input_reaction, cofactor, weight=1)
 
@@ -112,13 +112,13 @@ def get_variables(G: nx.DiGraph) -> dict[str, pulp.LpVariable]:
 def add_constraints(model: pulp.LpProblem, V: dict[str: pulp.LpVariable], G: nx.DiGraph) -> pulp.LpProblem:
     """ Add the constraints to the model  including input constraints and a glucose constraint """
     # Add glucose constraint
-    model += V["R_D-glucose"] >= 10
-    model += V["R_D-glucose"] <= 1000
+    model += V["R_in_D-glucose"] >= 10
+    model += V["R_in_D-glucose"] <= 1000
 
     # Add constraints for each cofactors
     for cofactor in COFACTORS:
-        model += V["R_" + cofactor] >= -1000
-        model += V["R_" + cofactor] <= 1000
+        model += V["R_in_" + cofactor] >= -1000
+        model += V["R_in_" + cofactor] <= 1000
 
     # Add constraints for all inner nodes
     for v in V.keys():
