@@ -6,6 +6,7 @@ import pickle
 
 from custom_types import AminoAcid, Protein
 from constants import COFACTORS, SEPCIES_MEDIUM_COMBINATIONS, AMINO_ACIDS, AMINO_ACID_DICT
+from wp1 import draw_graph
 
 
 
@@ -74,6 +75,15 @@ def add_input_reactions(G: nx.DiGraph) -> nx.DiGraph:
 
     return G
 
+def add_output_reactions(G: nx.DiGraph):
+    for compound, is_reaction in G.nodes(data="reaction"):
+
+        if is_reaction:
+            continue
+
+        G.add_node(f"out_{compound}", reaction=True)
+        G.add_edge(compound, f"out_{compound}", weight=1)
+
 def load_graph():
     save_path = f"output/subgraphs/{SEPCIES_MEDIUM_COMBINATIONS[0]}"
     with open(save_path, "rb") as f:
@@ -127,6 +137,7 @@ if __name__ == "__main__":
     G = load_graph()
     G = add_biomass_reaction(G, ratios)
     G = add_input_reactions(G)
+    G = add_output_reactions(G)
     model = pulp.LpProblem("Maximising_Problem", pulp.LpMaximize)
     variables = get_variables(G)
     model += variables["R_biomass"], "Profit"

@@ -257,6 +257,8 @@ def intersect_subgraph(s: nx.DiGraph, subgraphs: List[nx.DiGraph]) -> nx.DiGraph
 
 def draw_graph(G: nx.DiGraph, output = ""):
 
+    print("Drawing Graph...")
+
     # Configure display settings based on the reaction flag
     nodes, sizes, labels, color_map = len(G)*[None], np.empty(len(G), dtype=int), {}, len(G)*[None]
     for i, (node, reaction_flag) in enumerate(G.nodes(data="reaction")):
