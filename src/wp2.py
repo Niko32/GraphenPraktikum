@@ -107,15 +107,18 @@ def add_constraints(model: pulp.LpProblem, V: dict[str: pulp.LpVariable], G: nx.
     """ Add the constraints to the model  including input constraints and a glucose constraint """
     # Add glucose constraint
     model += V["R_D-glucose"] >= 10
+    model += V["R_D-glucose"] <= 1000
 
     # Add constraints for each cofactors
     for cofactor in COFACTORS:
         model += V["R_" + cofactor] >= -1000
+        model += V["R_" + cofactor] <= 1000
 
     # Add constraints for all inner nodes
     for v in V.keys():
         if not v in COFACTORS:
             model += V[v] >= 0
+            model += V[v] <= 1000
 
     # Add reaction equations iterating over all compound nodes
     for compound, is_reaction in G.nodes(data="reaction"):
