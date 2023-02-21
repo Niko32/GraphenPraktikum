@@ -65,6 +65,13 @@ if __name__ == "__main__":
     #third_largest_cc = G.subgraph(components[2])
     draw_graph(G_bfs_with_CO2)
     
+    # Goals:
+    # 1. Plot histogram of connected components by their size
+    # 2. Calculate Density, Diameter
+    # 3. Add them to the plot
+
+    # Draw graph mti 3 kantenfarben
+
 
 
 
