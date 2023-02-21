@@ -30,3 +30,14 @@ AMINO_ACID_DICT = {
     "A": "L-alanine",
     "L": "L-leucine"
 }
+
+SPECIES_DICT = {
+    "acacae": "Anaerostipes_caccae",
+    "blongum": "Bifidobacterium_longum",
+    "bproducta": "Blautia_producta",
+    "btheta": "Bacteroides_thetaiotaomicron",
+    "cbuty": "Clostridium_butyricum",
+    "ecoli": "Escherichia_coli",
+    "eramosum": "Erysipelatoclostridium_ramosum",
+    "lplantarum": "Lactobacillus_plantarum"
+}

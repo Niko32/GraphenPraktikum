@@ -3,9 +3,10 @@ import networkx as nx
 import numpy as np
 import pulp
 import pickle
+import pandas as pd
 
 from custom_types import AminoAcid, Protein
-from constants import COFACTORS, SEPCIES_MEDIUM_COMBINATIONS, AMINO_ACIDS, AMINO_ACID_DICT
+from constants import COFACTORS, SEPCIES_MEDIUM_COMBINATIONS, AMINO_ACIDS, AMINO_ACID_DICT, SPECIES_DICT
 from wp1 import bf_traversal, draw_graph
 
 START_NODE = "D-glucose"
@@ -39,9 +40,10 @@ def get_ratios(proteins: dict[str, str]) -> dict[AminoAcid, float]:
 
     # iterate over all proteins sum up the length of each protein and count the amino acids
     proteom_len = 0
-    for p in proteins:
-        proteom_len += len(proteins[p])
-        for aa in proteins[p]:
+    for protein in proteins.values():
+        protein = protein.replace("U", "")
+        proteom_len += len(protein)
+        for aa in protein:
             aminoacid_ratio[AMINO_ACID_DICT[aa]] += 1
 
     # divide the number of amino acids through the length of the proteom
@@ -93,8 +95,8 @@ def add_output_reactions(G: nx.DiGraph):
 
     return G
 
-def load_graph():
-    save_path = f"output/subgraphs/{SEPCIES_MEDIUM_COMBINATIONS[0]}"
+def load_graph(species_medium_combination: str):
+    save_path = f"output/subgraphs/{species_medium_combination}"
     with open(save_path, "rb") as f:
         G: nx.DiGraph = pickle.load(f)
         return G
@@ -139,40 +141,50 @@ def add_constraints(model: pulp.LpProblem, V: dict[str: pulp.LpVariable], G: nx.
 
         predessecors = [data["weight"] * V[u] for u, v, data in G.in_edges(compound, data=True)]
         successors = [data["weight"] * V[v] for u, v, data in G.out_edges(compound, data=True)]
-        print(compound)
-        print(predessecors)
-        print(successors)
-        print(pulp.lpSum(predessecors) - pulp.lpSum(successors))
-        print("")
 
         c = pulp.lpSum(predessecors) >= pulp.lpSum(successors)
         model += c
 
     return model
 
+def create_models():
+    proteomes = {key: parse_fasta(f"data/proteomes/{value}.faa") for key, value in SPECIES_DICT.items()}
+    for species_medium_combination in SEPCIES_MEDIUM_COMBINATIONS:
+        species = "_".join(species_medium_combination.split("_")[:-1])
+        proteome = proteomes[species]
+        ratios = get_ratios(proteome)
+        G = load_graph(species_medium_combination)
+        G = add_biomass_reactions(G, ratios)
+        G = add_input_reactions(G)
+        G = add_output_reactions(G)
+        #draw_graph(G, show_reactions=True)
+        model = pulp.LpProblem(species_medium_combination, pulp.LpMaximize)
+        variables = get_variables(G)
+        model += variables["R_out_biomass"], "Profit"
+        model = add_constraints(model, variables, G)
+        model.solve()
+
+        # Print results
+        print(f"Solved problem for {species_medium_combination}")
+        print("Model Objective:", pulp.value(model.objective))
+
+        # Save model
+        with open(f"output/models/{species_medium_combination}.pkl", "wb") as f:
+            pickle.dump(model, f)
+
 if __name__ == "__main__":
-    proteins = parse_fasta("data/proteomes/Anaerostipes_caccae.faa")
-    ratios = get_ratios(proteins)
-    G = load_graph()
-    G = add_biomass_reactions(G, ratios)
 
-    # Only look at a small subgraph
-    #G = bf_traversal(G.reverse(), ["biomass"], n=4, use_cofactors=False).reverse()
+    # Create an empty dataframe
+    models_df = pd.DataFrame([], columns=["Specius Medium Combination", "Objective Function"])
 
-    G = add_input_reactions(G)
-    G = add_output_reactions(G)
-    #draw_graph(G, show_reactions=True)
-    model = pulp.LpProblem("Maximising_Problem", pulp.LpMaximize)
-    variables = get_variables(G)
-    model += variables["R_out_biomass"], "Profit"
-    model = add_constraints(model, variables, G)
-    
-    print(model)
-    model.solve()
+    # Load the model
+    for species_medium_combination in SEPCIES_MEDIUM_COMBINATIONS:
+        with open(f"output/models/{species_medium_combination}.pkl", "rb") as f:
+            model: pulp.LpProblem = pickle.load(f)
 
-    # Print results
-    pulp.LpStatus[model.status]
-    for v in variables.values():
-        if v.varValue > 0:
-            print(v.name,":", v.varValue)
-    print("Model Objective:", pulp.value(model.objective))
+        # Add an entry for the species medium combination
+        new_entry = pd.DataFrame({"Specius Medium Combination": species_medium_combination, "Objective Function": pulp.value(model.objective)}, index=[0])
+        models_df = pd.concat([models_df, new_entry], ignore_index=True)
+
+    print(models_df)
+
