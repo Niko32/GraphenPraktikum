@@ -53,13 +53,3 @@ class Reaction(TypedDict):
     products: List[str]
     smiles_educts: List[str]
     smiles_products: List[str]
-
-class Atom(TypedDict):
-    id: int
-    label: str
-    charge: int
-    hcount: int
-    element: str
-    atom_class: int
-    compound_id: int
-    compound_name: str

@@ -39,9 +39,12 @@ def bfs_from_molecule(G: nx.Graph, molecule: str) -> nx.Graph:
     '''
     breadth first search starting at the given molecule 
     '''
-
     compounds = nx.get_node_attributes(G, "compound_name")
     start_nodes = [node for node, c in compounds.items() if c == molecule]
+
+    H = _search_edges(G, start_nodes)
+
+    return H
 
 
 if __name__ == "__main__":
@@ -56,9 +59,11 @@ if __name__ == "__main__":
     print(len(G_without_trans.edges))
     print(len(G_without_CO2.edges))
 
+    G_bfs_with_CO2 = bfs_from_molecule(G_without_trans, "D-glucose")
+
 
     #third_largest_cc = G.subgraph(components[2])
-    #draw_graph(third_largest_cc)
+    draw_graph(G_bfs_with_CO2)
     
 
 
