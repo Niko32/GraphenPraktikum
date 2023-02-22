@@ -5,9 +5,10 @@ from matplotlib import pyplot as plt
 import numpy as np
 from PIL import Image
 import os
+import pickle
 
 from custom_types import Reaction
-from constants import AMINO_ACIDS, COFACTORS
+from constants import AMINO_ACIDS, COFACTORS, SEPCIES_MEDIUM_COMBINATIONS
 
 
 def seperate_blocks(file_path: str) -> List[List[str]]:
@@ -317,11 +318,21 @@ def build_subgraph(file_path: str, verbose = False) -> nx.DiGraph:
     subgraph = intersect_subgraph(G,A)
 
     # Remove COFACTORS
-    for cofactor in COFACTORS:
-        if cofactor in subgraph:
-            subgraph.remove_node(cofactor)
+    # for cofactor in COFACTORS:
+    #     if cofactor in subgraph:
+    #         subgraph.remove_node(cofactor)
 
     return subgraph
 
 if __name__ == "__main__":
-    build_subgraph("data/sihumix/ecoli_cimIV/ecoli_cimIV.smiles_list")
+    file_paths = [f"data/sihumix/{c}/{c}.smiles_list" for c in SEPCIES_MEDIUM_COMBINATIONS]
+
+    subgraphs: List[nx.DiGraph] = []
+    for i, path in enumerate(file_paths):
+
+        save_path = f"output/subgraphs/{SEPCIES_MEDIUM_COMBINATIONS[i]}"
+        
+        with open(save_path, "wb") as f:
+            # Build and save the subgraph
+            subgraph = build_subgraph(path)
+            pickle.dump(subgraph, f)
