@@ -208,10 +208,46 @@ def alternative_react_paths(pathways: dict[SpeciesMediumCombination, dict[AminoA
     plt.ylabel("number of amino acids")
     plt.show()
 
+def compare_subgraph_sizes(load=False):
+    """ Print edges and node set sizes for the original graph and after forward and back traversal """
+
+    # Generate lists of the lengths of the original graph and the graph after bf traversal
+    original_lengths, glucose_subgraph_lengths = {}, {}
+    for species_medium_combination in SEPCIES_MEDIUM_COMBINATIONS:
+
+        # Build the original graph from .smiles_list files
+        G = wp1.build_graph(f"data/sihumix/{species_medium_combination}/{species_medium_combination}.smiles_list")
+        original_lengths[species_medium_combination] = len(G)
+
+        # Get the subgraphs after forward traversal
+        glucose_subgraph_path = f"output/glucose_subgraphs/{species_medium_combination}"
+        if load:
+            S = pickle.load(glucose_subgraph_path)
+        else:
+            S = wp1.bf_traversal(G, ["D-glucose"])
+            pickle.dump(S, glucose_subgraph_path)
+        glucose_subgraph_lengths[species_medium_combination] = len(S)
+
+    # Generate subgraphs
+    subgraphs = generate_subgraphs(load=True)
+
+    # Put them into a dict
+    sizes_list = []
+    for species_medium_combination, subgraph in subgraphs.items():
+        sizes_list.append((
+            species_medium_combination, 
+            original_lengths[species_medium_combination], 
+            glucose_subgraph_lengths[species_medium_combination],
+            len(subgraph)
+        ))
+    sizes_df = pd.DataFrame(sizes_list, columns=["Species Medium Combination", "Original Graph", "Glucose Subgraph", "Amino Acids Graph"])
+    print(sizes_df.head(20))
+
 if __name__ == "__main__":
     pathways = generate_pathways()
     compare_nr_amino_acids(pathways)
-    compare_rec_based_on_organism(pathways)
-    compare_rec_based_on_medium(pathways)
-    alternative_react_paths(pathways)
+    # compare_rec_based_on_organism(pathways)
+    # compare_rec_based_on_medium(pathways)
+    # alternative_react_paths(pathways)
+    compare_subgraph_sizes()
     

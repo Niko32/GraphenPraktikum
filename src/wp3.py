@@ -75,6 +75,8 @@ if __name__ == "__main__":
 
     # Draw graph mti 3 kantenfarben
 
+    # ATP oder so wegnehmen
+
 
 
 
