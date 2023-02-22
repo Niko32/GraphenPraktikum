@@ -220,7 +220,7 @@ def compare_subgraph_sizes(load=False):
         original_lengths[species_medium_combination] = len(G)
 
         # Get the subgraphs after forward traversal
-        glucose_subgraph_path = f"output/glucose_subgraphs/{species_medium_combination}"
+        glucose_subgraph_path = f"output/glucose_subgraphs/{species_medium_combination}.pkl"
         if load:
             S = pickle.load(glucose_subgraph_path)
         else:
@@ -240,7 +240,7 @@ def compare_subgraph_sizes(load=False):
             glucose_subgraph_lengths[species_medium_combination],
             len(subgraph)
         ))
-    sizes_df = pd.DataFrame(sizes_list, columns=["Species Medium Combination", "Original Graph", "Glucose Subgraph", "Amino Acids Graph"])
+    sizes_df = pd.DataFrame(sizes_list, columns=["Species Medium Combination", "Original Graph", "Glucose Graph", "Amino Acids Graph"])
     print(sizes_df.head(20))
 
 if __name__ == "__main__":
