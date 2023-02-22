@@ -85,6 +85,48 @@ def rebuild_molecule_edges(G_full: nx.Graph, G_sub: nx.Graph) -> nx.Graph:
     return G_out
 
 
+def draw_graph(G: nx.Graph, output = ""):
+
+    print("Drawing Graph...")
+
+    node_element = nx.get_node_attributes(G, "element")
+    node_compounds = nx.get_node_attributes(G, "compound_name")
+    nodes, labels, color_map_nodes = len(G)*[None], {}, len(G)*[None]
+    for i, node in enumerate(G.nodes):
+        nodes[i] = node
+        labels[node] = node_element[node]
+        if node_compounds[node] == "D-Glucose":
+            color_map_nodes[i] = "Red"
+        else:
+            color_map_nodes[i] = "White"
+
+    edge_trans = nx.get_edge_attributes(G, "transition")
+    print(edge_trans)
+    edges, color_map_edges = len(G.edges)*[None], len(G.edges)*[None]
+    for i, (u, v) in enumerate(G.edges):
+        edges[i] = (u,v)
+        trans_type = edge_trans[(u,v)]
+        if trans_type == "TransitionType.REACTION":
+            color_map_edges[i] = "Green"
+        elif trans_type == "TransitionType.NO_TRANSITION":
+            color_map_edges[i] = "Black"
+        else:
+            color_map_edges[i] = "Yellow"
+
+    nx.draw(G, pos=nx.layout.kamada_kawai_layout(G), node_color=color_map_nodes, with_labels=True, 
+            nodelist=nodes, edgelist=edges, font_size=5, labels=labels, edge_color=color_map_edges)
+    
+    # Save the figure
+    if output:
+        plt.savefig(output)
+    # Or show it
+    else:
+        plt.show()
+
+    # Clear the figure
+    plt.clf()
+
+
 if __name__ == "__main__":
     G = nx.read_gml("data/sihumix/ecoli_adam/ecoli_adam_cleaned.gml")
     
