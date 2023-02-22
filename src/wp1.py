@@ -295,14 +295,18 @@ def draw_graph(G: nx.DiGraph, output = "", show_reactions = False):
     # Clear the figure
     plt.clf()
 
+def build_graph(file_path: str) -> nx.DiGraph:
+    """ Builds a graph from a path to a smiles list file """
+    reaction_block_list = seperate_blocks(file_path)
+    reactions = [extract_compounds(rb) for rb in reaction_block_list]
+    return construct_graph(reactions)
+
 def build_subgraph(file_path: str, verbose = False) -> nx.DiGraph:
     """ 
     Builds a subgraph containing the paths from glucose to all amino acids 
     for one combination of molecule and medium 
     """
-    reaction_block_list = seperate_blocks(file_path)
-    reactions = [extract_compounds(rb) for rb in reaction_block_list]
-    G = construct_graph(reactions)
+    G = build_graph(file_path)
 
     S = bf_traversal(G, ["D-glucose"])
     if verbose:
