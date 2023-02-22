@@ -168,11 +168,16 @@ def create_models():
         print(f"Solved problem for {species_medium_combination}")
         print("Model Objective:", pulp.value(model.objective))
 
+        for v in variables.values():
+            if v.varValue > 0:
+                print(v.name,":", v.varValue)
+
         # Save model
         with open(f"output/models/{species_medium_combination}.pkl", "wb") as f:
             pickle.dump(model, f)
 
 if __name__ == "__main__":
+    create_models(),
 
     # Create an empty dataframe
     models_df = pd.DataFrame([], columns=["Specius Medium Combination", "Objective Function"])
