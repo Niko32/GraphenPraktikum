@@ -43,11 +43,12 @@ def generate_pathways() -> dict[SpeciesMediumCombination, dict[AminoAcid, list[s
     """ Returns the shortest path for every amino acid in every combination of medium and species """
     subgraphs = generate_subgraphs()
     pathways = {}
+    print("Finding shortest paths...")
     for combination, s in subgraphs.items():
         amino_acids = set(AMINO_ACIDS).intersection(s.nodes)
         amino_acid_paths = {}
         for a in amino_acids:
-            print(f"Finding shortest simple path for {a} in {combination}")
+            # print(f"Finding shortest simple path for {a} in {combination}")
             shortest_path = [node for node in list(nx.shortest_path(s, "D-glucose", a)) if node.startswith("R_")]
             amino_acid_paths[a] = shortest_path
         pathways[combination] = amino_acid_paths
@@ -71,18 +72,23 @@ def compare_nr_amino_acids(pathways: dict[SpeciesMediumCombination, dict[AminoAc
             if aa in pathways[c].keys():
                 df[aa][c] = 1
 
+    print("Number of amino acids reached for each species medium combination: ")
+    print(list(zip(SEPCIES_MEDIUM_COMBINATIONS, number_amino_acids)))
+
     # barplot for overall number of amino acids that are synthesized per species and medium
     plt.bar(SEPCIES_MEDIUM_COMBINATIONS, number_amino_acids)
     plt.xlabel("species and media")
     plt.ylabel("number of amino acids")
     plt.yticks(np.arange(0, 20, step=2))
     plt.xticks(rotation = 90)
-    plt.show()
+    # TODO: Plot beschriftung schöner machen
+    plt.savefig("output/plots/species_medium_aa_bar_plot.png")
 
     # heatmap that shows which amino acids are synthesized per combination
     plt.title("synthezised amino acids")
     sns.heatmap(df, cbar=False)
-    plt.show()
+    # TODO: Plot beschriftung schöner machen
+    plt.savefig("output/plots/species_medium_aa_heatmap.png")
 
 def compare_rec_based_on_organism(pathways: dict[SpeciesMediumCombination, dict[AminoAcid, list[str]]]):
     '''

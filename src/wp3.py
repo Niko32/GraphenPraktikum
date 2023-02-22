@@ -66,9 +66,12 @@ if __name__ == "__main__":
     draw_graph(G_bfs_with_CO2)
     
     # Goals:
-    # 1. Plot histogram of connected components by their size
-    # 2. Calculate Density, Diameter
-    # 3. Add them to the plot
+    # for every species medium combination
+        # 1. Plot histogram of connected components by their size
+        # 2. Calculate Density, Diameter
+        # 3. Add them to the plot
+
+    # Plot the avg. component sizes and other metrics for all combinations
 
     # Draw graph mti 3 kantenfarben
 
