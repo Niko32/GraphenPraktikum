@@ -7,15 +7,14 @@ acacae_adam:
   - R_ARGt2r
   L-asparagine:
   - R_GLCabcpp
-  - R_ASPt2pp
+  - R_ALAALAr_rev
   - R_ASNS1
   L-aspartate:
   - R_GLCabcpp
   - R_ASPt2pp
   L-cysteine:
   - R_GLCabcpp
-  - R_GLYt2r
-  - R_GHMT2r_rev
+  - R_SHSL2r_rev
   - R_CYS
   L-glutamate:
   - R_GLCabcpp
@@ -25,9 +24,7 @@ acacae_adam:
   - R_PYDXS_rev
   L-histidine:
   - R_GLCabcpp
-  - R_GLUDy_rev
-  - R_HSTPT
-  - R_HISTP
+  - R_5DKGR_rev
   - R_HISTD
   L-isoleucine:
   - R_GLCabcpp
@@ -41,30 +38,30 @@ acacae_adam:
   - R_DAPDC
   L-methionine:
   - R_GLCabcpp
-  - R_CYTOM_rev
-  - R_HCYSMT
+  - R_ALAALAr_rev
+  - R_METabc
   L-phenylalanine:
   - R_GLCabcpp
-  - R_GLUDy_rev
-  - R_PHETA1_rev
+  - R_ALAALAr_rev
+  - R_PHEabc
   L-proline:
   - R_GLCabcpp
   - R_P5CR
   L-serine:
   - R_GLCabcpp
-  - R_GLYt2r
-  - R_GHMT2r_rev
+  - R_ATPS4rpp
+  - R_CYS_rev
   L-threonine:
   - R_GLCabcpp
   - R_THRt2pp
   L-tryptophan:
   - R_GLCabcpp
-  - R_IGPS
-  - R_TRPS1
+  - R_ALAALAr_rev
+  - R_TRPabc
   L-tyrosine:
   - R_GLCabcpp
-  - R_GLUDy_rev
-  - R_TYRTA_rev
+  - R_ALAALAr_rev
+  - R_TYRabc
   L-valine:
   - R_GLCabcpp
   - R_VALt2r
@@ -80,15 +77,14 @@ acacae_cimIV:
   - R_ARGt2r
   L-asparagine:
   - R_GLCabcpp
-  - R_ASPt2pp
+  - R_ALAALAr_rev
   - R_ASNS1
   L-aspartate:
   - R_GLCabcpp
   - R_ASPt2pp
   L-cysteine:
   - R_GLCabcpp
-  - R_GLYt2r
-  - R_GHMT2r_rev
+  - R_SHSL2r_rev
   - R_CYS
   L-glutamate:
   - R_GLCabcpp
@@ -98,9 +94,7 @@ acacae_cimIV:
   - R_PYDXS_rev
   L-histidine:
   - R_GLCabcpp
-  - R_GLUDy_rev
-  - R_HSTPT
-  - R_HISTP
+  - R_5DKGR_rev
   - R_HISTD
   L-isoleucine:
   - R_GLCabcpp
@@ -118,26 +112,26 @@ acacae_cimIV:
   - R_HCYSMT
   L-phenylalanine:
   - R_GLCabcpp
-  - R_GLUDy_rev
-  - R_PHETA1_rev
+  - R_ALAALAr_rev
+  - R_PHEabc
   L-proline:
   - R_GLCabcpp
   - R_P5CR
   L-serine:
   - R_GLCabcpp
-  - R_GLYt2r
-  - R_GHMT2r_rev
+  - R_ATPS4rpp
+  - R_CYS_rev
   L-threonine:
   - R_GLCabcpp
   - R_THRt2pp
   L-tryptophan:
   - R_GLCabcpp
-  - R_IGPS
-  - R_TRPS1
+  - R_ALAALAr_rev
+  - R_TRPabc
   L-tyrosine:
   - R_GLCabcpp
-  - R_GLUDy_rev
-  - R_TYRTA_rev
+  - R_ALAALAr_rev
+  - R_TYRabc
   L-valine:
   - R_GLCabcpp
   - R_VALt2rpp
@@ -149,31 +143,26 @@ blongum_adam:
   - R_GLCpts
   - R_ALATA_L_rev
   L-arginine:
-  - R_GLCabc
-  - R_ARGt2r
+  - R_MAL6PG_rev
+  - R_ARGabc
   L-asparagine:
-  - R_GLCabc
-  - R_GDH1_rev
-  - R_ASPTA_rev
-  - R_ASNS2
+  - R_MAL6PG_rev
+  - R_ASNabc
   L-aspartate:
   - R_GLCabc
-  - R_GDH1_rev
-  - R_ASPTA_rev
+  - R_ASPK_rev
   L-cysteine:
-  - R_GLCabc
-  - R_MCD
-  - R_SERAT
-  - R_CYSS
+  - R_MAL6PG_rev
+  - R_CYSTGL
   L-glutamate:
   - R_GLCabc
   - R_GDH1_rev
   L-glutamine:
-  - R_GLCabc
-  - R_PYDXS_rev
+  - R_MAL6PG_rev
+  - R_GLNabc
   L-histidine:
-  - R_GLCabc
-  - R_HISt2r
+  - R_MAL6PG_rev
+  - R_HISTD
   L-isoleucine:
   - R_GLCabc
   - R_ILEt2r
@@ -185,28 +174,26 @@ blongum_adam:
   - R_GLCabc
   - R_CADVtpp
   L-methionine:
-  - R_GLCabc
-  - R_MTHFR3
-  - R_METS
+  - R_MAL6PG_rev
+  - R_METabc
   L-phenylalanine:
-  - R_GLCabc
-  - R_PHEt2r
+  - R_MAL6PG_rev
+  - R_PHEabc
   L-proline:
   - R_GLCabc
   - R_P5CR
   L-serine:
-  - R_GLCabc
-  - R_PRAGSr_rev
+  - R_MAL6PG_rev
   - R_GHMT2r_rev
   L-threonine:
-  - R_GLCabc
-  - R_THRt2pp
+  - R_MAL6PG_rev
+  - R_PTHRP
   L-tryptophan:
-  - R_GLCabc
-  - R_TRPt2r
+  - R_MAL6PG_rev
+  - R_TRPabc
   L-tyrosine:
-  - R_GLCabc
-  - R_TYRt2r
+  - R_MAL6PG_rev
+  - R_TYRabc
   L-valine:
   - R_GLCabc
   - R_VALt2r
@@ -215,31 +202,26 @@ blongum_adam:
   - R_PRAGSr_rev
 blongum_cimIV:
   L-alanine:
-  - R_GLCabcpp
-  - R_ALAALAr_rev
-  - R_ALAR_rev
+  - R_MAL6PG_rev
+  - R_ALAabc
   L-arginine:
-  - R_GLCabcpp
-  - R_ARGt2r
+  - R_MAL6PG_rev
+  - R_ARGabc
   L-asparagine:
-  - R_GLCabcpp
-  - R_PYDXS_rev
-  - R_ASNS1
+  - R_MAL6PG_rev
+  - R_ASNabc
   L-aspartate:
   - R_GLCabcpp
-  - R_GDH1_rev
-  - R_ASPTA_rev
+  - R_ASPK_rev
   L-cysteine:
-  - R_GLCabcpp
-  - R_MCD
-  - R_SERAT
-  - R_CYSS
+  - R_MAL6PG_rev
+  - R_CYSTGL
   L-glutamate:
   - R_GLCabcpp
   - R_GDH1_rev
   L-glutamine:
-  - R_GLCabcpp
-  - R_PYDXS_rev
+  - R_MAL6PG_rev
+  - R_GLNabc
   L-histidine:
   - R_GLCabcpp
   - R_HISt2r
@@ -254,28 +236,27 @@ blongum_cimIV:
   - R_GLCabcpp
   - R_CADVtpp
   L-methionine:
-  - R_GLCabcpp
-  - R_MTHFR3
-  - R_METS
+  - R_MAL6PG_rev
+  - R_AHCi
+  - R_HCYSMT
   L-phenylalanine:
-  - R_GLCabcpp
-  - R_PHEt2r
+  - R_MAL6PG_rev
+  - R_PHEabc
   L-proline:
   - R_GLCabcpp
   - R_P5CR
   L-serine:
-  - R_GLCabcpp
-  - R_PRAGSr_rev
+  - R_MAL6PG_rev
   - R_GHMT2r_rev
   L-threonine:
-  - R_GLCabcpp
-  - R_THRt2pp
+  - R_MAL6PG_rev
+  - R_PTHRP
   L-tryptophan:
-  - R_GLCabcpp
-  - R_TRPt2r
+  - R_MAL6PG_rev
+  - R_TRPabc
   L-tyrosine:
-  - R_GLCabcpp
-  - R_TYRt2r
+  - R_MAL6PG_rev
+  - R_TYRabc
   L-valine:
   - R_GLCabcpp
   - R_GDH1_rev
@@ -288,176 +269,154 @@ bproducta_adam:
   - R_GLCabc
   - R_CYSLY3
   L-arginine:
-  - R_GLCabc
-  - R_ARGt2r
+  - R_BGLA_rev
+  - R_ARGabc
   L-asparagine:
-  - R_GLCabc
-  - R_ASPt2pp
+  - R_BGLA_rev
   - R_ASNS1
   L-aspartate:
-  - R_GLCabc
-  - R_ASPt2pp
+  - R_BGLA_rev
+  - R_ASNN
   L-cysteine:
-  - R_GLCabc
-  - R_HMGCOAS
-  - R_SERAT
-  - R_CYSS
+  - R_BGLA_rev
+  - R_CYSabc
   L-glutamate:
-  - R_GLCabc
-  - R_GDH1_rev
+  - R_BGLA_rev
+  - R_ASNS1
   L-glutamine:
-  - R_GLCabc
-  - R_PYDXS_rev
+  - R_BGLA_rev
+  - R_GLNabc
   L-isoleucine:
   - R_GLCabc
   - R_ILEDHr_rev
   L-leucine:
-  - R_GLCabc
-  - R_GDH1_rev
+  - R_BGLA_rev
+  - R_ASNS1
   - R_LEUTA_rev
   L-lysine:
   - R_GLCabc
   - R_CADVtpp
   L-methionine:
-  - R_GLCabc
-  - R_CYTOM_rev
-  - R_HCYSMT
+  - R_BGLA_rev
+  - R_METabc
   L-phenylalanine:
-  - R_GLCabc
-  - R_GDH1_rev
-  - R_PHETA1_rev
+  - R_BGLA_rev
+  - R_PHEabc
   L-proline:
   - R_GLCabc
   - R_P5CR
   L-serine:
-  - R_GLCabc
-  - R_GLYt2r
+  - R_BGLA_rev
   - R_GHMT2r_rev
   L-threonine:
-  - R_GLCabc
-  - R_HSDxi
-  - R_STPT1
-  - R_THRS
+  - R_BGLA_rev
+  - R_PTHRP
   L-tryptophan:
-  - R_GLCabc
-  - R_IGPS
-  - R_TRPS1
+  - R_BGLA_rev
+  - R_TRPabc
   L-tyrosine:
-  - R_GLCabc
-  - R_GDH1_rev
-  - R_TYRTA_rev
+  - R_BGLA_rev
+  - R_TYRabc
   L-valine:
-  - R_GLCabc
-  - R_VALt2r
+  - R_BGLA_rev
+  - R_VALabc
   glycine:
-  - R_GLCabc
-  - R_GLYt2r
+  - R_BGLA_rev
+  - R_GLYabc
 bproducta_cimIV:
   L-alanine:
-  - R_HEX1
-  - R_ALAt2r
+  - R_BGLA_rev
+  - R_ALAabc
   L-arginine:
-  - R_HEX1
-  - R_ARGt2r
+  - R_BGLA_rev
+  - R_ARGabc
   L-asparagine:
-  - R_HEX1
-  - R_ASPt2pp
+  - R_BGLA_rev
   - R_ASNS1
   L-aspartate:
-  - R_HEX1
-  - R_ASPt2pp
+  - R_BGLA_rev
+  - R_ASNN
   L-cysteine:
-  - R_HEX1
-  - R_HMGCOAS
-  - R_SERAT
-  - R_CYSS
+  - R_BGLA_rev
+  - R_CYSabc
   L-glutamate:
-  - R_HEX1
-  - R_GDH1_rev
+  - R_BGLA_rev
+  - R_ASNS1
   L-glutamine:
-  - R_HEX1
-  - R_PYDXS_rev
+  - R_BGLA_rev
+  - R_GLNabc
   L-isoleucine:
   - R_HEX1
   - R_ILEDHr_rev
   L-leucine:
-  - R_HEX1
-  - R_GDH1_rev
+  - R_BGLA_rev
+  - R_ASNS1
   - R_LEUTA_rev
   L-lysine:
   - R_HEX1
   - R_CADVtpp
   L-methionine:
-  - R_HEX1
-  - R_CYTOM_rev
+  - R_BGLA_rev
+  - R_AHCi
   - R_HCYSMT
   L-phenylalanine:
-  - R_HEX1
-  - R_GDH1_rev
-  - R_PHETA1_rev
+  - R_BGLA_rev
+  - R_PHEabc
   L-proline:
-  - R_HEX1
-  - R_P5CR
+  - R_BGLA_rev
+  - R_PROabc
   L-serine:
-  - R_HEX1
-  - R_GLYt2r
+  - R_BGLA_rev
   - R_GHMT2r_rev
   L-threonine:
-  - R_HEX1
-  - R_HSDxi
-  - R_STPT1
-  - R_THRS
+  - R_BGLA_rev
+  - R_PTHRP
   L-tryptophan:
-  - R_HEX1
-  - R_IGPS
-  - R_TRPS1
+  - R_BGLA_rev
+  - R_TRPabc
   L-tyrosine:
-  - R_HEX1
-  - R_GDH1_rev
-  - R_TYRTA_rev
+  - R_BGLA_rev
+  - R_TYRabc
   L-valine:
-  - R_HEX1
-  - R_VALt2rpp
+  - R_BGLA_rev
+  - R_VALabcpp
   glycine:
-  - R_HEX1
-  - R_GLYt2r
+  - R_BGLA_rev
+  - R_GLYabc
 btheta_adam:
   L-alanine:
   - R_GLCt2
   - R_ALAD_L2
   L-arginine:
   - R_GLCt2
-  - R_ARGDC
-  - R_ARGAGMt7pp
+  - R_ALAALAr_rev
+  - R_ARGabc
   L-asparagine:
   - R_GLCt2
-  - R_ASPt2_3pp
-  - R_ASNS1
+  - R_ADA
+  - R_ASNS2
   L-aspartate:
-  - R_GLCt2
-  - R_ASPt2_3pp
+  - R_HEX1
+  - R_ASPK_rev
   L-cysteine:
   - R_GLCt2
-  - R_LSERDHr_rev
-  - R_SERAT
-  - R_CYSS
+  - R_ALAALAr_rev
+  - R_CYSabc
   L-glutamate:
   - R_GLCt2
   - R_GDH1_rev
   L-glutamine:
   - R_GLCt2
-  - R_GDH1_rev
+  - R_ADA
   - R_GLNS
   L-histidine:
   - R_GLCt2
-  - R_GDH1_rev
-  - R_HSTPT
-  - R_HISTP
+  - R_5DKGR_rev
   - R_HISTD
   L-isoleucine:
   - R_GLCt2
-  - R_GDH1_rev
-  - R_ILETA_rev
+  - R_ALAALAr_rev
+  - R_ILEabc
   L-leucine:
   - R_GLCt2
   - R_GDH1_rev
@@ -467,12 +426,12 @@ btheta_adam:
   - R_DAPDC
   L-methionine:
   - R_GLCt2
-  - R_CYTOM_rev
-  - R_HCYSMT
+  - R_ALAALAr_rev
+  - R_METabc
   L-phenylalanine:
   - R_GLCt2
-  - R_GDH1_rev
-  - R_PHETA1_rev
+  - R_ALAALAr_rev
+  - R_PHEabc
   L-proline:
   - R_GLCt2
   - R_P5CR
@@ -481,21 +440,20 @@ btheta_adam:
   - R_LSERDHr_rev
   L-threonine:
   - R_GLCt2
-  - R_HSDy_rev
-  - R_STPT1
-  - R_THRS
+  - R_ALAALAr_rev
+  - R_THRabc
   L-tryptophan:
   - R_GLCt2
   - R_2S6HCCi
   - R_TRPAS2_rev
   L-tyrosine:
   - R_GLCt2
-  - R_GDH1_rev
-  - R_TYRTA_rev
+  - R_ALAALAr_rev
+  - R_TYRabc
   L-valine:
   - R_GLCt2
-  - R_GDH1_rev
-  - R_VALTA_rev
+  - R_ALAALAr_rev
+  - R_VALabc
   glycine:
   - R_GLCt2
   - R_PPRGL_rev
@@ -509,16 +467,15 @@ btheta_cimIV:
   - R_ARGAGMt7pp
   L-asparagine:
   - R_HEX1
-  - R_ASPt2_3pp
-  - R_ASNS1
+  - R_ADA
+  - R_ASNS2
   L-aspartate:
   - R_HEX1
   - R_ASPt2_3pp
   L-cysteine:
   - R_HEX1
-  - R_LSERDHr_rev
-  - R_SERAT
-  - R_CYSS
+  - R_ALAALAr_rev
+  - R_CYSabc
   L-glutamate:
   - R_HEX1
   - R_GDH1_rev
@@ -528,14 +485,12 @@ btheta_cimIV:
   - R_GLNS
   L-histidine:
   - R_HEX1
-  - R_GDH1_rev
-  - R_HSTPT
-  - R_HISTP
+  - R_5DKGR_rev
   - R_HISTD
   L-isoleucine:
   - R_HEX1
-  - R_GDH1_rev
-  - R_ILETA_rev
+  - R_ALAALAr_rev
+  - R_ILEabc
   L-leucine:
   - R_HEX1
   - R_GDH1_rev
@@ -549,8 +504,8 @@ btheta_cimIV:
   - R_HCYSMT
   L-phenylalanine:
   - R_HEX1
-  - R_GDH1_rev
-  - R_PHETA1_rev
+  - R_ALAALAr_rev
+  - R_PHEabc
   L-proline:
   - R_HEX1
   - R_P5CR
@@ -559,17 +514,16 @@ btheta_cimIV:
   - R_LSERDHr_rev
   L-threonine:
   - R_HEX1
-  - R_HSDy_rev
-  - R_STPT1
-  - R_THRS
+  - R_ALAALAr_rev
+  - R_THRabc
   L-tryptophan:
   - R_HEX1
   - R_2S6HCCi
   - R_TRPAS2_rev
   L-tyrosine:
   - R_HEX1
-  - R_GDH1_rev
-  - R_TYRTA_rev
+  - R_ALAALAr_rev
+  - R_TYRabc
   L-valine:
   - R_HEX1
   - R_GDH1_rev
@@ -582,153 +536,127 @@ cbuty_adam:
   - R_GLCpts
   - R_3AIBT2_rev
   L-arginine:
-  - R_GLCabc
-  - R_ARGt2r
+  - R_BGLA_rev
+  - R_ARGabc
   L-asparagine:
-  - R_GLCabc
-  - R_ASLP_rev
+  - R_BGLA_rev
   - R_ASNS1
   L-aspartate:
-  - R_GLCabc
+  - R_BGLA_rev
   - R_ASLP_rev
   L-cysteine:
-  - R_GLCabc
-  - R_SHSL2r_rev
-  - R_SHSL1
+  - R_BGLA_rev
   - R_CYSTGL
   L-glutamate:
-  - R_GLCabc
-  - R_GLUDy_rev
+  - R_BGLA_rev
+  - R_ASNS1
   L-glutamine:
-  - R_GLCabc
-  - R_GLUDy_rev
-  - R_GLNS
+  - R_BGLA_rev
+  - R_GLNabc
   L-histidine:
-  - R_GLCabc
-  - R_GLUDy_rev
-  - R_HSTPT
-  - R_HISTP
+  - R_BGLA_rev
   - R_HISTD
   L-isoleucine:
-  - R_GLCabc
-  - R_ILEDHr_rev
+  - R_BGLA_rev
+  - R_ILEabc
   L-leucine:
-  - R_GLCabc
-  - R_GLUDy_rev
+  - R_BGLA_rev
+  - R_ASNS1
   - R_LEUTA_rev
   L-lysine:
   - R_GLCabc
   - R_CADVtpp
   L-methionine:
-  - R_GLCabc
-  - R_CYTOM_rev
-  - R_HCYSMT
+  - R_BGLA_rev
+  - R_METabc
   L-phenylalanine:
-  - R_GLCabc
-  - R_GLUDy_rev
-  - R_PHETA1_rev
+  - R_BGLA_rev
+  - R_PHEabc
   L-proline:
   - R_GLCabc
   - R_P5CR
   L-serine:
-  - R_GLCabc
-  - R_PRAGSr_rev
+  - R_BGLA_rev
   - R_GHMT2r_rev
   L-threonine:
-  - R_GLCabc
-  - R_HSDy_rev
-  - R_HSK
-  - R_THRS
+  - R_BGLA_rev
+  - R_PTHRP
   L-tryptophan:
-  - R_GLCabc
-  - R_TRPt2r
+  - R_BGLA_rev
+  - R_TRPabc
   L-tyrosine:
-  - R_GLCabc
-  - R_GLUDy_rev
-  - R_TYRTA_rev
+  - R_BGLA_rev
+  - R_TYRabc
   L-valine:
-  - R_GLCabc
-  - R_VALt2r
+  - R_BGLA_rev
+  - R_VALabc
   glycine:
-  - R_GLCabc
-  - R_PRAGSr_rev
+  - R_BGLA_rev
+  - R_GLYabc
 cbuty_cimIV:
   L-alanine:
-  - R_HEX1
-  - R_BUP
-  - R_3AIBT2_rev
+  - R_BGLA_rev
+  - R_ALAabc
   L-arginine:
-  - R_HEX1
-  - R_ARGt2r
+  - R_BGLA_rev
+  - R_ARGabc
   L-asparagine:
-  - R_HEX1
-  - R_ASLP_rev
+  - R_BGLA_rev
   - R_ASNS1
   L-aspartate:
-  - R_HEX1
+  - R_BGLA_rev
   - R_ASLP_rev
   L-cysteine:
-  - R_HEX1
-  - R_SHSL2r_rev
-  - R_SHSL1
+  - R_BGLA_rev
   - R_CYSTGL
   L-glutamate:
-  - R_HEX1
-  - R_GLUDy_rev
+  - R_BGLA_rev
+  - R_ASNS1
   L-glutamine:
-  - R_HEX1
-  - R_GLUDy_rev
-  - R_GLNS
+  - R_BGLA_rev
+  - R_GLNabc
   L-histidine:
-  - R_HEX1
-  - R_GLUDy_rev
-  - R_HSTPT
-  - R_HISTP
+  - R_BGLA_rev
   - R_HISTD
   L-isoleucine:
   - R_HEX1
   - R_ILEDHr_rev
   L-leucine:
-  - R_HEX1
-  - R_GLUDy_rev
+  - R_BGLA_rev
+  - R_ASNS1
   - R_LEUTA_rev
   L-lysine:
-  - R_HEX1
-  - R_CADVtpp
+  - R_BGLA_rev
+  - R_LYSabc
   L-methionine:
   - R_HEX1
   - R_CYTOM_rev
   - R_HCYSMT
   L-phenylalanine:
-  - R_HEX1
-  - R_GLUDy_rev
-  - R_PHETA1_rev
+  - R_BGLA_rev
+  - R_PHEabc
   L-proline:
   - R_HEX1
   - R_P5CR
   L-serine:
-  - R_HEX1
-  - R_PRAGSr_rev
+  - R_BGLA_rev
   - R_GHMT2r_rev
   L-threonine:
-  - R_HEX1
-  - R_HSDy_rev
-  - R_HSK
-  - R_THRS
+  - R_BGLA_rev
+  - R_PTHRP
   L-tryptophan:
-  - R_HEX1
-  - R_TRPt2r
+  - R_BGLA_rev
+  - R_TRPabc
   L-tyrosine:
-  - R_HEX1
-  - R_GLUDy_rev
-  - R_TYRTA_rev
+  - R_BGLA_rev
+  - R_TYRabc
   L-valine:
-  - R_HEX1
-  - R_GLUDy_rev
-  - R_VALTA_rev
+  - R_BGLA_rev
+  - R_ALAabc
+  - R_VPAMTr
   glycine:
-  - R_HEX1
-  - R_PRAGSr_rev
+  - R_BGLA_rev
+  - R_GLYabc
 ecoli_adam:
   L-alanine:
   - R_GLCabc
@@ -737,27 +665,26 @@ ecoli_adam:
   - R_GLCabc
   - R_ARGt2r
   L-asparagine:
-  - R_GLCabc
-  - R_ASNt2rpp
+  - R_MAL6PG_rev
+  - R_ASNS1
   L-aspartate:
   - R_GLCabc
   - R_ASPt2_2pp
   L-cysteine:
-  - R_GLCabc
-  - R_CYSt2r
+  - R_MAL6PG_rev
+  - R_AMPTASECG
   L-glutamate:
   - R_GLCabc
   - R_GLUDxi_rev
   L-glutamine:
-  - R_GLCabc
-  - R_GLUDxi_rev
-  - R_GLNS
+  - R_MAL6PG_rev
+  - R_GLNabcpp
   L-histidine:
-  - R_GLCabc
-  - R_HISt2rpp
+  - R_MAL6PG_rev
+  - R_HISTD
   L-isoleucine:
-  - R_GLCabc
-  - R_ILEt2rpp
+  - R_MAL6PG_rev
+  - R_ILEabcpp
   L-leucine:
   - R_GLCabc
   - R_GLUDxi_rev
@@ -778,8 +705,8 @@ ecoli_adam:
   - R_GLCabc
   - R_LSERDHr_rev
   L-threonine:
-  - R_GLCabc
-  - R_THRt2pp
+  - R_MAL6PG_rev
+  - R_THRS
   L-tryptophan:
   - R_GLCpts
   - R_TRPAS2_rev
@@ -787,8 +714,8 @@ ecoli_adam:
   - R_GLCabc
   - R_TYRt2rpp
   L-valine:
-  - R_GLCabc
-  - R_VALt2rpp
+  - R_MAL6PG_rev
+  - R_VALabcpp
   glycine:
   - R_GLCabc
   - R_GLYt2pp
@@ -800,8 +727,8 @@ ecoli_cimIV:
   - R_HEX1
   - R_ARGt2r
   L-asparagine:
-  - R_HEX1
-  - R_ASNt2rpp
+  - R_MAL6PG_rev
+  - R_ASNS1
   L-aspartate:
   - R_HEX1
   - R_ASPt2_2pp
@@ -812,12 +739,11 @@ ecoli_cimIV:
   - R_HEX1
   - R_GLUDxi_rev
   L-glutamine:
-  - R_HEX1
-  - R_GLUDxi_rev
-  - R_GLNS
+  - R_MAL6PG_rev
+  - R_GLNabcpp
   L-histidine:
-  - R_HEX1
-  - R_HISt2rpp
+  - R_MAL6PG_rev
+  - R_HISTD
   L-isoleucine:
   - R_HEX1
   - R_ILEt2rpp
@@ -857,121 +783,97 @@ ecoli_cimIV:
   - R_GLYt2pp
 eramosum_adam:
   L-alanine:
-  - R_GLCpts
-  - R_ALATA_L_rev
+  - R_BGLA_rev
+  - R_LALGP
   L-arginine:
-  - R_GLCabc
-  - R_ASPt2pp
-  - R_ARGSS
-  - R_ARGSL
+  - R_BGLA_rev
+  - R_ARGabc
   L-asparagine:
-  - R_GLCabc
-  - R_ASPt2pp
+  - R_BGLA_rev
   - R_ASNS1
   L-aspartate:
-  - R_GLCabc
-  - R_ASPt2pp
+  - R_BGLA_rev
+  - R_ASNN
   L-cysteine:
-  - R_GLCabc
-  - R_PDH2
-  - R_SERAT
-  - R_CYSS
+  - R_BGLA_rev
+  - R_CYSTGL
   L-glutamate:
-  - R_GLCabc
-  - R_GDH1_rev
+  - R_BGLA_rev
+  - R_ASNS1
   L-glutamine:
-  - R_GLCabc
-  - R_GDH1_rev
-  - R_GLNS_1
+  - R_BGLA_rev
+  - R_GLNabc
   L-histidine:
-  - R_GLCabc
-  - R_GDH1_rev
-  - R_HSTPTr
-  - R_HISTP
+  - R_BGLA_rev
   - R_HISTD
   L-isoleucine:
   - R_GLCabc
   - R_ILEDHr_rev
   L-leucine:
-  - R_GLCabc
-  - R_GDH1_rev
+  - R_BGLA_rev
+  - R_ASNS1
   - R_LEUTA_rev
   L-lysine:
   - R_GLCabc
   - R_CADVtpp
   L-methionine:
-  - R_GLCabc
-  - R_CYTOM_rev
-  - R_HCYSMT
+  - R_BGLA_rev
+  - R_METabc
   L-phenylalanine:
-  - R_GLCabc
-  - R_GDH1_rev
-  - R_PHETA1_rev
+  - R_BGLA_rev
+  - R_PHEabc
   L-proline:
   - R_GLCabc
   - R_P5CR
   L-serine:
-  - R_GLCabc
-  - R_LSERDHr_rev
+  - R_BGLA_rev
+  - R_GHMT2r_rev
   L-threonine:
-  - R_GLCabc
-  - R_HSDxi
-  - R_HSK
-  - R_THRS
+  - R_BGLA_rev
+  - R_PTHRP
   L-tryptophan:
-  - R_GLCabc
-  - R_GDH1_rev
-  - R_TRPTA_rev
+  - R_BGLA_rev
+  - R_TRPabc
   L-tyrosine:
-  - R_GLCabc
-  - R_AROAT
-  - R_ARNO
+  - R_BGLA_rev
+  - R_TYRabc
   L-valine:
-  - R_GLCabc
-  - R_VALt2r
+  - R_BGLA_rev
+  - R_VALabc
   glycine:
-  - R_GLCabc
-  - R_PRAGSr_rev
+  - R_BGLA_rev
+  - R_GLYGLYCNc
 eramosum_cimIV:
   L-alanine:
-  - R_GLCabcpp
-  - R_ALAt2r
+  - R_GLCptspp
+  - R_ALATA_L_rev
   L-arginine:
-  - R_GLCabcpp
-  - R_ASPt2pp
-  - R_ARGSS
-  - R_ARGSL
+  - R_BGLA_rev
+  - R_ARGabc
   L-asparagine:
-  - R_GLCabcpp
-  - R_ASPt2pp
+  - R_BGLA_rev
   - R_ASNS1
   L-aspartate:
-  - R_GLCabcpp
-  - R_ASPt2pp
+  - R_BGLA_rev
+  - R_ASNN
   L-cysteine:
-  - R_GLCabcpp
-  - R_PDH2
-  - R_SERAT
-  - R_CYSS
+  - R_BGLA_rev
+  - R_CYSTGL
   L-glutamate:
-  - R_GLCabcpp
-  - R_GDH1_rev
+  - R_BGLA_rev
+  - R_ASNS1
   L-glutamine:
-  - R_GLCabcpp
-  - R_GDH1_rev
-  - R_GLNS_1
+  - R_BGLA_rev
+  - R_GLNabc
   L-histidine:
-  - R_GLCabcpp
-  - R_GDH1_rev
-  - R_HSTPTr
-  - R_HISTP
+  - R_BGLA_rev
   - R_HISTD
   L-isoleucine:
-  - R_GLCabcpp
-  - R_ILEDHr_rev
+  - R_BGLA_rev
+  - R_ILEabc
   L-leucine:
-  - R_GLCabcpp
-  - R_GDH1_rev
+  - R_BGLA_rev
+  - R_ASNS1
   - R_LEUTA_rev
   L-lysine:
   - R_GLCabcpp
@@ -981,34 +883,29 @@ eramosum_cimIV:
   - R_CYTOM_rev
   - R_HCYSMT
   L-phenylalanine:
-  - R_GLCabcpp
-  - R_GDH1_rev
-  - R_PHETA1_rev
+  - R_BGLA_rev
+  - R_PHEabc
   L-proline:
   - R_GLCabcpp
   - R_P5CR
   L-serine:
-  - R_GLCabcpp
-  - R_LSERDHr_rev
+  - R_BGLA_rev
+  - R_GHMT2r_rev
   L-threonine:
-  - R_GLCabcpp
-  - R_HSDxi
-  - R_HSK
-  - R_THRS
+  - R_BGLA_rev
+  - R_PTHRP
   L-tryptophan:
-  - R_GLCabcpp
-  - R_GDH1_rev
-  - R_TRPTA_rev
+  - R_BGLA_rev
+  - R_TRPabc
   L-tyrosine:
-  - R_GLCabcpp
-  - R_AROAT
-  - R_ARNO
+  - R_BGLA_rev
+  - R_TYRabc
   L-valine:
-  - R_GLCabcpp
-  - R_ALAt2r
+  - R_BGLA_rev
+  - R_ALAabc
   - R_VPAMTr
   glycine:
-  - R_GLCabcpp
-  - R_PRAGSr_rev
+  - R_BGLA_rev
+  - R_GLYGLYCNc
 lplantarum_adam: {}
 lplantarum_cimIV: {}

@@ -184,7 +184,7 @@ def compare_rec_based_on_medium(pathways: dict[SpeciesMediumCombination, dict[Am
 
     plt.title("no. of diff. pathways per media in diff. species")
     sns.heatmap(df)
-    plt.show()
+    plt.savefig("output/plots/reaction_medium.png")
 
 def alternative_react_paths(pathways: dict[SpeciesMediumCombination, dict[AminoAcid, list[str]]]):
     '''
@@ -220,12 +220,12 @@ def compare_subgraph_sizes(load=False):
         original_lengths[species_medium_combination] = len(G)
 
         # Get the subgraphs after forward traversal
-        glucose_subgraph_path = f"output/glucose_subgraphs/{species_medium_combination}.pkl"
+        glucose_subgraph_path = f"output/glucose_subgraphs/{species_medium_combination}.gml"
         if load:
-            S = pickle.load(glucose_subgraph_path)
+            S = nx.read_gml(glucose_subgraph_path)
         else:
             S = wp1.bf_traversal(G, ["D-glucose"])
-            pickle.dump(S, glucose_subgraph_path)
+            nx.write_gml(S, glucose_subgraph_path)
         glucose_subgraph_lengths[species_medium_combination] = len(S)
 
     # Generate subgraphs
@@ -240,14 +240,21 @@ def compare_subgraph_sizes(load=False):
             glucose_subgraph_lengths[species_medium_combination],
             len(subgraph)
         ))
-    sizes_df = pd.DataFrame(sizes_list, columns=["Species Medium Combination", "Original Graph", "Glucose Graph", "Amino Acids Graph"])
-    print(sizes_df.head(20))
+
+    return pd.DataFrame(sizes_list, columns=["Species Medium Combination", "Original Graph", "Glucose Graph", "Amino Acids Graph"])
+
+def plot_sizes(sizes_df: pd.DataFrame):
+    """ Takes in the sizes_df from compare_subgraph_sizes to create a plot for it """
+    # TODO: Implement
+    # Bar plot mit 3 Farben
+    plt.savefig("output/plots/subgraph_sizes.png")
 
 if __name__ == "__main__":
     pathways = generate_pathways()
     compare_nr_amino_acids(pathways)
-    # compare_rec_based_on_organism(pathways)
-    # compare_rec_based_on_medium(pathways)
-    # alternative_react_paths(pathways)
-    compare_subgraph_sizes()
+    compare_rec_based_on_organism(pathways)
+    compare_rec_based_on_medium(pathways)
+    alternative_react_paths(pathways)
+    sizes_df = compare_subgraph_sizes(load=True)
+    plot_sizes(sizes_df)
     
