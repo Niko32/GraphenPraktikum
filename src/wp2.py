@@ -7,7 +7,7 @@ import pandas as pd
 from matplotlib import pyplot as plt
 
 from custom_types import AminoAcid, Protein
-from constants import COFACTORS, SEPCIES_MEDIUM_COMBINATIONS, AMINO_ACIDS, AMINO_ACID_DICT, SPECIES_DICT
+from constants import COFACTORS, SEPCIES_MEDIUM_COMBINATIONS, AMINO_ACIDS, AMINO_ACID_DICT, SPECIES_DICT, LILA
 from wp1 import bf_traversal, draw_graph
 
 START_NODE = "D-glucose"
@@ -182,23 +182,22 @@ def plot_biomasses(df: pd.DataFrame):
     # Fixing random state for reproducibility
     np.random.seed(19680801)
 
-
     plt.rcdefaults()
     fig, ax = plt.subplots()
 
     # Example data
     y_pos = np.arange(len(df))
 
-    ax.barh(y_pos, df["Objective Function"], align='center')
+    ax.barh(y_pos, df["Objective Function"], align='center', color=LILA[3])
     ax.set_yticks(y_pos, labels=list(df["Species Medium Combination"]))
     ax.invert_yaxis()
     ax.set_xlabel('Biomass')
     ax.set_title('Which medium produces optimal amino acid distributions?')
 
-    plt.savefig("output/plots/biomasses.png")
+    plt.savefig("output/plots/biomasses.png", bbox_inches = "tight")
 
 if __name__ == "__main__":
-    create_models(),
+    # create_models()
 
     # Create an empty dataframe
     models_df = pd.DataFrame([], columns=["Species Medium Combination", "Objective Function"])

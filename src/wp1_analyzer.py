@@ -9,7 +9,7 @@ import yaml
 from typing import List
 
 import wp1
-from constants import SEPCIES_MEDIUM_COMBINATIONS, AMINO_ACIDS
+from constants import SEPCIES_MEDIUM_COMBINATIONS, AMINO_ACIDS, LILA
 from custom_types import SpeciesMediumCombination, AminoAcid
 
 
@@ -76,7 +76,7 @@ def compare_nr_amino_acids(pathways: dict[SpeciesMediumCombination, dict[AminoAc
     print(list(zip(SEPCIES_MEDIUM_COMBINATIONS, number_amino_acids)))
 
     # barplot for overall number of amino acids that are synthesized per species and medium
-    plt.bar(SEPCIES_MEDIUM_COMBINATIONS, number_amino_acids)
+    plt.bar(SEPCIES_MEDIUM_COMBINATIONS, number_amino_acids, color=LILA[3])
     plt.xlabel("species and media")
     plt.ylabel("number of amino acids")
     plt.yticks(np.arange(0, 20, step=2))
@@ -87,9 +87,9 @@ def compare_nr_amino_acids(pathways: dict[SpeciesMediumCombination, dict[AminoAc
 
     # heatmap that shows which amino acids are synthesized per combination
     plt.title("synthezised amino acids")
-    sns.heatmap(df, cbar=False, cmap="Blues")
+    sns.heatmap(df.transpose(), cbar=False, cmap=["#FFFFFF", LILA[3]])
     # TODO: Plot beschriftung schöner machen
-    plt.savefig("output/plots/species_medium_aa_heatmap.png")
+    plt.savefig("output/plots/species_medium_aa_heatmap.png", bbox_inches = "tight")
 
 def compare_rec_based_on_organism(pathways: dict[SpeciesMediumCombination, dict[AminoAcid, list[str]]]):
     '''

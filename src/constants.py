@@ -41,3 +41,5 @@ SPECIES_DICT = {
     "eramosum": "Erysipelatoclostridium_ramosum",
     "lplantarum": "Lactobacillus_plantarum"
 }
+
+LILA = {1: "#D937B0", 2: "#AC25C7", 3: "#7B37D9"}
