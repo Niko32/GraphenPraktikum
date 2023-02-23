@@ -75,6 +75,10 @@ def rebuild_molecule_edges(G_full: nx.Graph, G_sub: nx.Graph) -> nx.Graph:
     '''
     Adds the molecule edges (NO_TRANSITION) again to the Graph G_sub
     '''
+
+    edges = G_full.edges(data=True)
+    no_trans_edges = [edge for edge in edges if edge["transition"]=="TransitionType.NO_TRANSITION"]
+
     add_edges = []
     for node in G_sub.nodes:
         edges_full = set(G_full.edges(node))
