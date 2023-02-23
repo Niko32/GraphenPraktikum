@@ -2,6 +2,8 @@ from typing import List, Tuple
 import re
 import networkx as nx
 from matplotlib import pyplot as plt
+import pandas as pd
+import seaborn as sns
 import os
 import statistics
 import numpy as np
@@ -9,6 +11,8 @@ import numpy as np
 from wp1 import draw_graph, _search_edges
 from constants import SEPCIES_MEDIUM_COMBINATIONS, AMINO_ACIDS
 from custom_types import SpeciesMediumCombination
+
+combination = ["blongum_adam","btheta_adam","ecoli_adam","eramosum_adam"]
 
 
 def remove_no_transitions(G: nx.Graph) -> nx.Graph:
@@ -59,7 +63,7 @@ def bfs_from_molecule(G: nx.Graph, molecule: str) -> nx.Graph:
 
     remove_nodes = []
     reached_AS = []
-    reached_compounds = set(compounds_reverse.keys)
+    reached_compounds = set(compounds_reverse.keys())
 
     for comp in compounds_reverse:
 
@@ -181,6 +185,41 @@ def plot_component_size(connected_comp_sizes: dict[SpeciesMediumCombination, dic
 
     plt.savefig("output/plots/component_sizes_avg_median_bar_plot.png")
 
+
+def plot_reached_aa(reached_aa: dict[SpeciesMediumCombination: Tuple[list[str],list[str]]]):
+
+    number_aa = []
+    number_aa_noCO2 = []
+    df = pd.DataFrame([([0] * len(AMINO_ACIDS)) for i in range(len(combination))], columns = AMINO_ACIDS, index = combination)
+    for c in combination:
+        aa, aa_noCO2 = reached_aa[c]
+        number_aa.append(len(aa))
+        number_aa_noCO2.append(len(aa_noCO2))
+        for a in AMINO_ACIDS:
+            if a in reached_aa[c]:
+                df[a][c] = 1
+
+    # heatmap that shows which amino acids are synthesized per combination
+    plt.title("reached amino acids")
+    sns.heatmap(df, cbar=False, cmap="BuPu")
+    # TODO: Plot beschriftung schöner machen
+    plt.savefig("output/plots/species_medium_aa_heatmap_atn.png")
+
+    # plot just average and median
+    x_axis = np.arange(len(reached_aa.keys()))
+    plt.bar(x_axis - 0.2, number_aa, 0.4, label="with CO2")
+    plt.bar(x_axis + 0.2, number_aa_noCO2, 0.4, label="without CO2")
+
+    plt.xlabel("species and media")
+    plt.ylabel("number of amino acids")
+    plt.xticks(x_axis, number_aa)
+    plt.yticks(np.arange(100, 1501, step=200))
+    plt.legend()
+
+    plt.savefig("output/plots/reached_aa_compare_bar_plot.png")
+
+
+
 def generate_atn_graph() -> Tuple[dict[SpeciesMediumCombination: int], dict[SpeciesMediumCombination: dict[str: float]],
                             dict[SpeciesMediumCombination: Tuple[list[str],list[str]]], dict[SpeciesMediumCombination: Tuple[list[str],list[str]]]]:
 
@@ -228,11 +267,14 @@ if __name__ == "__main__":
 
     no_connected_comp, connected_comp_sizes, reached_AS, reached_compounds = generate_atn_graph()
     
+    # Plot number of reached amino acids and conected components
+    plot_reached_aa(reached_AS)
+
     # Plot number and size of connected components
     plot_no_of_components(no_connected_comp)
     plot_component_size(connected_comp_sizes)
     
-    # Plot 
+    
 
     # Goals:
     # for every species medium combination
