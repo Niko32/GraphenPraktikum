@@ -273,11 +273,3 @@ if __name__ == "__main__":
     # Plot number and size of connected components
     plot_no_of_components(no_connected_comp)
     plot_component_size(connected_comp_sizes)
-    
-    
-
-    # Goals:
-    # for every species medium combination
-        # 1. Plot histogram of connected components by their size
-        # 2. Calculate Density, Diameter
-        # 3. Add them to the plot

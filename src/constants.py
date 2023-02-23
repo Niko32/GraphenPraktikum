@@ -42,4 +42,4 @@ SPECIES_DICT = {
     "lplantarum": "Lactobacillus_plantarum"
 }
 
-LILA = {1: "#D937B0", 2: "#AC25C7", 3: "#7B37D9"}
+LILA = {0: "#F0AFDF", 1: "#D937B0", 2: "#AC25C7", 3: "#7B37D9"}
