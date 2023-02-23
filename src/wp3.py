@@ -186,37 +186,41 @@ def plot_component_size(connected_comp_sizes: dict[SpeciesMediumCombination, dic
     plt.savefig("output/plots/component_sizes_avg_median_bar_plot.png")
 
 
-def plot_reached_aa(reached_aa: dict[SpeciesMediumCombination: Tuple[list[str],list[str]]]):
+def plot_no_of_reached_compounds(reached_compounds: dict[SpeciesMediumCombination: Tuple[list[str],list[str]]]):
+    plt.clf()
+    number_comp = []
+    for c in reached_compounds.values():
+        number_comp.append(len(c[0]))
+    plt.bar(combination, number_comp, color=LILA[3])
+    plt.xlabel("species and media")
+    plt.ylabel("number of fully reached components")
 
+    plt.savefig("output/plots/no_of_reached_compounds_bar_plot.png", bbox_inches="tight")
+
+def plot_reached_aa(reached_aa: dict[SpeciesMediumCombination: Tuple[list[str],list[str]]]):
+    plt.clf()
     number_aa = []
     number_aa_noCO2 = []
     df = pd.DataFrame([([0] * len(AMINO_ACIDS)) for i in range(len(combination))], columns = AMINO_ACIDS, index = combination)
     for c in combination:
         aa, aa_noCO2 = reached_aa[c]
         number_aa.append(len(aa))
-        number_aa_noCO2.append(len(aa_noCO2))
         for a in AMINO_ACIDS:
-            if a in reached_aa[c]:
+            if a in aa:
                 df[a][c] = 1
+
+    plt.bar(combination, number_aa, color=LILA[3])
+    plt.xlabel("species and media")
+    plt.ylabel("number of reached amino acids")
+    plt.yticks(np.arange(0, 21, step=5))
+
+    plt.savefig("output/plots/no_of_reached_aa_bar_plot.png", bbox_inches="tight")
 
     # heatmap that shows which amino acids are synthesized per combination
     plt.title("reached amino acids")
-    sns.heatmap(df, cbar=False, cmap="BuPu")
+    sns.heatmap(df, cbar=False, cmap=["#FFFFFF", LILA[3]])
     # TODO: Plot beschriftung schöner machen
-    plt.savefig("output/plots/species_medium_aa_heatmap_atn.png")
-
-    # plot just average and median
-    x_axis = np.arange(len(reached_aa.keys()))
-    plt.bar(x_axis - 0.2, number_aa, 0.4, label="with CO2")
-    plt.bar(x_axis + 0.2, number_aa_noCO2, 0.4, label="without CO2")
-
-    plt.xlabel("species and media")
-    plt.ylabel("number of amino acids")
-    plt.xticks(x_axis, number_aa)
-    plt.yticks(np.arange(100, 1501, step=200))
-    plt.legend()
-
-    plt.savefig("output/plots/reached_aa_compare_bar_plot.png")
+    plt.savefig("output/plots/species_medium_aa_heatmap_atn.png", bbox_inches="tight")
 
 
 
@@ -269,6 +273,7 @@ if __name__ == "__main__":
     
     # Plot number of reached amino acids and conected components
     plot_reached_aa(reached_AS)
+    plot_no_of_reached_compounds(reached_compounds)
 
     # Plot number and size of connected components
     plot_no_of_components(no_connected_comp)
