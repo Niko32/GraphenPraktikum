@@ -107,9 +107,10 @@ def draw_graph(G: nx.Graph, output = ""):
     edge_trans = nx.get_edge_attributes(G, "transition")
     print(edge_trans)
     edges, color_map_edges = len(G.edges)*[None], len(G.edges)*[None]
+    trans_types = []
     for i, edge in enumerate(G.edges):
         edges[i] = edge
-        trans_type = edge_trans[edge]
+        trans_type = edge_trans[edge] if edge in edge_trans else None
         if trans_type == "TransitionType.REACTION":
             color_map_edges[i] = "Green"
         elif trans_type == "TransitionType.NO_TRANSITION":
@@ -117,8 +118,10 @@ def draw_graph(G: nx.Graph, output = ""):
         else:
             color_map_edges[i] = "Yellow"
 
+        trans_types.append(trans_type)
+
     nx.draw(G, pos=nx.layout.kamada_kawai_layout(G), node_color=color_map_nodes, with_labels=True, 
-            nodelist=nodes, edgelist=edges, font_size=5, labels=labels, edge_color=color_map_edges)
+            nodelist=nodes, edgelist=edges, font_size=5, labels=labels, edge_color=color_map_edges, node_size=30)
     
     # Save the figure
     if output:
