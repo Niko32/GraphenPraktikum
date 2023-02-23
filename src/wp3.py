@@ -7,7 +7,7 @@ import statistics
 import numpy as np
 
 from wp1 import draw_graph, _search_edges
-from constants import SEPCIES_MEDIUM_COMBINATIONS, AMINO_ACIDS
+from constants import SEPCIES_MEDIUM_COMBINATIONS, AMINO_ACIDS, LILA
 from custom_types import SpeciesMediumCombination
 
 
@@ -140,7 +140,7 @@ def draw_graph(G: nx.Graph, output = ""):
     plt.clf()
 
 def plot_no_of_components(no_connected_comp: dict[SpeciesMediumCombination, int]):
-    plt.bar(no_connected_comp.keys(), no_connected_comp.values())
+    plt.bar(no_connected_comp.keys(), no_connected_comp.values(), color=LILA[3])
     plt.xlabel("species and media")
     plt.ylabel("number of connected components")
     plt.yticks(np.arange(0, 6, step=1))
@@ -155,9 +155,9 @@ def plot_component_size(connected_comp_sizes: dict[SpeciesMediumCombination, dic
 
     x_axis = np.arange(len(connected_comp_sizes.keys()))
     #plt.bar(x_axis - 0.4, min_values, 0.2, label="min")
-    plt.bar(x_axis - 0.3, max_values, 0.3, label="max", color='#7B37D9')
-    plt.bar(x_axis, avg_values, 0.3, label="average", color='#AC25C7')
-    plt.bar(x_axis + 0.3, median_values, 0.3, label="median", color='#D937B0')
+    plt.bar(x_axis - 0.3, max_values, 0.3, label="max", color=LILA[3])
+    plt.bar(x_axis, avg_values, 0.3, label="average", color=LILA[2])
+    plt.bar(x_axis + 0.3, median_values, 0.3, label="median", color=LILA[1])
 
     plt.xlabel("species and media")
     plt.ylabel("component size")
