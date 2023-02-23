@@ -81,12 +81,13 @@ def compare_nr_amino_acids(pathways: dict[SpeciesMediumCombination, dict[AminoAc
     plt.ylabel("number of amino acids")
     plt.yticks(np.arange(0, 20, step=2))
     plt.xticks(rotation = 90)
+    plt.tight_layout()
     # TODO: Plot beschriftung schöner machen
     plt.savefig("output/plots/species_medium_aa_bar_plot.png")
 
     # heatmap that shows which amino acids are synthesized per combination
     plt.title("synthezised amino acids")
-    sns.heatmap(df, cbar=False)
+    sns.heatmap(df, cbar=False, cmap="Blues")
     # TODO: Plot beschriftung schöner machen
     plt.savefig("output/plots/species_medium_aa_heatmap.png")
 
@@ -149,6 +150,8 @@ def compare_rec_based_on_organism(pathways: dict[SpeciesMediumCombination, dict[
         vmin=-1,
         xticklabels=True,
         yticklabels=True)
+
+    plt.tight_layout()
     plt.show()
 
 def path_exists(pathways: list[list[str]], path: list[str]):
@@ -184,6 +187,7 @@ def compare_rec_based_on_medium(pathways: dict[SpeciesMediumCombination, dict[Am
 
     plt.title("no. of diff. pathways per media in diff. species")
     sns.heatmap(df)
+    plt.tight_layout()
     plt.savefig("output/plots/reaction_medium.png")
 
 def alternative_react_paths(pathways: dict[SpeciesMediumCombination, dict[AminoAcid, list[str]]]):
@@ -206,6 +210,7 @@ def alternative_react_paths(pathways: dict[SpeciesMediumCombination, dict[AminoA
     plt.title("no. of alternative reaction paths")
     plt.xlabel("amino acid")
     plt.ylabel("number of amino acids")
+    plt.tight_layout()
     plt.show()
 
 def compare_subgraph_sizes(load=False):

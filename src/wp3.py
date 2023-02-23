@@ -7,7 +7,7 @@ import statistics
 import numpy as np
 
 from wp1 import draw_graph, _search_edges
-from constants import SEPCIES_MEDIUM_COMBINATIONS
+from constants import SEPCIES_MEDIUM_COMBINATIONS, AMINO_ACIDS
 from custom_types import SpeciesMediumCombination
 
 
@@ -58,17 +58,26 @@ def bfs_from_molecule(G: nx.Graph, molecule: str) -> nx.Graph:
     H = _search_edges(G, start_nodes)
 
     remove_nodes = []
+    reached_AS = []
+    reached_compounds = set(compounds_reverse.keys)
+
     for comp in compounds_reverse:
+
+        if comp in AMINO_ACIDS:
+            reached_AS.append(comp)
+
         reached_nodes = []
         for node in compounds_reverse[comp]:
             if node in H.nodes:
                 reached_nodes.append(node)
+
         if not len(reached_nodes) == len(compounds_reverse[comp]):
             remove_nodes = remove_nodes + reached_nodes
+            reached_compounds.remove(comp)
 
     H2 = H.subgraph(list(set(H.nodes)-set(remove_nodes)))
 
-    return H2
+    return H2, reached_AS, reached_compounds
 
 
 def rebuild_molecule_edges(G_full: nx.Graph, G_sub: nx.Graph) -> nx.Graph:
@@ -172,10 +181,13 @@ def plot_component_size(connected_comp_sizes: dict[SpeciesMediumCombination, dic
 
     plt.savefig("output/plots/component_sizes_avg_median_bar_plot.png")
 
-def generate_atn_graph() -> tuple(dict[SpeciesMediumCombination: int], dict[SpeciesMediumCombination: dict[str: float]]):
+def generate_atn_graph() -> Tuple[dict[SpeciesMediumCombination: int], dict[SpeciesMediumCombination: dict[str: float]],
+                            dict[SpeciesMediumCombination: Tuple[list[str],list[str]]], dict[SpeciesMediumCombination: Tuple[list[str],list[str]]]]:
 
     no_connected_comp = {}
     connected_comp_sizes = {}
+    reached_AS = {}
+    reached_compounds = {}
 
     for species_medium_combination in SEPCIES_MEDIUM_COMBINATIONS:
         path = f"data/sihumix/{species_medium_combination}/{species_medium_combination}_cleaned.gml"
@@ -201,23 +213,27 @@ def generate_atn_graph() -> tuple(dict[SpeciesMediumCombination: int], dict[Spec
         print(len(G_without_trans.edges))
         print(len(G_without_CO2.edges))
 
-        G_bfs_with_CO2 = bfs_from_molecule(G_without_trans, "D-glucose")
-        G_bfs_without_CO2 = bfs_from_molecule(G_without_CO2, "D-glucose")
+        G_bfs_with_CO2, AS, compounds = bfs_from_molecule(G_without_trans, "D-glucose")
+        G_bfs_without_CO2, AS_noCO2, compounds_noCO2 = bfs_from_molecule(G_without_CO2, "D-glucose")
+        reached_AS[species_medium_combination] = (AS, AS_noCO2)
+        reached_compounds[species_medium_combination] = (compounds, compounds_noCO2)
 
-        G_bfs_without_CO2_withMol = rebuild_molecule_edges(G, G_bfs_without_CO2)
+        #G_bfs_without_CO2_withMol = rebuild_molecule_edges(G, G_bfs_without_CO2)
 
-        draw_graph(G_bfs_without_CO2_withMol, f"output/plots/atn_graphs/{species_medium_combination}.png")
+        #draw_graph(G_bfs_without_CO2_withMol, f"output/plots/atn_graphs/{species_medium_combination}.png")
 
-    return no_connected_comp, connected_comp_sizes
+    return no_connected_comp, connected_comp_sizes, reached_AS, reached_compounds
 
 if __name__ == "__main__":
 
-    no_connected_comp, connected_comp_sizes = generate_atn_graph()
+    no_connected_comp, connected_comp_sizes, reached_AS, reached_compounds = generate_atn_graph()
     
     # Plot number and size of connected components
     plot_no_of_components(no_connected_comp)
     plot_component_size(connected_comp_sizes)
     
+    # Plot 
+
     # Goals:
     # for every species medium combination
         # 1. Plot histogram of connected components by their size
