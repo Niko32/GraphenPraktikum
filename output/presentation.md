@@ -11,11 +11,16 @@ A: TODO: wp1_analyzer.plot_sizes (Nicola)
 ## WP2/FBA
 Q: Implementation specifies (e.g. Input/Export, Constraints, Protein Assembly, Exploration of 'settings')
 Q: Flux distribution (few reactions with strong flow? many non-zero flows?)
+A: there are about 15% non zero flux values
 Q: Did you play around with removing network part?
+A: no changes for removing ATP
 Q: Did the flow change over multiple runs? (any patterns between different runs?)
+A: no changes, at least objective value does not change
 
 ## WP3/ATNs
 Q: How large, how many (weakly) connected components? (excluding 'NO-TRANSITION' edges)
+A: 1. barplot: x: species_medium_combination, y: no. of connected components
+A: 2. barplot: x: species_medium_combination --> four bars each (min, max, average, mean), y: size
 Q: How many paths between 2 molecules? (e.g. Glucose C_1 -> pyruvate C_x) (What is 'between' 2 molecules, i.e. now do those paths relate to eachother)
 Q: density/connectivity measures
     - for example Page rank etc. 
