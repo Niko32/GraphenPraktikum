@@ -77,19 +77,12 @@ def rebuild_molecule_edges(G_full: nx.Graph, G_sub: nx.Graph) -> nx.Graph:
     '''
 
     edges = G_full.edges(data=True)
-    no_trans_edges = [edge for edge in edges if edge["transition"]=="TransitionType.NO_TRANSITION"]
-
-    add_edges = []
-    for node in G_sub.nodes:
-        edges_full = set(G_full.edges(node))
-        edges_sub = set(G_sub.edges(node))
-        for edge in edges_full - edges_sub:
-            a, b = edge
-            if a in G_sub.nodes and b in G_sub.nodes:
-                add_edges.append((a, b))
+    no_trans_edges = [(u,v) for u,v,data in edges if data["transition"]=="TransitionType.NO_TRANSITION"]
 
     G_out = G_sub.copy()
-    G_out.add_edges_from(add_edges)
+    for u,v in no_trans_edges:
+        if u in G_sub.nodes and v in G_sub.nodes:
+                G_out.add_edge(u,v,transition="TransitionType.NO_TRANSITION")
 
     return G_out
 
@@ -179,7 +172,7 @@ def plot_component_size(connected_comp_sizes: dict[SpeciesMediumCombination, dic
 
     plt.savefig("output/plots/component_sizes_avg_median_bar_plot.png")
 
-if __name__ == "__main__":
+def generate_atn_graph() -> tuple(dict[SpeciesMediumCombination: int], dict[SpeciesMediumCombination: dict[str: float]]):
 
     no_connected_comp = {}
     connected_comp_sizes = {}
@@ -192,9 +185,7 @@ if __name__ == "__main__":
             continue
 
         G = nx.read_gml(path)
-
-        remove_no_transitions(G)
-
+        
         no_connected_comp[species_medium_combination] = nx.number_connected_components(G)
         component_sizes = [len(c) for c in sorted(nx.connected_components(G), key=len, reverse=True)]
         connected_comp_sizes[species_medium_combination] = {
@@ -215,9 +206,14 @@ if __name__ == "__main__":
 
         G_bfs_without_CO2_withMol = rebuild_molecule_edges(G, G_bfs_without_CO2)
 
-        #third_largest_cc = G.subgraph(components[2])
         draw_graph(G_bfs_without_CO2_withMol, f"output/plots/atn_graphs/{species_medium_combination}.png")
 
+    return no_connected_comp, connected_comp_sizes
+
+if __name__ == "__main__":
+
+    no_connected_comp, connected_comp_sizes = generate_atn_graph()
+    
     # Plot number and size of connected components
     plot_no_of_components(no_connected_comp)
     plot_component_size(connected_comp_sizes)
@@ -227,13 +223,3 @@ if __name__ == "__main__":
         # 1. Plot histogram of connected components by their size
         # 2. Calculate Density, Diameter
         # 3. Add them to the plot
-
-    # Plot the avg. component sizes and other metrics for all combinations
-
-    # Draw graph mti 3 kantenfarben
-
-    # ATP oder so wegnehmen
-
-
-
-
