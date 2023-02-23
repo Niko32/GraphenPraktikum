@@ -155,9 +155,9 @@ def plot_component_size(connected_comp_sizes: dict[SpeciesMediumCombination, dic
 
     x_axis = np.arange(len(connected_comp_sizes.keys()))
     #plt.bar(x_axis - 0.4, min_values, 0.2, label="min")
-    plt.bar(x_axis - 0.3, max_values, 0.3, label="max")
-    plt.bar(x_axis, avg_values, 0.3, label="average")
-    plt.bar(x_axis + 0.3, median_values, 0.3, label="median")
+    plt.bar(x_axis - 0.3, max_values, 0.3, label="max", color='#7B37D9')
+    plt.bar(x_axis, avg_values, 0.3, label="average", color='#AC25C7')
+    plt.bar(x_axis + 0.3, median_values, 0.3, label="median", color='#D937B0')
 
     plt.xlabel("species and media")
     plt.ylabel("component size")
@@ -170,8 +170,8 @@ def plot_component_size(connected_comp_sizes: dict[SpeciesMediumCombination, dic
     plt.clf()
 
     # plot just average and median
-    plt.bar(x_axis - 0.2, avg_values, 0.4, label="average")
-    plt.bar(x_axis + 0.2, median_values, 0.4, label="median")
+    plt.bar(x_axis - 0.2, avg_values, 0.4, label="average", color='#7B37D9')
+    plt.bar(x_axis + 0.2, median_values, 0.4, label="median", color='#AC25C7')
 
     plt.xlabel("species and media")
     plt.ylabel("component size")
