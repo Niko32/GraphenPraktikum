@@ -10,12 +10,12 @@ A: TODO: wp1_analyzer.plot_sizes (Nicola)
 
 ## WP2/FBA
 Q: Implementation specifies (e.g. Input/Export, Constraints, Protein Assembly, Exploration of 'settings')
-A: there are about 15% non zero flux values
 Q: Flux distribution (few reactions with strong flow? many non-zero flows?)
-A: no changes for removing ATP
+A: there are about 15% non zero flux values
 Q: Did you play around with removing network part?
-A: no changes, at least objective value does not change
+A: no changes for removing ATP
 Q: Did the flow change over multiple runs? (any patterns between different runs?)
+A: no changes, at least objective value does not change
 
 ## WP3/ATNs
 Q: How large, how many (weakly) connected components? (excluding 'NO-TRANSITION' edges)
