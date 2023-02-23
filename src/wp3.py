@@ -126,7 +126,7 @@ def draw_graph(G: nx.Graph, output = ""):
         elif trans_type == "TransitionType.NO_TRANSITION":
             color_map_edges[i] = "Black"
         else:
-            color_map_edges[i] = LILA[1]
+            color_map_edges[i] = LILA[0]
 
         trans_types.append(trans_type)
 
