@@ -7,8 +7,8 @@ import statistics
 import numpy as np
 
 from wp1 import draw_graph, _search_edges
-from constants import SEPCIES_MEDIUM_COMBINATIONS
-from custom_types import SpeciesMediumCombination, AminoAcid
+from constants import SEPCIES_MEDIUM_COMBINATIONS, AMINO_ACIDS
+from custom_types import SpeciesMediumCombination
 
 
 def remove_no_transitions(G: nx.Graph) -> nx.Graph:
@@ -63,7 +63,7 @@ def bfs_from_molecule(G: nx.Graph, molecule: str) -> nx.Graph:
 
     for comp in compounds_reverse:
 
-        if comp in AminoAcid:
+        if comp in AMINO_ACIDS:
             reached_AS.append(comp)
 
         reached_nodes = []
@@ -226,12 +226,14 @@ def generate_atn_graph() -> Tuple[dict[SpeciesMediumCombination: int], dict[Spec
 
 if __name__ == "__main__":
 
-    no_connected_comp, connected_comp_sizes, reached_AS, reached_AS_noCO2 = generate_atn_graph()
+    no_connected_comp, connected_comp_sizes, reached_AS, reached_compounds = generate_atn_graph()
     
     # Plot number and size of connected components
     plot_no_of_components(no_connected_comp)
     plot_component_size(connected_comp_sizes)
     
+    # Plot 
+
     # Goals:
     # for every species medium combination
         # 1. Plot histogram of connected components by their size
