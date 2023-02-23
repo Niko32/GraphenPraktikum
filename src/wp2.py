@@ -184,7 +184,6 @@ def plot_biomasses(df: pd.DataFrame):
 
     plt.rcdefaults()
     fig, ax = plt.subplots()
-    plt.tight_layout()
 
     # Example data
     y_pos = np.arange(len(df))
@@ -195,7 +194,7 @@ def plot_biomasses(df: pd.DataFrame):
     ax.set_xlabel('Biomass')
     ax.set_title('Which medium produces optimal amino acid distributions?')
 
-    plt.savefig("output/plots/biomasses.png")
+    plt.savefig("output/plots/biomasses.png", bbox_inches = "tight")
 
 if __name__ == "__main__":
     # create_models()
