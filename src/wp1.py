@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 import numpy as np
 from PIL import Image
 import os
-import pickle
+import yaml
 
 from custom_types import Reaction
 from constants import AMINO_ACIDS, COFACTORS, SEPCIES_MEDIUM_COMBINATIONS
@@ -139,10 +139,11 @@ def _build_visited_subgraph(G: nx.DiGraph) -> nx.DiGraph:
 
 def _create_gif(image_paths: List[str]):
     """ Creates a gif from a list of png image paths """
-    images = [Image.open(path) for path in image_paths]
-    images[0].save("plots/traversal.gif", save_all = True, 
+    print("Creating traversal gif...")
+    images = [Image.open(path) for path in image_paths if path.endswith(".png")]
+    images[0].save("output/plots/traversal.gif", save_all = True, 
                    append_images = images[1:], optimize = False, 
-                   duration = len(image_paths)*5)
+                   duration = len(image_paths)*10)
     
 def _search_edges(G: nx.DiGraph, start_nodes: List[str], reverse = False, verbose = False, n: int = None):
     """
@@ -171,8 +172,14 @@ def _search_edges(G: nx.DiGraph, start_nodes: List[str], reverse = False, verbos
 
         # Save the graph figure
         if verbose:
-            s = _build_visited_subgraph(G)
-            draw_graph(s, f"plots/{iteration:02}.png")
+            H = _build_visited_subgraph(G)
+            traversal_output_dir = f"output/plots/bf_traversal"
+            output_path = f"{traversal_output_dir}/{iteration:02}.png"
+
+            # Use the layout as produced by the last graph
+            with open("output/plots/bf_traversal/positions.yml", "r") as f:
+                positions = yaml.safe_load(f)
+            draw_graph(H, output_path, pos=positions)
 
         # Visit all edges in the current queue
         for u, v, visited in outgoing_edges:
@@ -196,13 +203,21 @@ def _search_edges(G: nx.DiGraph, start_nodes: List[str], reverse = False, verbos
         if n and n <= iteration:
             break
 
-    # Save the graph figure
-    G = _build_visited_subgraph(G)
-    if verbose:
-        draw_graph(s, f"plots/{iteration:02}.png")
-        _create_gif([f"plots/{file}" for file in os.listdir("plots")])
+    H = _build_visited_subgraph(G)
 
-    return G
+    if verbose:
+        # Compute node postitions to save them
+        print("Computing final graph layout...")
+        positions = nx.layout.kamada_kawai_layout(H)
+        positions = {key: value.tolist() for key, value in positions.items()}
+        with open("output/plots/bf_traversal/positions.yml", "w") as f:
+            yaml.safe_dump(positions, f)
+
+        # Save the last graph figure
+        draw_graph(H, output_path, pos=positions)
+        _create_gif([f"{traversal_output_dir}/{file}" for file in os.listdir(traversal_output_dir)])
+
+    return H
 
 def bf_traversal(G: nx.DiGraph, metabolites: List[str] = [], verbose = False, n: int = None, use_cofactors = True) -> nx.DiGraph:
     """ 
@@ -256,7 +271,7 @@ def intersect_subgraph(s: nx.DiGraph, subgraphs: List[nx.DiGraph]) -> nx.DiGraph
     G.remove_edges_from(e for e in A.edges if e not in s.edges)
     return G
 
-def draw_graph(G: nx.DiGraph, output = "", show_reactions = False):
+def draw_graph(G: nx.DiGraph, output = "", show_reactions = False, pos=None):
 
     print("Drawing Graph...")
 
@@ -282,8 +297,12 @@ def draw_graph(G: nx.DiGraph, output = "", show_reactions = False):
     for i, (u, v) in enumerate(G.edges):
         weight = G[u][v].get("weight")
         weights[i] = weight if weight else 1
+        weights[i] *= 0.25
 
-    nx.draw(G, pos=nx.layout.kamada_kawai_layout(G), node_color=color_map, with_labels=True, 
+    if not pos:
+        pos = nx.layout.kamada_kawai_layout(G)
+
+    nx.draw(G, pos=pos, node_color=color_map, with_labels=True, 
             nodelist=nodes, node_size=sizes, font_size=5, arrowsize=4, labels=labels, width=weights)
     
     # Save the figure
@@ -309,10 +328,7 @@ def build_subgraph(file_path: str, verbose = False) -> nx.DiGraph:
     """
     G = build_graph(file_path)
 
-    S = bf_traversal(G, ["D-glucose"])
-    if verbose:
-        file_name = file_path.split("/")[-1]
-        draw_graph(G, output=f"plots/finished/{file_name}.png")
+    S = bf_traversal(G, ["D-glucose"], verbose)
     A = reverse_bf_traversal(S)
 
     subgraph = intersect_subgraph(G,A)
@@ -325,14 +341,16 @@ def build_subgraph(file_path: str, verbose = False) -> nx.DiGraph:
     return subgraph
 
 if __name__ == "__main__":
-    file_paths = [f"data/sihumix/{c}/{c}.smiles_list" for c in SEPCIES_MEDIUM_COMBINATIONS]
+    # file_paths = [f"data/sihumix/{c}/{c}.smiles_list" for c in SEPCIES_MEDIUM_COMBINATIONS]
 
-    subgraphs: List[nx.DiGraph] = []
-    for i, path in enumerate(file_paths):
+    # subgraphs: List[nx.DiGraph] = []
+    # for i, path in enumerate(file_paths):
 
-        save_path = f"output/subgraphs/{SEPCIES_MEDIUM_COMBINATIONS[i]}"
+    #     save_path = f"output/subgraphs/{SEPCIES_MEDIUM_COMBINATIONS[i]}"
         
-        with open(save_path, "wb") as f:
-            # Build and save the subgraph
-            subgraph = build_subgraph(path)
-            pickle.dump(subgraph, f)
+    #     with open(save_path, "wb") as f:
+    #         # Build and save the subgraph
+    #         subgraph = build_subgraph(path)
+    #         pickle.dump(subgraph, f)
+    file_path = "data/sihumix/acacae_adam/acacae_adam.smiles_list"
+    build_subgraph(file_path, verbose=True)
