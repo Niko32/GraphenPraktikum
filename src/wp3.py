@@ -107,9 +107,9 @@ def draw_graph(G: nx.Graph, output = ""):
     edge_trans = nx.get_edge_attributes(G, "transition")
     print(edge_trans)
     edges, color_map_edges = len(G.edges)*[None], len(G.edges)*[None]
-    for i, (u, v) in enumerate(G.edges):
-        edges[i] = (u,v)
-        trans_type = edge_trans[(u,v)]
+    for i, edge in enumerate(G.edges):
+        edges[i] = edge
+        trans_type = edge_trans[edge]
         if trans_type == "TransitionType.REACTION":
             color_map_edges[i] = "Green"
         elif trans_type == "TransitionType.NO_TRANSITION":
@@ -208,13 +208,12 @@ if __name__ == "__main__":
 
         G_bfs_without_CO2_withMol = rebuild_molecule_edges(G, G_bfs_without_CO2)
 
+        #third_largest_cc = G.subgraph(components[2])
+        draw_graph(G_bfs_without_CO2_withMol, f"output/plots/atn_graphs/{species_medium_combination}.png")
+
     # Plot number and size of connected components
     plot_no_of_components(no_connected_comp)
     plot_component_size(connected_comp_sizes)
-
-
-    #third_largest_cc = G.subgraph(components[2])
-    draw_graph(G_bfs_without_CO2_withMol)
     
     # Goals:
     # for every species medium combination
