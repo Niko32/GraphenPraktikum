@@ -4,6 +4,7 @@ import numpy as np
 import pulp
 import pickle
 import pandas as pd
+from matplotlib import pyplot as plt
 
 from custom_types import AminoAcid, Protein
 from constants import COFACTORS, SEPCIES_MEDIUM_COMBINATIONS, AMINO_ACIDS, AMINO_ACID_DICT, SPECIES_DICT
@@ -176,11 +177,31 @@ def create_models():
         with open(f"output/models/{species_medium_combination}.pkl", "wb") as f:
             pickle.dump(model, f)
 
+def plot_biomasses(df: pd.DataFrame):
+    
+    # Fixing random state for reproducibility
+    np.random.seed(19680801)
+
+
+    plt.rcdefaults()
+    fig, ax = plt.subplots()
+
+    # Example data
+    y_pos = np.arange(len(df))
+
+    ax.barh(y_pos, df["Objective Function"], align='center')
+    ax.set_yticks(y_pos, labels=list(df["Species Medium Combination"]))
+    ax.invert_yaxis()
+    ax.set_xlabel('Biomass')
+    ax.set_title('Which medium produces optimal amino acid distributions?')
+
+    plt.savefig("output/plots/biomasses.png")
+
 if __name__ == "__main__":
     create_models(),
 
     # Create an empty dataframe
-    models_df = pd.DataFrame([], columns=["Specius Medium Combination", "Objective Function"])
+    models_df = pd.DataFrame([], columns=["Species Medium Combination", "Objective Function"])
 
     # Load the model
     for species_medium_combination in SEPCIES_MEDIUM_COMBINATIONS:
@@ -188,8 +209,8 @@ if __name__ == "__main__":
             model: pulp.LpProblem = pickle.load(f)
 
         # Add an entry for the species medium combination
-        new_entry = pd.DataFrame({"Specius Medium Combination": species_medium_combination, "Objective Function": pulp.value(model.objective)}, index=[0])
+        new_entry = pd.DataFrame({"Species Medium Combination": species_medium_combination, "Objective Function": pulp.value(model.objective)}, index=[0])
         models_df = pd.concat([models_df, new_entry], ignore_index=True)
 
-    print(models_df)
+    plot_biomasses(models_df)
 
