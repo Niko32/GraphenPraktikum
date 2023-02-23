@@ -87,9 +87,9 @@ def compare_nr_amino_acids(pathways: dict[SpeciesMediumCombination, dict[AminoAc
 
     # heatmap that shows which amino acids are synthesized per combination
     plt.title("synthezised amino acids")
-    sns.heatmap(df, cbar=False, cmap="Blues")
+    sns.heatmap(df, cbar=False, cmap=["#FFFFFF", LILA[3]])
     # TODO: Plot beschriftung schöner machen
-    plt.savefig("output/plots/species_medium_aa_heatmap.png")
+    plt.savefig("output/plots/species_medium_aa_heatmap.png", bbox_inches = "tight")
 
 def compare_rec_based_on_organism(pathways: dict[SpeciesMediumCombination, dict[AminoAcid, list[str]]]):
     '''
