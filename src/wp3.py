@@ -222,8 +222,12 @@ if __name__ == "__main__":
     # for every species medium combination
         # 1. Plot histogram of connected components by their size
         # 2. Calculate Density, Diameter
+<<<<<<< HEAD
+        # 3. Add them to the plot
+=======
         # 3. Add them to the plot
 
 
 
 
+>>>>>>> 69d496bccd88b31e8e977f1460db3d67490aaf35
