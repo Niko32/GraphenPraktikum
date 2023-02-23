@@ -203,21 +203,21 @@ def _search_edges(G: nx.DiGraph, start_nodes: List[str], reverse = False, verbos
         if n and n <= iteration:
             break
 
-    # Compute node postitions to save them
-    print("Computing final graph layout...")
-    positions = nx.layout.kamada_kawai_layout(H)
-    # Convert numpy types to normal python types to work with yaml
-    positions = {key: value.tolist() for key, value in positions.items()}
-    with open("output/plots/bf_traversal/positions.yml", "w") as f:
-        yaml.safe_dump(positions, f)
+    H = _build_visited_subgraph(G)
 
-    # Save the last graph figure
-    G = _build_visited_subgraph(G)
     if verbose:
+        # Compute node postitions to save them
+        print("Computing final graph layout...")
+        positions = nx.layout.kamada_kawai_layout(H)
+        positions = {key: value.tolist() for key, value in positions.items()}
+        with open("output/plots/bf_traversal/positions.yml", "w") as f:
+            yaml.safe_dump(positions, f)
+
+        # Save the last graph figure
         draw_graph(H, output_path, pos=positions)
         _create_gif([f"{traversal_output_dir}/{file}" for file in os.listdir(traversal_output_dir)])
 
-    return G
+    return H
 
 def bf_traversal(G: nx.DiGraph, metabolites: List[str] = [], verbose = False, n: int = None, use_cofactors = True) -> nx.DiGraph:
     """ 
