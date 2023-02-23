@@ -122,11 +122,11 @@ def draw_graph(G: nx.Graph, output = ""):
         edges[i] = edge
         trans_type = edge_trans[edge] if edge in edge_trans else None
         if trans_type == "TransitionType.REACTION":
-            color_map_edges[i] = "Green"
+            color_map_edges[i] = LILA[3]
         elif trans_type == "TransitionType.NO_TRANSITION":
             color_map_edges[i] = "Black"
         else:
-            color_map_edges[i] = "Yellow"
+            color_map_edges[i] = LILA[1]
 
         trans_types.append(trans_type)
 
@@ -257,9 +257,9 @@ def generate_atn_graph() -> Tuple[dict[SpeciesMediumCombination: int], dict[Spec
         reached_AS[species_medium_combination] = (AS, AS_noCO2)
         reached_compounds[species_medium_combination] = (compounds, compounds_noCO2)
 
-        #G_bfs_without_CO2_withMol = rebuild_molecule_edges(G, G_bfs_without_CO2)
+        G_bfs_without_CO2_withMol = rebuild_molecule_edges(G, G_bfs_without_CO2)
 
-        #draw_graph(G_bfs_without_CO2_withMol, f"output/plots/atn_graphs/{species_medium_combination}.png")
+        draw_graph(G_bfs_without_CO2_withMol, f"output/plots/atn_graphs/{species_medium_combination}.png")
 
     return no_connected_comp, connected_comp_sizes, reached_AS, reached_compounds
 
