@@ -182,9 +182,9 @@ def plot_biomasses(df: pd.DataFrame):
     # Fixing random state for reproducibility
     np.random.seed(19680801)
 
-
     plt.rcdefaults()
     fig, ax = plt.subplots()
+    plt.tight_layout()
 
     # Example data
     y_pos = np.arange(len(df))
