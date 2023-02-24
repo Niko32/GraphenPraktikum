@@ -7,6 +7,7 @@ import seaborn as sns
 from matplotlib.colors import ListedColormap
 import yaml
 from typing import List
+from matplotlib.colors import LinearSegmentedColormap
 
 import wp1
 from constants import SEPCIES_MEDIUM_COMBINATIONS, AMINO_ACIDS, LILA
@@ -250,16 +251,17 @@ def compare_subgraph_sizes(load=False):
 
 def plot_sizes(sizes_df: pd.DataFrame):
     """ Takes in the sizes_df from compare_subgraph_sizes to create a plot for it """
-    # TODO: Implement
-    # Bar plot mit 3 Farben
-    plt.savefig("output/plots/subgraph_sizes.png")
+    sizes_df.index = SEPCIES_MEDIUM_COMBINATIONS
+    cmap = LinearSegmentedColormap.from_list("lila", colors=list(LILA.values())[1:]).reversed()
+    sizes_df.plot.bar(cmap=cmap)
+    plt.savefig("output/plots/subgraph_sizes.png", bbox_inches="tight")
 
 if __name__ == "__main__":
-    pathways = generate_pathways()
-    compare_nr_amino_acids(pathways)
-    compare_rec_based_on_organism(pathways)
-    compare_rec_based_on_medium(pathways)
-    alternative_react_paths(pathways)
+    # pathways = generate_pathways()
+    # compare_nr_amino_acids(pathways)
+    # compare_rec_based_on_organism(pathways)
+    # compare_rec_based_on_medium(pathways)
+    # alternative_react_paths(pathways)
     sizes_df = compare_subgraph_sizes(load=True)
     plot_sizes(sizes_df)
     
